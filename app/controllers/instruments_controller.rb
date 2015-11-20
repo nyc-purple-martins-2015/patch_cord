@@ -1,8 +1,5 @@
 class InstrumentsController < ApplicationController
 	
-	def index 
-	end 
-
 	def new 
 		@instrument = Instrument.new
 	end
@@ -16,15 +13,16 @@ class InstrumentsController < ApplicationController
 		end 
 	end
 
-	def show
-	end 
-
-	def destroy 
+	def destroy
+		@instrument = Instrument.find(params[:id])
+		@instrument.destroy 
+		redirect_to root_path
 	end
 
 	private 
 
 	def instrument_params 
 		instrument_params = params.require(:instrument).permit(:name)
-	end 
+	end
+
 end 
