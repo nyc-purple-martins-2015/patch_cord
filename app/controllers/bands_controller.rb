@@ -1,7 +1,12 @@
 class BandsController < ApplicationController
 
-	def new
+	def index
+    @bands = Band.all
+  end
+
+  def new
     @band = Band.new
+    render :new
 	end
 
 	def create

@@ -1,0 +1,27 @@
+<div>
+  <h1>List of Bands</h1>
+  <table style="width:100%">
+  <% @bands.each do |band| %>
+  <tr>
+    <td><%= band.name %></td>
+    <td><%= band.bio %></td>
+    <td>50</td>
+  </tr>
+  <tr>
+    <td>Eve</td>
+    <td>Jackson</td>
+    <td>94</td>
+  </tr>
+  <% end %>
+</table>
+
+  <ul>
+    <% @bands.each do |band| %>
+    <li><%= band.name %></li>
+    <% end %>
+  </ul>
+
+</div>
+
+
+

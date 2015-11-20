@@ -6,6 +6,20 @@ describe BandsController do
     @band = FactoryGirl.create(:band)
   end
 
+  context "#index" do
+
+    it 'is successful' do
+      get :index
+      expect(response).to be_success
+    end
+
+    it 'returns an array of bands' do
+      get :index
+      expect(@bands).to be_an(Array)
+    end
+
+  end
+
   context "#new" do
 
     it 'is successful' do
@@ -13,9 +27,9 @@ describe BandsController do
       expect(response).to be_success
     end
 
-    xit 'creates a new user' do
+    it 'creates a new band' do
       get :new
-      expect(@user).to be_a_kind_of(User)
+      expect(@band).to be_a(Band)
     end
 
   end
