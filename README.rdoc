@@ -1,5 +1,9 @@
 == README
 
+Patch Cord. We help you plug in.
+
+https://circleci.com/gh/nyc-purple-martins-2015/patch_cord.svg?style=shield&circle-token=:circle-token
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
