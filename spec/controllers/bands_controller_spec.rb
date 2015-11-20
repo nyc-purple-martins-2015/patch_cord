@@ -2,9 +2,8 @@
 
 describe BandsController do
 
-  before(:each) do
-    @band = FactoryGirl.create(:band)
-  end
+  let(:band) {FactoryGirl.create(:band)}
+  let(:bands) {array = []; 5.times{array << FactoryGirl.create(:band)}; array}
 
   context "#index" do
 
@@ -15,7 +14,31 @@ describe BandsController do
 
     it 'returns an array of bands' do
       get :index
-      expect(@bands).to be_an(Array)
+      expect(bands).to be_an(Array)
+    end
+
+    it 'renders index view' do
+      get :index
+      expect(response).to render_template("index")
+    end
+
+  end
+
+  context "#show" do
+
+    it 'is successful' do
+      get :show, id: band.id
+      expect(response).to be_success
+    end
+
+    it 'returns a band' do
+      get :show, id: band.id
+      expect(band).to be_a(Band)
+    end
+
+    it 'renders show view' do
+      get :show, id: band.id
+      expect(response).to render_template("show")
     end
 
   end
@@ -29,7 +52,7 @@ describe BandsController do
 
     it 'creates a new band' do
       get :new
-      expect(@band).to be_a(Band)
+      expect(band).to be_a(Band)
     end
 
   end

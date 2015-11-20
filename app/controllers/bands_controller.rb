@@ -5,7 +5,7 @@ class BandsController < ApplicationController
   end
 
   def show
-
+    @band = Band.find(params[:id]) #are these params right?
   end
 
   def new
