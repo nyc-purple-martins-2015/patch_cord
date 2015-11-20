@@ -15,7 +15,7 @@ class InstrumentsController < ApplicationController
 	end
 
 	def destroy
-		@user = User.find(session[:user_id])
+		@user = current_user
 		@instrument = @user.instruments.find(params[:id])
 		@instrument.destroy 
 		redirect_to root_path
