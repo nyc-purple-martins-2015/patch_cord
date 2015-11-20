@@ -9,7 +9,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :city
       t.string :state
       t.integer :zip
-      t.string :phone
+      t.string :phone, null: false
       t.text :bio, limit: 350
 
       t.timestamps null: false
