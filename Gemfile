@@ -28,23 +28,28 @@ gem 'bcrypt', '~> 3.1.7'
 
 
 group :test do
-	gem 'factory_girl_rails'
-	gem 'faker'
-  gem 'shoulda-matchers'
-  gem 'byebug'
-  gem 'pry-rails'
-  gem 'rspec-rails'
   gem 'capybara'
   gem 'launchy'
   gem 'database_cleaner'
   gem 'poltergeist'
+  gem 'simplecov'
+  gem 'shoulda-matchers'
 end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
-  gem 'faker'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+end
+
+group :development, :test do
+  gem 'factory_girl_rails'
+  gem 'faker'
+  gem 'byebug'
+  gem 'pry-rails'
+  gem 'rspec-rails'
+
 end
 
