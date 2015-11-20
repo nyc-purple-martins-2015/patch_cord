@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   resources :bands
   resources :genres, only: [:create, :new, :show, :destroy]
-  resources :instruments, only: [:create, :new, :show, :destroy]
+  resources :instruments, only: [:new, :create, :show, :destroy]
   resources :media_resources
   resources :users
 
