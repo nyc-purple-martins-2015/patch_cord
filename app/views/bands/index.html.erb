@@ -1,0 +1,14 @@
+<div>
+  <h1 align="center">List of Bands</h1>
+  <table border="1" style="width:75%" align="center">
+    <% @bands.each do |band| %>
+    <tr>
+      <td>Name: <%= band.name %></td>
+      <td>Bio: <%= band.bio %></td>
+    </tr>
+    <% end %>
+  </table>
+</div>
+
+
+

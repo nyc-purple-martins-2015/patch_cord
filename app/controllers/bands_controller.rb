@@ -1,22 +1,32 @@
 class BandsController < ApplicationController
-	def new 
+
+	def index
+    @bands = Band.all
+  end
+
+  def show
+
+  end
+
+  def new
+    @band = Band.new
 	end
 
-	def create 
+	def create
 	end
 
-	def edit 
+	def edit
 	end
 
-	def update 
+	def update
 	end
 
-	def destroy 
+	def destroy
 	end
 
-	private 
+	private
 
-	def band_params 
+	def band_params
 		band_params = params.require(:band).permit(:name, :bio, :admin_id)
-	end 
-end 
+	end
+end
