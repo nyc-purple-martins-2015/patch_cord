@@ -11,10 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151119234103) do
+ActiveRecord::Schema.define(version: 20151120203140) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "authentications", force: :cascade do |t|
+    t.string   "uid"
+    t.string   "provider"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "authentications", ["user_id"], name: "index_authentications_on_user_id", using: :btree
 
   create_table "band_genres", force: :cascade do |t|
     t.integer  "band_id",    null: false
@@ -85,8 +95,6 @@ ActiveRecord::Schema.define(version: 20151119234103) do
     t.integer  "zip"
     t.string   "phone",           null: false
     t.text     "bio"
-    t.string   "provider",        null: false
-    t.string   "uid",             null: false
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end
