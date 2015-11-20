@@ -9,4 +9,9 @@ describe InstrumentsController do
 		expect(response).to be_success
 	end  
 
+	it 'creates a new instrument' do 
+		get :new 
+		expect(@instrument).to be_a_kind_of(Instrument)
+	end 
+
 end 
