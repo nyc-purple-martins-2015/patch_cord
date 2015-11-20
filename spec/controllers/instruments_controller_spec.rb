@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe InstrumentsController do 
 	let(:user) { FactoryGirl.create(:user) }
-	let(:instrument) { :user.instruments.create(FactoryGirl.create(:instrument)) }
+	let(:instrument) { FactoryGirl.create(:instrument) }
 
 	context '#new' do 
 
