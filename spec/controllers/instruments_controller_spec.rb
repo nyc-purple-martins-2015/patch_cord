@@ -22,6 +22,10 @@ describe InstrumentsController do
 			expect {
 				post :create, instrument: FactoryGirl.attributes_for(:instrument)}.to change(Instrument, :count).by(1)
 		end 
-	end 
 
+	 it "redirects to root path when instrument is created" do
+      post :create, instrument: FactoryGirl.attributes_for(:instrument)
+      expect(response).to redirect_to root_path
+    end
+	end 
 end 
