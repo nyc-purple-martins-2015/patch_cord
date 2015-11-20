@@ -7,7 +7,15 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<header>
+<p>PatchCord</p>
+<% if logged_in? %>
+<a href="#"><p><!-- current_user. -->username</p></a>
+<a href="#"><p>Log Out</p></a>
+<% else %>
+<a href="#"><p>Log In</p></a>
+<a href="#"><p>Sign Up</p></a>
+</header>
 <%= yield %>
 
 </body>
