@@ -4,9 +4,12 @@ class BandsController < ApplicationController
     @bands = Band.all
   end
 
+  def show
+
+  end
+
   def new
     @band = Band.new
-    render :new
 	end
 
 	def create

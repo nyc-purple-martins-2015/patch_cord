@@ -1,26 +1,13 @@
 <div>
-  <h1>List of Bands</h1>
-  <table style="width:100%">
-  <% @bands.each do |band| %>
-  <tr>
-    <td><%= band.name %></td>
-    <td><%= band.bio %></td>
-    <td>50</td>
-  </tr>
-  <tr>
-    <td>Eve</td>
-    <td>Jackson</td>
-    <td>94</td>
-  </tr>
-  <% end %>
-</table>
-
-  <ul>
+  <h1 align="center">List of Bands</h1>
+  <table border="1" style="width:75%" align="center">
     <% @bands.each do |band| %>
-    <li><%= band.name %></li>
+    <tr>
+      <td>Name: <%= band.name %></td>
+      <td>Bio: <%= band.bio %></td>
+    </tr>
     <% end %>
-  </ul>
-
+  </table>
 </div>
 
 

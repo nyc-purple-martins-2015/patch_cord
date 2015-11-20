@@ -4,7 +4,5 @@ FactoryGirl.define do
     email { Faker::Internet.email }
     password {Faker::Internet.password }
     phone {Faker::PhoneNumber.phone_number}
-    provider { :twitter }
-    uid { [1,2,3,4,5].sample }  
   end
 end
