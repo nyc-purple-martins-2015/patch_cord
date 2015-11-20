@@ -5,7 +5,7 @@ class InstrumentsController < ApplicationController
 	end
 
 	def create
-		@user = User.find(session[:user_id])
+		@user = current_user
 		@instrument = @user.instruments.new(instrument_params)
 		if @instrument.save 
 			redirect_to root_path 
