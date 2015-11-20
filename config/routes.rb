@@ -6,10 +6,12 @@ Rails.application.routes.draw do
   get 'login' => 'sessions#new, as: :login'
 
   resources :bands
-  resources :genres
-  resources :instruments 
+  resources :genres, only: [:create, :new, :show, :destroy]
+  resources :instruments, only: [:create, :new, :show, :destroy] 
   resources :media_resources 
   resources :users 
+
+
 
 
 
