@@ -1,10 +1,22 @@
 <div>
 <span>I am looking for</span>
-<select>
-<option value="musicans">muscians</option>
+<select name="who">
+<option value="musicians">musicians</option>
 <option value="bands">bands</option>
 </select>
+<% if who.value == musicians%>
 <span>who play the</span>
-<%  %>
+<select name="instruments">
+<% @instruments.uniq.each do |instrument| %>
+<option value="<%= instrument.name %>"><%= instrument.name %></option>
+<% end %>
+<% end %>
+</select>
+<span>that play</span>
+<select name="genre">
+  <% @genres.uniq.each do |genre| %>
+<option value="<%= genre.name%>"><%= genre.name %></option>
+<% end %>
+</select>
 
 </div>
