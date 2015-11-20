@@ -1,8 +1,12 @@
 require 'rails_helper'
 
 describe InstrumentsController do 
-
-	let(:instrument) { FactoryGirl.create(:instrument) }
+	
+	before(:each) do 
+		user = FactoryGirl.create(:user)
+		stub_current_user(user)
+		@instrument = FactoryGirl.create(:instrument)
+	end 
 
 	context '#new' do 
 
@@ -13,7 +17,7 @@ describe InstrumentsController do
 
 		it 'creates a new instrument' do 
 			get :new 
-			expect(instrument).to be_a_kind_of(Instrument)
+			expect(@instrument).to be_a_kind_of(Instrument)
 		end 
 	end 
 

@@ -5,7 +5,8 @@ class InstrumentsController < ApplicationController
 	end
 
 	def create
-		@instrument = Instrument.new(instrument_params) 
+		@user = current_user
+		@instrument = @user.instruments.new(instrument_params)
 		if @instrument.save 
 			redirect_to root_path 
 		else 
@@ -14,7 +15,8 @@ class InstrumentsController < ApplicationController
 	end
 
 	def destroy
-		@instrument = Instrument.find(params[:id])
+		@user = User.find(session[:user_id])
+		@instrument = @user.instruments.find(params[:id])
 		@instrument.destroy 
 		redirect_to root_path
 	end
