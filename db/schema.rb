@@ -83,8 +83,10 @@ ActiveRecord::Schema.define(version: 20151119234103) do
     t.string   "city"
     t.string   "state"
     t.integer  "zip"
-    t.string   "phone"
+    t.string   "phone",           null: false
     t.text     "bio"
+    t.string   "provider",        null: false
+    t.string   "uid",             null: false
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
   end

@@ -11,6 +11,8 @@ class CreateUsers < ActiveRecord::Migration
       t.integer :zip
       t.string :phone, null: false
       t.text :bio, limit: 350
+      t.string :provider, null: false
+      t.string :uid, null: false
 
       t.timestamps null: false
     end
