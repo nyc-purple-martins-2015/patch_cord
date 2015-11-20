@@ -17,6 +17,14 @@ users = [dom, andre, alexis, mae]
 
 rolling_stoned = Band.create(name: "Rolling Stoned", bio: Faker::Lorem.paragraph(1), admin_id: users.sample.id)
 
+rolling_stoned.users << mae
+rolling_stoned.users << andre
+rolling_stoned.users << dom
+
 users.each do |user|
-  rolling_stoned << user
+  user.instruments.create(name: Faker::Team.creature)
+  user.genres.create(name: Faker::Book.title)
+  user.media_resources.create(content: Faker::Lorem.paragraph(1), link: Faker::Internet.url)
 end
+
+rolling_stoned.media_resources.create(content: Faker::Lorem.paragraph(1), link: Faker::Internet.url)
