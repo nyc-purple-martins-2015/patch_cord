@@ -1,5 +1,5 @@
 Rails.application.config.middleware.use OmniAuth::Builder do
-  provider :twitter, ENV["TW_API_KEY"], ENV["TW_API_SECRET"]
+  provider :twitter, ENV["TW_API_KEY"], ENV["TW_API_SECRET"],
     {
       secure_image_url:  "true",
       image_size:  "original",
@@ -9,7 +9,7 @@ Rails.application.config.middleware.use OmniAuth::Builder do
       }
     }
 
-  provider :soundcloud, ENV["SC_API_KEY"], ENV["SC_API_SECRET"]
+  provider :soundcloud, ENV["SC_API_KEY"], ENV["SC_API_SECRET"],
     {
       :name => "soundcloud"
     }
