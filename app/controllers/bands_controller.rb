@@ -31,6 +31,9 @@ class BandsController < ApplicationController
 	def destroy
 	end
 
+  def search
+  end
+
 	private
 
 	def band_params
