@@ -1,14 +1,26 @@
 class GenresController < ApplicationController
-	def new 
+	def new
+		@genre = Genre.new  
 	end
 
 	def create 
+		@user = current_user
+		@genre = @user.genres.new(genre_params)
+		if @genre.save 
+			redirect_to root_path 
+		else 
+			render :new 
+		end 
 	end
 
 	def show
 	end 
 
 	def destroy 
+		@user = current_user
+		@genre = @genre.instruments.find(params[:id])
+		@genre.destroy 
+		redirect_to root_path
 	end
 
 	private 
