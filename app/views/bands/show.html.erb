@@ -7,11 +7,11 @@
 
     <h3>Instruments</h3>
     <div class="inner-container">
-    <% @band.users.each do |user| %>
-      <% user.instruments.each do |instrument| %>
-       <div class="tag"><%= instrument.name %></div>
-    <% end %>
-    <% end %>
+      <% @band.users.each do |user| %>
+        <% user.instruments.each do |instrument| %>
+         <div class="tag"><%= instrument.name %></div>
+      <% end %>
+      <% end %>
     </div>
   </div>
 
