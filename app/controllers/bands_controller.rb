@@ -13,6 +13,8 @@ class BandsController < ApplicationController
 	end
 
 	def create
+    @user = current_user
+    @band = @user.bands.create(band_params)
 	end
 
 	def edit

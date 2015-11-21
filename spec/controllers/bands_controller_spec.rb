@@ -4,6 +4,8 @@ describe BandsController do
 
   let(:band) {FactoryGirl.create(:band)}
   let(:bands) {array = []; 5.times{array << FactoryGirl.create(:band)}; array}
+  let(:user) {FactoryGirl.create(:user)}
+
 
   context "#index" do
 
@@ -15,6 +17,7 @@ describe BandsController do
     it 'returns an array of bands' do
       get :index
       expect(bands).to be_an(Array)
+      #test for array of band objects
     end
 
     it 'renders index view' do
@@ -55,11 +58,17 @@ describe BandsController do
       expect(band).to be_a(Band)
     end
 
+    it 'renders new view' do
+      get :new
+      expect(response).to render_template("new")
+    end
+
   end
 
   context "#create" do
 
-    xit 'logs in a user' do
+    it 'creates a band' do
+      band_params = {}
       user_hash = {username: @user.username, email: @user.email, password: @user.password}
       post :create, user_hash
       expect(session[:user_id]).to eq @user.id
