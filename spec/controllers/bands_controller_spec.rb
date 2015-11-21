@@ -68,10 +68,9 @@ describe BandsController do
   context "#create" do
 
     it 'creates a band' do
-      band_params = {}
-      user_hash = {username: @user.username, email: @user.email, password: @user.password}
-      post :create, user_hash
-      expect(session[:user_id]).to eq @user.id
+      band_params = {name: band.name, bio: band.bio, admin_id: user.id}
+      post :create, band_params
+      expect(@band).to be_a(Band)
     end
 
      xit 'redirects to home page when user logs in' do
