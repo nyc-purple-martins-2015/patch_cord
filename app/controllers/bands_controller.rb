@@ -24,7 +24,7 @@ class BandsController < ApplicationController
 	end
 
 	def edit
-    @band = Band.find(params[:id]
+    @band = Band.find(params[:id])
   end
 
   def update

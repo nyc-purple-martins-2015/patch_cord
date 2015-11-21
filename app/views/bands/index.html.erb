@@ -1,10 +1,18 @@
 <div class="container">
   <h1 align="center">List of Bands</h1>
-  <table border="1" style="width:75%" align="center">
+  <table border="1" style="width:85%" align="center">
+    <colgroup>
+      <col style="width: 25%; background-color:lightblue"  align="center">
+      <col style="background-color:lightgrey">
+    </colgroup>
+    <tr>
+    <th style="background-color:grey">Band: </th>
+    <th style="background-color:grey">Bio: </th>
+    </tr>
     <% @bands.each do |band| %>
     <tr>
-      <td>Name: <%= band.name %></td>
-      <td>Bio: <%= band.bio %></td>
+      <td align="center" style="height: 30px"><%= band.name %></td>
+      <td><%= band.bio %></td>
     </tr>
     <% end %>
   </table>
