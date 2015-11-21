@@ -1,4 +1,6 @@
-<h2 class="page-notice">Welcome back, <%= current_user.username %>! </h2>
+<% #if current_user.id == @user.id %>
+  <h2 class="page-notice">Welcome back, <%= current_user.username %>! </h2>
+<% #end %>
 
 <div class="inner-container">
   <div class="profile-photo"></div>
