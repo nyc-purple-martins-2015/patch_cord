@@ -21,9 +21,12 @@ rolling_stoned.users << mae
 rolling_stoned.users << andre
 rolling_stoned.users << dom
 
+genre_array = %w(rock rap jazz folk metal blues trap bluegrass country electronic hip-hop classical)
+genre_array.map{|e| e.capitalize }
+
 users.each do |user|
   user.instruments.create(name: Faker::Team.creature)
-  user.genres.create(name: Faker::Book.title)
+  user.genres.create(name: genre_array.sample)
   user.media_resources.create(content: Faker::Lorem.paragraph(1), link: Faker::Internet.url)
 end
 
