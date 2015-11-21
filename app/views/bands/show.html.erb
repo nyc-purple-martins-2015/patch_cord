@@ -1,0 +1,51 @@
+<% if current_user.id == @band.id %>
+  <h2 class="page-notice">Welcome back, <%= current_user.username %>!</h2>
+<% end %>
+
+<div class="inner-container">
+  <div class="profile-photo"></div>
+
+  <div class="inner-container">
+    <h3>Band name:</h3>
+      <div class="inner-container"><%= @band.name %></div>
+
+    <h3>Instruments</h3>
+    <div class="inner-container">
+    <% @band.users.each do |user| %>
+      <% user.instruments.each do |instrument| %>
+       <div class="tag"><%= instrument.name %></div>
+    <% end %>
+    <% end %>
+    </div>
+  </div>
+
+  <div class="inner-container">
+    <h3>Genres</h3>
+    <% @band.genres.each do |genre| %>
+      <div class="tag"><%= genre.name %></div>
+    <% end %>
+  </div>
+
+<div class="inner-container">
+    <h3>Members</h3>
+    <% @band.users.each do |user| %>
+      <div class="tag"><%= user.username %></div>
+    <% end %>
+  </div>
+
+  <div class="inner-container">
+    <h3>Contact:</h3>
+    <%= @band.admin.username %>:<br>
+    <%= @band.admin.email %><br>
+    <%= @band.admin.phone %>
+  </div>
+
+  <div class="inner-container">
+    <h3>BIO</h3>
+    <p><%= @band.bio %></p>
+  </div>
+</div>
+
+<div class="buttons">
+  <%= button_to "See Our Work", root_path, method: :get, class: "button" %>
+</div>
