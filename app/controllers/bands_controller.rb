@@ -5,7 +5,7 @@ class BandsController < ApplicationController
   end
 
   def show
-    @band = Band.find(params[:id]) #are these params right?
+    # @band = Band.find(params[:id]) #are these params right?
   end
 
   def new
@@ -32,6 +32,7 @@ class BandsController < ApplicationController
 	end
 
   def search
+    render :bands_search_path
   end
 
 	private
