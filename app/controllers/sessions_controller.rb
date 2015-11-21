@@ -1,39 +1,23 @@
 class SessionsController < ApplicationController
 
   def new
-
   end
 
   def create
     auth = request.env['omniauth.auth']
-    # session[:omniauth] =  auth.except('extra')
-    @authentication = Authentication.find_with_omniauth(auth)
-
-    if @authentication.nil?
-     @authentication = Authentication.create_with_omniauth(auth)
+    user = User.find_or_create_by(provider: auth[:provider], uid: auth[:uid])
+    user.username = auth[:info][:name]
+    user.email = aut[:info][:email]
+    if user.new_record?
+      user.password = SecureRandom.uuid()
+      user.phone = '122345689'
+      user.save!
     end
-
-    if logged_in?
-      if @authentication.user == current_user
-        redirect_to root_path, notice: "SIGNED IN"
-      else
-        @authentication.user = session[:user_id]
-        @authentication.save
-        redirect_to root_path, notice: "SIGNED IN"
-      end
-     else
-       if @authentication.user.present?
-         self.current_user = @authentication.user
-        redirect_to root_path, notice: "SIGNED IN"
-       else
-        render :new
-      end
-    end
+    redirect_to root_path
   end
 
   def destroy
-    session[:user_id] = nil
-    session[:omniauth] = nil
+    session.clear
     redirect_to root_path, notice: "Signed Out"
   end
 end
