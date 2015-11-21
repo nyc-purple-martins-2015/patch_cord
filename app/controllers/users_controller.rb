@@ -1,22 +1,22 @@
-class UsersController < ApplicationController 
-	def new 
+class UsersController < ApplicationController
+	def new
 	end
 
-	def create 
+	def create
 	end
 
-	def edit 
+	def edit
 	end
 
-	def update 
+	def update
 	end
 
-	def destroy 
+	def destroy
 	end
 
-	private 
+	private
 
-	def user_params 
+	def user_params
 		user_params = params.require(:user).permit(:username, :email, :password_digest, :address_line1, :address_line2, :city, :state, :zip, :phone, :bio)
-	end 
-end 
+	end
+end
