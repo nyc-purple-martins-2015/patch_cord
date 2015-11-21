@@ -9,15 +9,25 @@
 
 <body>
   <header>
-    <a href="/">PatchCord</a>
-    <% if logged_in? %>
-<a href="#"><p>current_user.username</p></a>
-  <a href="#"><p>Log Out</p></a>
+  <a href="/">PatchCord</a>
+  <% if logged_in? %>
+    <a href="#"><%= current_user.username %></a>
+    <%= link_to 'Log out', logout_path %>
   <% else %>
-  <span class="right-header"><a href="#">Log In</a></span>
-  <span class="right-header"><a href="#">Sign Up</a></span>
+    <span class="right-header"><%= link_to 'Google', ouath_login_path(:google_oauth2) %></span>
+    <span class="right-header"><%= link_to 'Twitter', ouath_login_path(:twitter) %></span>
+    <span class="right-header"><%= link_to 'Soundcloud', ouath_login_path(:soundcloud) %></span>
+    <span class="right-header"><a href="#">Sign Up</a></span>
   <% end %>
 </header>
+
+<% if flash[:error] %>
+  <p class='error'><%= flash[:error] %></p>
+<% end -%>
+
+<% if flash[:notice] -%>
+  <p class='notice'><%= flash[:notice] %></p>
+<% end %>
 
 <%= yield %>
 
