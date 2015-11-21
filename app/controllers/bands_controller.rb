@@ -13,8 +13,13 @@ class BandsController < ApplicationController
 	end
 
 	def create
-    @user = current_user
-    @band = @user.bands.create(band_params)
+    @band = current_user.bands.new(band_params)
+    if @band.save
+      redirect_to @band
+    else
+      status 400
+      render :new
+    end
 	end
 
 	def edit

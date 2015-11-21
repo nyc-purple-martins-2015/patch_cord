@@ -6,6 +6,10 @@ describe BandsController do
   let(:bands) {array = []; 5.times{array << FactoryGirl.create(:band)}; array}
   let(:user) {FactoryGirl.create(:user)}
 
+  before(:each) do
+    stub_current_user(user)
+  end
+
 
   context "#index" do
 
@@ -68,9 +72,10 @@ describe BandsController do
   context "#create" do
 
     it 'creates a band' do
-      band_params = {name: band.name, bio: band.bio, admin_id: user.id}
+      band_params = {band: {name: "Rock Stars", bio: "We're great", admin_id: 1}}
       post :create, band_params
-      expect(@band).to be_a(Band)
+      created_band = Band.find_by(name: "Rock Stars")
+      expect(response).to redirect_to(band_path(created_band))
     end
 
      xit 'redirects to home page when user logs in' do
