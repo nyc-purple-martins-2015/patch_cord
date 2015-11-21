@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get 'logout', :to => 'sessions#destroy', as: :logout
 
   resources :bands
+  get 'bands/search', :to => 'bands#search'
+
   resources :genres, only: [:create, :new, :show, :destroy]
   resources :instruments, only: [:new, :create, :show, :destroy]
   resources :media_resources
