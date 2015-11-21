@@ -6,10 +6,11 @@
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
+
 <body>
   <header>
     <a href="/">PatchCord</a>
-    <%  if logged_in? %>
+    <% if logged_in? %>
 <a href="#"><p>current_user.username</p></a>
   <a href="#"><p>Log Out</p></a>
   <% else %>

@@ -1,0 +1,15 @@
+<div>Choose an Instrument:</div>
+
+<%= form_tag do%>
+  <% @instruments.uniq.each do |instru_obj| %>
+  <%= radio_button_tag(:instrument, "#{instru_obj.name}") %>
+  <%= label_tag("#{instru_obj.name}") %>
+<% end %>
+<br>
+<div>Choose an Genre:</div>
+  <% @genres.uniq.each do |genre_obj| %>
+  <%= radio_button_tag(:genre, "#{genre_obj.name}") %>
+  <%= label_tag("#{genre_obj.name}") %>
+<% end %>
+<%= submit_tag("Search") %>
+<% end %>

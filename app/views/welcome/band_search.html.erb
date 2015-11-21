@@ -1,0 +1,9 @@
+<span>What Genre Are You Looking For?</span>
+
+<%= form_tag do%>
+  <% @genres.uniq.each do |genre_obj| %>
+  <%= radio_button_tag(:genre, "#{genre_obj.name}") %>
+  <%= label_tag("#{genre_obj.name}") %>
+<% end %>
+<%= submit_tag("Search") %>
+<% end %>
