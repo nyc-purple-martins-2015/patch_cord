@@ -6,10 +6,12 @@ class SessionsController < ApplicationController
 
   def create
     auth = request.env['omniauth.auth']
-    session[:omniauth] =  auth.except('extra')
-    user = Authentication.create_with_omniauth(auth)
-    session[:user_id] = user.id
-    redirect_to root_path "SIGNED IN"
+    # session[:omniauth] =  auth.except('extra')
+    @authentication = Authentication.find_or_create_with_omniauth(auth)
+
+    @authentication.user = current_user
+    @authentication.save
+    redirect_to root_path, notice: "SIGNED IN"
   end
 
   def destroy
