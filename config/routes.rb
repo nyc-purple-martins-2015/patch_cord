@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :users
 
   get '/login', :to => 'sessions#new', as: :login
+  get 'auth/:provider' => 'sessions#new', as: :ouath_login
   get '/auth/:provider/callback', to: 'sessions#create'
   get '/auth/failure', :to => 'sessions#failure'
 end

@@ -14,12 +14,7 @@ Rails.application.config.middleware.use OmniAuth::Builder do
       :name => "soundcloud"
     }
 
-  provider OmniAuth::Strategies::GoogleOauth2, ENV["GG_API_KEY"], ENV["GG_API_SECRET"]
-    {
-      :name => "google",
-      :scope => "email, profile, plus.me, http://gdata.youtube.com",
-      :prompt => "select_account",
-      :image_aspect_ratio => "square",
-      :image_size => 50
-    }
+
+  provider :google_oauth2, ENV["GG_API_KEY"], ENV["GG_API_SECRET"], skip_jwt: true
+
 end
