@@ -12,12 +12,14 @@
     <a href="/">PatchCord</a>
     <% if logged_in? %>
 <a href="#"><p>current_user.username</p></a>
+    <%  if logged_in? %>
   <a href="#"><p>Log Out</p></a>
   <% else %>
   <span class="right-header"><a href="#">Log In</a></span>
   <span class="right-header"><a href="#">Sign Up</a></span>
   <% end %>
 </header>
+
 <%= yield %>
 
 </body>
