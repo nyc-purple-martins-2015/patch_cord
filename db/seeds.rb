@@ -122,7 +122,7 @@ libido_debugger = Band.create(name: "Libido Debugger", bio: Faker::Lorem.paragra
 phish = Band.create(name: "Phish", bio: "Phish is an American rock and roll band noted for their musical improvisation, extended jams, blending of musical genres, and dedicated fan base. Formed at the University of Vermont in 1983 (with the current line-up solidifying in 1985), the band's four members are —Trey Anastasio (guitars, lead vocals), Mike Gordon (bass, vocals), Jon Fishman (drums, percussion, vacuum, vocals), and Page McConnell (keyboards, vocals)\nPhish's music blends elements of a wide variety of genres,[2] including funk, progressive rock, psychedelic rock, folk, country, jazz, blues, bluegrass and pop.[1][3] Although the band has received little radio play or mainstream exposure, Phish has developed a large and dedicated following by word of mouth, the exchange of live recordings, and selling over 8 million albums and DVDs in the United States.", admin_id: andre.id)
 
 genres = %w(rock rap jazz folk metal blues trap bluegrass country electronic hip-hop classical indie latin pop r&b reggae grunge punk new-age)
-genres.map{|e| e.capitalize }
+genres.map!{|e| e.capitalize }
 bands = %w(AJAX\ Bang Ubuntu\ Dreams Somewhat\ Ruby\ And\ The\ Limpy\ Shank Risk\ Of\ The\ Recursive\ Progression Libido\ Debugger Whiteboard\ Nudist The\ Dyslexic\ Keyboards)
 instruments = %w(electric\ guitar acoustic\ guitar bass drums saxophone piano keyboard triangle recorder jazz\ flute cowbell synthesizer electric\ violin harmonica)
 instruments.map{|e| e.capitalize }

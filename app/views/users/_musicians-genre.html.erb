@@ -1,0 +1,22 @@
+<div id="musician-search-genre">
+  <h4>Choose an Genre:</h4>
+  <div>
+    <%= form_tag("bands/search", method: "get") do %>
+    <% @genres.uniq.each do |genre_obj| %>
+    <%= radio_button_tag(:genre, "#{genre_obj.name}") %>
+    <%= label_tag("#{genre_obj.name}") %>
+    <% end %>
+    <%= submit_tag("Search") %>
+    <% end %>
+  </div>
+
+  <div>
+    <h4>Musicians</h4>
+    <ol>
+      <% @musicians.each do |musician| %>
+      <li><%= musician.username %></li>
+      <% end %>
+    </ol>
+  </div>
+
+</div>

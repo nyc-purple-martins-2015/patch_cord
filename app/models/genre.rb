@@ -1,5 +1,5 @@
 class Genre < ActiveRecord::Base
-validates :name, presence: true
+validates :name, presence: true, uniqueness: true
 
 has_many :band_genres
 has_many :bands, through: :band_genres

@@ -13,3 +13,19 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$(document).ready(function(){
+  $('#musician-band-search').on("submit", function(event){
+    event.preventDefault();
+    $.ajax({
+      method: "post",
+      url: "/search",
+      data: $(event.target).serialize()
+    })
+    .done(function(response){
+      console.log(response)
+      $('.original-homepage').replaceWith(response)
+      });
+    });
+
+  });

@@ -1,8 +1,38 @@
-<span>Who Are You Searching For?</span>
-<%= form_tag("/search", method: "post") do %>
-<%= radio_button_tag(:type, "musicians") %>
-<%= label_tag("Musicians") %>
-<%= radio_button_tag(:type, "band") %>
-<%= label_tag("Bands") %>
-<%= submit_tag("Search") %>
-<% end %>
+<div class="original-homepage">
+
+  <span>Who Are You Searching For?</span>
+
+  <div id="musician-band-search">
+    <%= form_tag("/search", method: "post") do %>
+      <%= radio_button_tag(:group, "Musicians") %>
+      <%= label_tag(:group, "Musicians") %>
+      <%= radio_button_tag(:group, "Bands") %>
+      <%= label_tag(:group, "Bands") %>
+      <%= submit_tag("Search") %>
+    <% end %>
+  </div>
+
+  <div id="search-results">
+
+    <div>
+      <h4>Musicians</h4>
+      <ol>
+      <% @musicians.each do |musician| %>
+        <li><%= musician.username %></li>
+      <% end %>
+      </ol>
+    </div>
+
+    <div>
+      <h4>Bands</h4>
+       <ol>
+      <% @bands.each do |band| %>
+        <li><%= band.name %></li>
+      <% end %>
+      </ol>
+    </div>
+
+  </div>
+</div>
+
+
