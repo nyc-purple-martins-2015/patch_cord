@@ -2,8 +2,9 @@
 
   <div class="original-homepage">
 
-
-  <span>Who Are You Searching For?</span>
+  <br>
+  <div>Who Are You Searching For?</div>
+  <br>
 
   <div id="musician-band-search">
     <%= form_tag("/search", method: "post") do %>
@@ -11,6 +12,7 @@
       <%= label_tag(:group, "Musicians") %>
       <%= radio_button_tag(:group, "Bands") %>
       <%= label_tag(:group, "Bands") %>
+      <br>
       <%= submit_tag("Search") %>
     <% end %>
   </div>
