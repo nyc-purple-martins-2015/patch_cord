@@ -24,7 +24,7 @@ class BandsController < ApplicationController
 	end
 
 	def edit
-    @band = Band.find(params[:id]
+    @band = Band.find(params[:id])
   end
 
   def update
@@ -46,7 +46,13 @@ class BandsController < ApplicationController
 	end
 
   def search
-    render :bands_search_path
+    genre_ids = params["Genre"].map {|e| e[0].to_i}
+    genres = Genre.find(genre_ids)
+    genres_with_bands = genres.select {|genre| !genre.bands.empty?}
+    bands_from_genre = genres_with_bands.map {|genre| genre.bands}.flatten
+    band_ids = bands_from_genre.map {|band| band.id}
+    @bands = Band.find(band_ids)
+    render "bands/_bands-sorted", layout: false
   end
 
 	private
