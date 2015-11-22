@@ -1,9 +1,16 @@
-<h4>Your results</h4>
-<div>
-  <h4>Bands</h4>
-  <ol>
-    <% @bands.each do |band| %>
-    <li><%= band.name %></li>
-    <% end %>
-  </ol>
-</div>
+<% if !@bands.empty? %>
+<h4><%= @bands.count  %> <%= @bands.count > 1 ? "results:" : "result:" %></h4>
+  <div>
+    <h4>Bands</h4>
+    <ol>
+      <% @bands.each do |band| %>
+      <li><%= band.name %></li>
+      <% end %>
+    </ol>
+  </div>
+  <div>
+    <%= link_to "Home", root_path %>
+  </div>
+<% else %>
+  <h4>Sorry, there are no results that match that query.</h4>
+<% end %>

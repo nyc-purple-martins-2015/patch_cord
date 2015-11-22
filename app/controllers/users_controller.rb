@@ -35,9 +35,9 @@ class UsersController < ApplicationController
 			genres = Genre.find(genre_ids)
 			genres_with_musicians = genres.select {|genre| !genre.users.empty?}
 			if genres_with_musicians.count > 1
-			@musicians = genres_with_musicians.flat_map {|genre| genre.users}.uniq!
+			@musicians = genres_with_musicians.flat_map {|genre| genre.users}.uniq
 			else
-			@musicians = genres_with_musicians.map {|genre| genre.users}.flatten!
+			@musicians = genres_with_musicians.map {|genre| genre.users}.flatten
 			end
 			@musicians_ids = @musicians.map {|musician| musician.id}
 			@instruments = Instrument.all
@@ -49,9 +49,9 @@ class UsersController < ApplicationController
 			instruments = Instrument.find(instrument_ids)
 			instruments_with_musicians = instruments.select {|instrument| !instrument.users.empty?}
 			if instruments_with_musicians.count > 1
-			@musicians = instruments_with_musicians.flat_map {|instrument| instrument.users}.uniq!
+			@musicians = instruments_with_musicians.flat_map {|instrument| instrument.users}.uniq
 			else
-			@musicians = instruments_with_musicians.map {|instrument| instrument.users}.flatten!
+			@musicians = instruments_with_musicians.map {|instrument| instrument.users}.flatten
 			end
 			@musicians = @original_musicians & @musicians
 			render "users/musicians_sorted", layout: false
