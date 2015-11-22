@@ -1,15 +1,18 @@
 <div id="search-instrument">
   <h4>Choose an Instrument:</h4>
   <div>
-   <%= form_tag do%>
-   <% @instruments.uniq.each do |instru_obj| %>
-   <%= radio_button_tag(:instrument, "#{instru_obj.name}") %>
-   <%= label_tag("#{instru_obj.name}") %>
-   <%= hidden_field_tag :group, "Musicians" %>
-   <% end %>
- </div>
+    <%= form_tag("users/search", method: "post") do %>
+    <% @instruments.each do |instru_obj| %>
+    <%= check_box_tag(:instrument, "#{instru_obj.name}") %>
+    <%= label_tag("#{instru_obj.name}") %>
+    <%= hidden_field_tag :group, "Musicians" %>
+    <%= hidden_field_tag :group, "Musicians" %>
+    <% end %>
+    <%= submit_tag("Search") %>
+    <% end %>
+  </div>
 
- <div>
+  <div>
   <h4>Musicians</h4>
   <ol>
     <% @musicians.each do |musician| %>

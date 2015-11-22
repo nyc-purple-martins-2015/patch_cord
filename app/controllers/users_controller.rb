@@ -29,6 +29,15 @@ class UsersController < ApplicationController
     redirect_to root_path
 	end
 
+	def search
+		genre_ids = params["Genre"].map {|e| e[0].to_i}
+		genres = Genre.find(genre_ids)
+		genres_with_musicians = genres.select {|genre| !genre.users.empty?}
+		@musicians = genres_with_musicians.flat_map {|genre| genre.users}
+		@instruments = Instrument.all
+		render "users/_musicians-instruments"
+	end
+
 	private
 
 	def user_params

@@ -21,7 +21,11 @@ class WelcomeController < ApplicationController
       @bands = Band.all
       @genres = Genre.all
       render "bands/_bands", layout: false
-    elsif params[:genre]
+    elsif params[:genre] && params[:group] == "Musicians"
+      @genre = Genre.find_by(name: params[:genre])
+      binding.pry
+      @musicians = @genre.users
+      render "users/_musicians-sorted"
     end
 
 

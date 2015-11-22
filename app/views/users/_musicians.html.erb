@@ -1,11 +1,12 @@
-<div id="search-genre">
+<div id="musician-search-genre">
   <h4>I want my musician to play t:</h4>
   <div>
-    <%= form_tag("bands/search", method: "get") do %>
-    <% @genres.uniq.each do |genre_obj| %>
-    <%= radio_button_tag(:genre, "#{genre_obj.name}") %>
+    <%= form_tag("users/search", method: "post") do %>
+    <% @genres.each do |genre_obj| %>
+    <%= check_box_tag("[Genre][#{genre_obj.id}]", "#{genre_obj.name}") %>
     <%= label_tag("#{genre_obj.name}") %>
     <% end %>
+    <%= hidden_field_tag :group, "Musicians" %>
     <%= submit_tag("Search") %>
     <% end %>
   </div>
