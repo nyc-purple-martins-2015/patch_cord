@@ -1,0 +1,20 @@
+<div class="container">
+<h2>Update My Profile</h2>
+
+<h2>Update your information below:</h2>
+<%= form_for @band, url: band_path(@band), method: :put do |f| %>
+
+  <p><%= f.label :name %></p>
+  <p><%= f.text_field :name %></p>
+
+  <p><%= f.label :genres %></p>
+  <p><%= f.text_field :genres %></p>
+
+  <p><%= f.label :media_resources %></p>
+  <p><%= f.text_field :media_resources %></p>
+
+  <%= f.submit "Update", class: "button" %>
+<% end %>
+</div>
+
+<p><%= link_to "Delete my Question", band_path(@band), method: :delete %></p></div>
