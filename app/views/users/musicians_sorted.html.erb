@@ -1,0 +1,9 @@
+<h4>Your results</h4>
+<div>
+  <h4>Musicians</h4>
+  <ol>
+    <% @musicians.each do |musician| %>
+    <li><%= musician.username %></li>
+    <% end %>
+  </ol>
+</div>
