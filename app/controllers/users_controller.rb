@@ -7,18 +7,22 @@ class UsersController < ApplicationController
 	def new
 	end
 
+
+  def create
+  end
+
   def show
     @user = User.find(params[:id])
   end
 
-	def create
-	end
-
 	def edit
     @user = User.find(params[:id])
+    @genres = Genre.pluck(:name)
+    @errors = @user.errors.full_messages
   end
 
   def update
+    binding.pry
     @user = User.find(params[:id])
     if @user
       @user.update_attributes(user_params)
