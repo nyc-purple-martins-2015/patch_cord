@@ -10,7 +10,6 @@ class SessionsController < ApplicationController
     if user.new_record?
       user.password = SecureRandom.uuid()
       user.phone = '122345689'
-      byebug
       user.save!
     end
     session[:user_id] = user.id
