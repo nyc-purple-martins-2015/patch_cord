@@ -56,10 +56,12 @@ michael = User.create(username: "Michael Jackson", password: "password", email: 
 
 rock = Genre.create(name: "Rock")
 blues = Genre.create(name: "Blues")
-prog = Genre.create(name: "Progressive Rock")
+prog = Genre.create(name: "Progressive")
 reggae = Genre.create(name: "Reggae")
 latin = Genre.create(name: "Latin")
 pop = Genre.create(name: "Pop")
+hiphop = Genre.create(name: "Hip Hop")
+metal = Genre.create(name: "Metal")
 
 guitar = Instrument.create(name: "Guitar")
 bass = Instrument.create(name: "Bass")
@@ -68,11 +70,11 @@ keyboard = Instrument.create(name: "Keyboard")
 vocals = Instrument.create(name: "Vocals")
 
 
-guitarists = [jimi, slash, carlos, john, bb, trey, dave, bob]
-bassists = [flea, roger, james, les, bootsy, mike]
+guitarists = [jimi, slash, carlos, john, bb, trey, dave, bob, andre]
+bassists = [flea, roger, james, les, bootsy, mike, dom]
 drummers = [ringo, travis, dave, lars, jon, tommy]
-keyboardists = [chick, page]
-vocalists = [freddie, bob, michael]
+keyboardists = [chick, page, alexis]
+vocalists = [freddie, bob, michael, mae]
 
 rockers = [jimi, slash, dave, flea, roger, travis, lars, tommy, freddie, dom, alexis]
 bluesers = [john, bb, trey, roger, ringo, jon, chick, page, mike, andre, mae]
@@ -144,39 +146,39 @@ instruments.map{|e| e.capitalize }
 delectable_ajax.users << jimi
 delectable_ajax.users << flea
 delectable_ajax.users << ringo
-delectable_ajax.genres.create(name: genres.sample)
+delectable_ajax.genres << rock
 
 recursive_progression.users << slash
 recursive_progression.users << travis
 recursive_progression.users << chick
-recursive_progression.genres.create(name: genres.sample)
+recursive_progression.genres << metal
 
 dyslexic_keyboards.users << freddie
 dyslexic_keyboards.users << carlos
 dyslexic_keyboards.users << roger
-dyslexic_keyboards.genres.create(name: genres.sample)
+dyslexic_keyboards.genres << latin
 
 whiteboard_nudists.users << bob
 whiteboard_nudists.users << john
 whiteboard_nudists.users << dave
 whiteboard_nudists.users << james
-whiteboard_nudists.genres.create(name: genres.sample)
+whiteboard_nudists.genres << reggae
 
 somewhat_ruby.users << michael
 somewhat_ruby.users << tommy
 somewhat_ruby.users << les
-somewhat_ruby.genres .create(name: genres.sample)
+somewhat_ruby.genres << hiphop
 
 libido_debugger.users << bb
 libido_debugger.users << lars
 libido_debugger.users << bootsy
-libido_debugger.genres.create(name: genres.sample)
+libido_debugger.genres << blues
 
 phish.users << trey
 phish.users << mike
 phish.users << jon
 phish.users << page
-phish.genres.create(name: "Progressive")
+phish.genres << prog
 
 
 # Delectable Ajax
