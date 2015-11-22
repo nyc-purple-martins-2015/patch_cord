@@ -18,10 +18,12 @@
   <p><%= f.text_field :instruments, :value => "" %></p>
 
   <p><%= f.label :genres %></p>
-  <p><%= f.select :genres, options_for_select(@genres)%></p>
-
-  <p><%= f.label :bands %></p>
-  <p><%= f.text_field :bands, :value => "" %></p>
+    <% @genres.each do |genre| %>
+        <p>
+          <%= check_box_tag 'genre_types[]', genre %>
+          <%= genre %>
+        </p>
+    <% end %>
 
   <p><%= f.label :email %></p>
   <p><%= f.text_field :email %></p>

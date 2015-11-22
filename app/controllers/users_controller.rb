@@ -22,11 +22,29 @@ class UsersController < ApplicationController
   end
 
   def update
-    binding.pry
     @user = User.find(params[:id])
-    if @user
-      @user.update_attributes(user_params)
-      redirect_to user_path(@user)
+
+    if @user.save
+      if params.has_key?("genre_types")
+        @genres = params[:genre_types]
+        @genres.each do |genre|
+          unless @user.genres.map(&:name).include?(genre)
+          @user.genres << Genre.find_or_create_by(name: genre.strip)
+          end
+        end
+      end
+
+      @instruments = params[:user][:instruments].split(",")
+      if @instruments.any?
+        @instruments.each do |instrument|
+          unless @user.instruments.map(&:name).include?(instrument)
+          @user.instruments << Instrument.find_or_create_by(name: instrument.strip)
+          end
+        end
+      end
+
+    @user.update_attributes(user_params)
+    redirect_to user_path(@user)
     else
       render :edit
     end
