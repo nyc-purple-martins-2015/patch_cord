@@ -39,15 +39,6 @@ class BandsController < ApplicationController
         end
       end
 
-      @instruments = params[:user][:instruments].split(",")
-      if @instruments.any?
-        @instruments.each do |instrument|
-          unless @user.instruments.map(&:name).include?(instrument)
-          @user.instruments << Instrument.find_or_create_by(name: instrument.strip)
-          end
-        end
-      end
-
      @band.update_attributes(band_params)
       redirect_to band_path(@band)
     else

@@ -10,15 +10,13 @@
   <p><%= f.label :bio %></p>
   <p><%= f.text_area :bio %></p>
 
+<% if current_user.id == @band.admin.id %>
   <p><%= f.label :admin %></p>
   <p><%= f.text_field :admin, :value => "" %></p>
 
-  <p><%= f.label :instruments %></p>
-  <p><%= f.text_field :instruments, :value => "" %></p>
-
   <p><%= f.label :members %></p>
   <p><%= f.text_field :instruments, :value => "" %></p>
-
+<% end %>
   <%= f.submit "Update my Band", class: "button" %>
   <% end %>
 </div>
