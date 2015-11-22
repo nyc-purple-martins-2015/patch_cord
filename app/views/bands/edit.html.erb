@@ -11,6 +11,15 @@
   <p><%= f.label :bio %></p>
   <p><%= f.text_field :bio %></p>
 
+  <p><%= f.label :admin %></p>
+  <p><%= f.text_field :admin %></p>
+
+  <p><%= f.label :instruments %></p>
+  <p><%= f.text_field :band[:instruments] %></p>
+
+  <p><%= f.label :members %></p>
+  <p><%= f.text_field :band[:members] %></p>
+
   <%= f.submit "Update my Band", class: "button" %>
 <% end %>
 </div>

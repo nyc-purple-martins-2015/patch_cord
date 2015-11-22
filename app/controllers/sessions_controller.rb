@@ -4,12 +4,13 @@ class SessionsController < ApplicationController
   end
 
   def create
-    ap request.env['omniauth.auth']
     auth = request.env['omniauth.auth']
     user = User.find_or_create_by(provider: auth[:provider], uid: auth[:uid])
     user.username = auth[:info][:name]
     if user.new_record?
       user.password = SecureRandom.uuid()
+      user.phone = '122345689'
+      byebug
       user.save!
     end
     session[:user_id] = user.id

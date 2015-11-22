@@ -11,6 +11,7 @@
   <header>
     <a href="/">PatchCord</a>
     <% if logged_in? %>
+
   <a href="#"><%= current_user.username %></a>
   <%= link_to "Log Out", logout_path %>
     <% else %>
