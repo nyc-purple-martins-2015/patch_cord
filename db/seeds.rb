@@ -54,6 +54,20 @@ bob = User.create(username: "Bob Marley", password: "password", email: "bob@gmai
 
 michael = User.create(username: "Michael Jackson", password: "password", email: "michael@gmail.com", address_line1: Faker::Address.street_address, address_line2: Faker::Address.secondary_address, city: Faker::Address.city, state: Faker::Address.state_abbr, zip: Faker::Address.zip, phone: Faker::PhoneNumber.phone_number, bio: Faker::Lorem.paragraph(2))
 
+rock = Genre.create(name: "Rock")
+blues = Genre.create(name: "Blues")
+prog = Genre.create(name: "Progressive Rock")
+reggae = Genre.create(name: "Reggae")
+latin = Genre.create(name: "Latin")
+pop = Genre.create(name: "Pop")
+
+guitar = Instrument.create(name: "Guitar")
+bass = Instrument.create(name: "Bass")
+drums = Instrument.create(name: "Drums")
+keyboard = Instrument.create(name: "Keyboard")
+vocals = Instrument.create(name: "Vocals")
+
+
 guitarists = [jimi, slash, carlos, john, bb, trey, dave, bob]
 bassists = [flea, roger, james, les, bootsy, mike]
 drummers = [ringo, travis, dave, lars, jon, tommy]
@@ -70,47 +84,47 @@ poppers = [john, dave, flea, michael, mae, alexis]
 admins = [dom, andre, alexis, mae]
 
 rockers.each do |r|
-  r.genres.create(name: "Rock")
+  r.genres << rock
 end
 
 bluesers.each do |b|
-  b.genres.create(name: "Blues")
+  b.genres << blues
 end
 
 jammers.each do |j|
-  j.genres.create(name: "Progressive Rock")
+  j.genres << prog
 end
 
 reggaers.each do |r|
-  r.genres.create(name: "Reggae")
+  r.genres << reggae
 end
 
 latiners.each do |l|
-  l.genres.create(name: "Latin")
+  l.genres << latin
 end
 
 poppers.each do |p|
-  p.genres.create(name: "Pop")
+  p.genres << pop
 end
 
 guitarists.each do |g|
-  g.instruments.create(name: "Guitar")
+  g.instruments << guitar
 end
 
 bassists.each do |b|
-  b.instruments.create(name: "Bass")
+  b.instruments << bass
 end
 
 drummers.each do |d|
-  d.instruments.create(name: "Drums")
+  d.instruments << drums
 end
 
 keyboardists.each do |k|
-  k.instruments.create(name: "Keyboard")
+  k.instruments << keyboard
 end
 
 vocalists.each do |v|
-  v.instruments.create(name: "Vocals")
+  v.instruments << vocals
 end
 
 delectable_ajax = Band.create(name: "Delectable Ajax", bio: Faker::Lorem.paragraph(1), admin_id: dom.id)
