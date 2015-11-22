@@ -1,5 +1,5 @@
-<div id="musician-search-genre">
-  <h4>Choose an Genre:</h4>
+<div id="search-genre">
+  <h4>I want my musician to play t:</h4>
   <div>
     <%= form_tag("bands/search", method: "get") do %>
     <% @genres.uniq.each do |genre_obj| %>

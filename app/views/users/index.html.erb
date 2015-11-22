@@ -1,0 +1,35 @@
+<div class="container">
+  <h1 align="center">List of Musicians</h1>
+  <table border="1" style="width:85%" align="center">
+    <tr>
+    <th style="background-color:grey">Name: </th>
+    <th style="background-color:grey">Bio: </th>
+    <th style="background-color:grey">Address: </th>
+    <th style="background-color:grey">Phone: </th>
+    <th style="background-color:grey">Email: </th>
+    <th style="background-color:grey">Genres: </th>
+    <th style="background-color:grey">Instruments: </th>
+    </tr>
+    <% @users.each do |user| %>
+    <tr>
+      <td><%= user.username %></td>
+      <td><%= user.bio %></td>
+      <td><%= user.address_line1 %>, <%= user.address_line2 %>. <%= user.city %>, <%= user.state %> <%= user.zip %></td>
+      <td><%= user.phone %></td>
+      <td><%= user.email %></td>
+        <td>
+        <% user.genres.each do |genre| %>
+        <%= genre.name %>
+        <% end %>
+        </td>
+        <td>
+        <% user.instruments.each do |instrument| %>
+        <%= instrument.name %>
+        <% end %>
+        </td>
+    </tr>
+    <% end %>
+  </table>
+</div>
+
+

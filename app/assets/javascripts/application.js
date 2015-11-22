@@ -28,4 +28,18 @@ $(document).ready(function(){
       });
     });
 
+  $('.homepage').on("submit", "#band-search-genre", function(event){
+    event.preventDefault();
+    // debugger
+    $.ajax({
+      method: "post",
+      url: "bands/search",
+      data: $(event.target).serialize()
+    })
+    .done(function(response){
+      console.log(response)
+      $('#band-search-genre').replaceWith(response)
+      });
+    });
+
   });
