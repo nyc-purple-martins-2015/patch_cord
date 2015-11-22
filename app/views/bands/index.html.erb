@@ -7,11 +7,19 @@
     </colgroup>
     <tr>
     <th style="background-color:grey">Band: </th>
+    <th style="background-color:grey">Genre: </th>
+    <th style="background-color:grey">Members: </th>
     <th style="background-color:grey">Bio: </th>
     </tr>
     <% @bands.each do |band| %>
     <tr>
       <td align="center" style="height: 30px"><%= band.name %></td>
+      <td align="center"><%= band.genres.first.name %></td>
+      <td align="center">
+      <% band.users.each do |user| %>
+      <%= user.username %>,
+      <% end %>
+      </td>
       <td><%= band.bio %></td>
     </tr>
     <% end %>
