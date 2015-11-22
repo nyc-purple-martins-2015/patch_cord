@@ -1,23 +1,31 @@
 <div id="musicians-instruments-search">
-<h4>I want my musician to play this/these instruments:</h4>
-<div>
-<%= form_tag("users/search", method: "post") do %>
-<% @instruments.each do |instru_obj| %>
-     <%= check_box_tag("[Instrument][#{instru_obj.id}]", "#{instru_obj.name}") %>
+  <% if !@musicians.empty? %>
+  <h4>I want my musician to play this/these instruments:</h4>
+  <div>
+    <%= form_tag("users/search", method: "post") do %>
+    <% @instruments.each do |instru_obj| %>
+    <%= check_box_tag("[Instrument][#{instru_obj.id}]", "#{instru_obj.name}") %>
     <%= label_tag("#{instru_obj.name}") %>
     <%= hidden_field_tag :musicians, @musicians_ids %>
     <% end %>
     <%= submit_tag("Search") %>
     <% end %>
-</div>
+  </div>
 
-<div>
-  <h4>Musicians</h4>
-  <ol>
-    <% @musicians.each do |musician| %>
-    <li><%= musician.username %></li>
-    <% end %>
-  </ol>
-</div>
+  <div>
+    <h4>Musicians</h4>
+    <ol>
+      <% @musicians.each do |musician| %>
+      <li><%= musician.username %></li>
+      <% end %>
+    </ol>
+  </div>
 
+  <div>
+    <%= link_to "Home", root_path %>
+  </div>
+  <% else %>
+  <h4>Sorry, there are no results that match that query.</h4>
+  <%= link_to "Home", root_path %>
+  <% end %>
 </div>

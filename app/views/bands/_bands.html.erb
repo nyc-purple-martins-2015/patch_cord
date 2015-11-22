@@ -1,4 +1,5 @@
 <div id="band-search-genre">
+  <% if !@bands.empty? %>
   <h4>What Genre Would You Like The Band To Play?</h4>
 
   <div>
@@ -8,18 +9,26 @@
     <%= label_tag("#{genre_obj.name}") %>
     <% end %>
     <%= hidden_field_tag :group, "Bands" %>
-  <%= submit_tag("Search") %>
-  <% end %>
+    <%= submit_tag("Search") %>
+    <% end %>
   </div>
 
 
   <div>
-      <h4>Bands</h4>
-       <ol>
+    <h4>Bands</h4>
+    <ol>
       <% @bands.each do |band| %>
-        <li><%= band.name %></li>
+      <li><%= band.name %></li>
       <% end %>
-      </ol>
+    </ol>
   </div>
 
+   <div>
+    <%= link_to "Back", root_path %>
+  </div>
+
+  <% else %>
+  <h4>Sorry, there are no results that match that query.</h4>
+  <%= link_to "Home", root_path %>
+  <% end %>
 </div>
