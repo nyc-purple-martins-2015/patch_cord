@@ -7,19 +7,19 @@
   <p><%= f.label :name %></p>
   <p><%= f.text_field :name %></p>
 
-
   <p><%= f.label :bio %></p>
   <p><%= f.text_area :bio %></p>
 
   <p><%= f.label :admin %></p>
-  <p><%= f.text_field :admin %></p>
+  <p><%= f.text_field :admin, :value => "" %></p>
 
   <p><%= f.label :instruments %></p>
+  <p><%= f.text_field :instruments, :value => "" %></p>
 
   <p><%= f.label :members %></p>
+  <p><%= f.text_field :instruments, :value => "" %></p>
 
   <%= f.submit "Update my Band", class: "button" %>
-<% end %>
+  <% end %>
 </div>
 
-<p><%= link_to "Delete my Band", band_path(@band), method: :delete %></p></div>
