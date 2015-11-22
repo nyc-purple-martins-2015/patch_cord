@@ -42,10 +42,11 @@
   </div>
 </div>
 
-<div class="buttons">
-    <%= button_to "Edit Profile", edit_band_path(@band), method: :get, class: "button" %>
-    <%= button_to "Delete Profile", method: :delete, class: "button" %>
+<% if current_user.id == @band.admin.id %>
+  <div class="buttons">
+      <%= button_to "Edit Profile", edit_band_path(@band), method: :get, class: "button" %>
+      <%= button_to "Delete Profile", method: :delete, class: "button" %>
   </div>
-
+<% end %>
   <%= button_to "See Our Work", root_path, method: :get, class: "button" %>
 </div>
