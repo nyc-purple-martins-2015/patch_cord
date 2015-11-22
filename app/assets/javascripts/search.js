@@ -14,16 +14,42 @@ $(document).ready(function(){
 
   $('.homepage').on("submit", "#band-search-genre", function(event){
     event.preventDefault();
-    // debugger
     $.ajax({
       method: "post",
       url: "bands/search",
       data: $(event.target).serialize()
     })
-    debugger
     .done(function(response){
       console.log(response)
       $('#band-search-genre').replaceWith(response)
+      });
+    });
+
+   $('.homepage').on("submit", "#musician-search-genre", function(event){
+    event.preventDefault();
+    $.ajax({
+      method: "post",
+      url: "users/search",
+      data: $(event.target).serialize()
+    })
+
+    .done(function(response){
+      console.log(response)
+      $('#musician-search-genre').replaceWith(response)
+      });
+    });
+
+    $('.homepage').on("submit", "#musicians-instruments-search", function(event){
+    event.preventDefault();
+    $.ajax({
+      method: "post",
+      url: "users/search",
+      data: $(event.target).serialize()
+    })
+
+    .done(function(response){
+      console.log(response)
+      $('#musicians-instruments-search').replaceWith(response)
       });
     });
 

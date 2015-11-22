@@ -30,12 +30,32 @@ class UsersController < ApplicationController
 	end
 
 	def search
-		genre_ids = params["Genre"].map {|e| e[0].to_i}
-		genres = Genre.find(genre_ids)
-		genres_with_musicians = genres.select {|genre| !genre.users.empty?}
-		@musicians = genres_with_musicians.flat_map {|genre| genre.users}
-		@instruments = Instrument.all
-		render "users/_musicians-instruments"
+		if params["Genre"]
+			genre_ids = params["Genre"].map {|e| e[0].to_i}
+			genres = Genre.find(genre_ids)
+			genres_with_musicians = genres.select {|genre| !genre.users.empty?}
+			if genres_with_musicians.count > 1
+			@musicians = genres_with_musicians.flat_map {|genre| genre.users}.uniq!
+			else
+			@musicians = genres_with_musicians.map {|genre| genre.users}.flatten!
+			end
+			@musicians_ids = @musicians.map {|musician| musician.id}
+			@instruments = Instrument.all
+			render "users/_musicians-instruments", layout: false
+		elsif params["Instrument"]
+			musicians_ids = params["musicians"].split(" ").map {|e| e.to_i}
+			@original_musicians = User.find(musicians_ids)
+			instrument_ids = params["Instrument"].map {|e| e[0].to_i}
+			instruments = Instrument.find(instrument_ids)
+			instruments_with_musicians = instruments.select {|instrument| !instrument.users.empty?}
+			if instruments_with_musicians.count > 1
+			@musicians = instruments_with_musicians.flat_map {|instrument| instrument.users}.uniq!
+			else
+			@musicians = instruments_with_musicians.map {|instrument| instrument.users}.flatten!
+			end
+			@musicians = @original_musicians & @musicians
+			render "users/musicians_sorted", layout: false
+		end
 	end
 
 	private
