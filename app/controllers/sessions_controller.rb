@@ -13,6 +13,7 @@ class SessionsController < ApplicationController
       user.phone = '122345689'
       user.save!
     end
+    session[:user_id] = user.id
     redirect_to root_path
   end
 
