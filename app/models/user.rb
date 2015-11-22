@@ -1,6 +1,4 @@
 class User < ActiveRecord::Base
-  has_secure_password
-
   validates :username, presence: true
 
   has_many :user_genres
@@ -10,8 +8,6 @@ class User < ActiveRecord::Base
   has_many :genres, through: :user_genres
   has_many :bands, through: :user_bands
   has_many :media_resources, as: :showable
-
-  has_many :authentications
 
   def self.create_with_omniauth(auth)
     create(username: auth[:info][:name])

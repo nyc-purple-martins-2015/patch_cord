@@ -7,14 +7,12 @@
   <p><%= f.label :name %></p>
   <p><%= f.text_field :name %></p>
 
-  <p><%= f.label :genres %></p>
-  <p><%= f.text_field :genres %></p>
 
-  <p><%= f.label :media_resources %></p>
-  <p><%= f.text_field :media_resources %></p>
+  <p><%= f.label :bio %></p>
+  <p><%= f.text_field :bio %></p>
 
-  <%= f.submit "Update", class: "button" %>
+  <%= f.submit "Update my Band", class: "button" %>
 <% end %>
 </div>
 
-<p><%= link_to "Delete my Question", band_path(@band), method: :delete %></p></div>
+<p><%= link_to "Delete my Band", band_path(@band), method: :delete %></p></div>
