@@ -11,12 +11,13 @@
   <header>
     <a href="/">PatchCord</a>
     <% if logged_in? %>
-  <%= link_to current_user.username %>
+
+  <a href="#"><%= current_user.username %></a>
   <%= link_to "Log Out", logout_path %>
     <% else %>
-    <%= link_to 'Google', ouath_login_path(:google_oauth2) %>
-    <%= link_to 'Twitter', ouath_login_path(:twitter) %>
-    <%= link_to 'Soundcloud', ouath_login_path(:soundcloud) %>
+    <%= link_to 'Google', oauth_login_path(:google_oauth2) %>
+    <%= link_to 'Twitter', oauth_login_path(:twitter) %>
+    <%= link_to 'Soundcloud', oauth_login_path(:soundcloud) %>
     <%= link_to "Sign Up" %>
   <% end %>
 </header>
