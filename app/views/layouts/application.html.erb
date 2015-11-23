@@ -5,34 +5,22 @@
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
-
-<!-- Optional theme -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
-
-<!-- Latest compiled and minified JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
 </head>
 
 <body>
-  <nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="/">
-        <img alt="Brand" src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Red_information_icon_with_gradient_background.svg/48px-Red_information_icon_with_gradient_background.svg.png">
-      </a>
-    </div>
+  <header>
+    <a href="/">PatchCord</a>
     <% if logged_in? %>
-    <a class="btn btn-default navbar-right" href="/users/<%= current_user.id %>" role="button"><%= current_user.username %></a>
-    <a class="btn btn-default navbar-right" href="/logout" role="button">Log Out</a>
+
+  <a href="#"><%= current_user.username %></a>
+  <%= link_to "Log Out", logout_path %>
     <% else %>
-    <a class="btn btn-default navbar-right" href="/register" role="button">Sign Up</a>
-    <a class="btn btn-default navbar-right" href="/login" role="button">Log In</a>
-    <% end %>
-
-  </div>
-</nav>
-
+    <%= link_to 'Google', oauth_login_path(:google_oauth2) %>
+    <%= link_to 'Twitter', oauth_login_path(:twitter) %>
+    <%= link_to 'Soundcloud', oauth_login_path(:soundcloud) %>
+    <%= link_to "Sign Up" %>
+  <% end %>
+</header>
 
 <% if flash[:error] %>
   <p class='error'><%= flash[:error] %></p>
