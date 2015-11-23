@@ -24,11 +24,18 @@ ActiveRecord::Schema.define(version: 20151122010014) do
   end
 
   create_table "bands", force: :cascade do |t|
-    t.string   "name",       null: false
+    t.string   "name",          null: false
     t.text     "bio"
-    t.integer  "admin_id",   null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "admin_id",      null: false
+    t.decimal  "latitude"
+    t.decimal  "longitude"
+    t.string   "address_line1"
+    t.string   "address_line2"
+    t.string   "city"
+    t.string   "state"
+    t.integer  "zip"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
   end
 
   create_table "genres", force: :cascade do |t|
@@ -78,6 +85,8 @@ ActiveRecord::Schema.define(version: 20151122010014) do
     t.string   "username",        null: false
     t.string   "email"
     t.string   "password_digest", null: false
+    t.decimal  "latitude"
+    t.decimal  "longitude"
     t.string   "address_line1"
     t.string   "address_line2"
     t.string   "city"
