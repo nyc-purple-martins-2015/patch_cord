@@ -14,8 +14,14 @@
   <p><%= f.label :username %></p>
   <p><%= f.text_field :username %></p>
 
-  <h4>Please enter instruments separated by a comma.</h4>
-  <p><%= f.label :instruments %></p>
+
+  <% @user.instruments.each do |instrument| %>
+    <p>
+      <%= instrument.name.capitalize %>
+      <%= link_to "Delete",  instrument_path, method: :delete %>
+    </p>
+  <% end %>
+  <p><%= f.label "Enter new instruments separated by a comma." %>:</p>
   <p><%= f.text_field :instruments, :value =>"" %></p>
 
   <p><%= f.label :genres %></p>

@@ -31,14 +31,12 @@ class UsersController < ApplicationController
 	def edit
 		@user = User.find(params[:id])
 		@genres = Genre.pluck(:name)
-		@errors = @user.errors.full_messages
 	end
 
 	def update
 		@user = User.find(params[:id])
 
 		if @user.save
-				binding.pry
 			if params.has_key?("genre_types")
 				@user.genres = []
 				@genres = params[:genre_types]
@@ -64,7 +62,6 @@ class UsersController < ApplicationController
 				render :edit
 			end
 		end
-
 
 	def destroy
 		@user.destroy
