@@ -32,7 +32,10 @@
         <% if !musician.genres.empty? %>
         <p class="text-center"><%= musician.genres.first.name %></p>
         <% end %>
+
+        <% if logged_in? %>
         <p class="text-right"><a href="/users/<%= musician.id %>" class="btn btn-primary" role="button">Profile</a> </p>
+        <% end %>
       </div>
     </div>
   </div>
