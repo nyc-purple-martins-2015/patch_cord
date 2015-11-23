@@ -10,15 +10,16 @@
   <p><%= f.label :bio %></p>
   <p><%= f.text_area :bio %></p>
 
-<% if current_user.id == @band.admin.id %>
-  <p><%= f.label :admin %></p>
-  <p><%= f.text_field :admin, :value => "" %></p>
+  <p><%= f.label :admin_name %></p>
+  <p><%= f.text_field :admin_name, :value => "" %></p>
 
+  <h4>Enter member names separated by commas!</h4>
   <p><%= f.label :members %></p>
-  <p><%= f.text_field :instruments, :value => "" %></p>
-<% end %>
+  <p><%= f.text_area :members, :value => "" %></p>
 
   <%= f.submit "Update my Band", class: "button" %>
   <% end %>
 </div>
 
+<% if current_user.id == @band.admin.id %>
+<% end %>

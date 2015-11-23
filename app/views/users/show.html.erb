@@ -32,8 +32,9 @@
   </div>
 
   <% if current_user.id == @user.id %>
-  <div class="buttons">
-    <%= button_to "Edit Profile", edit_user_path(current_user), method: :get, class: "button" %>
-    <%= button_to "Delete Profile", root_path, method: :delete, class: "button" %>
-  </div>
+    <div class="buttons">
+      <%= button_to "Edit Profile", edit_user_path(current_user), method: :get, class: "button" %>
+      <%= button_to "Delete Profile", root_path, method: :delete, class: "button" %>
+    </div>
   <% end %>
+</div>

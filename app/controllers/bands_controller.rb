@@ -28,13 +28,18 @@ class BandsController < ApplicationController
 
   def update
     @band = Band.find(params[:id])
+    @members = @band.users
 
     if @band.save
-      if params.has_key?("genre_types")
-        @genres = params[:genre_types]
-        @genres.each do |genre|
-          unless @user.genres.map(&:name).include?(genre)
-          @user.genres << Genre.find_or_create_by(name: genre.strip)
+      binding.pry
+      new_admin = params[:band][:admin_name]
+      @band.admin = User.find_or_create_by(username: new_admin.strip)
+
+      new_members = params[:band][:members].split(",")
+      if new_members.any?
+        new_members.each do |member|
+          unless @members.map(&:username).include?(member)
+          @members << User.find_or_create_by(username: member.strip)
           end
         end
       end
@@ -45,17 +50,6 @@ class BandsController < ApplicationController
       render :edit
     end
   end
-
-
-
-
-
-
-
-
-
-
-
 
 	def destroy
     if @band.destroy
