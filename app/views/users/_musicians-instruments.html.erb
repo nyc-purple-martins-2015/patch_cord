@@ -1,45 +1,32 @@
 <div id="musicians-instruments-search">
   <% if !@musicians.empty? %>
-  <div class="jumbotron text-center">
-    <h1>I want my musician to play this/these instruments:</h1>
-    <div>
-      <%= form_tag("users/search", method: "post") do %>
-      <% @instruments.each do |instru_obj| %>
-      <%= check_box_tag("[Instrument][#{instru_obj.id}]", "#{instru_obj.name}") %>
-      <%= label_tag("#{instru_obj.name}", nil, :class => "h2") %>
-      <%= hidden_field_tag :musicians, @musicians_ids %>
-      <% end %>
-      <br>
-      <%= submit_tag("Search", :class => "btn btn-primary btn-lg") %>
-      <% end %>
-    </div>
+  <h4>I want my musician to play this/these instruments:</h4>
+  <div>
+    <%= form_tag("users/search", method: "post") do %>
+    <% @instruments.each do |instru_obj| %>
+    <%= check_box_tag("[Instrument][#{instru_obj.id}]", "#{instru_obj.name}") %>
+    <%= label_tag("#{instru_obj.name}") %>
+    <%= hidden_field_tag :musicians, @musicians_ids %>
+    <% end %>
+    <br>
+    <%= submit_tag("Search") %>
+    <% end %>
   </div>
 
-  <div class="alert alert-success" role="alert">
-  <h2 class="text-center"><%= @musicians.count  %> <%= @musicians.count > 1 ? "results:" : "result:" %></h2>
+  <div>
+    <h4>Musicians</h4>
+    <ol>
+      <% @musicians.each do |musician| %>
+      <li><%= musician.username %></li>
+      <% end %>
+    </ol>
   </div>
 
-  <div class="row">
-   <% @musicians.each do |musician| %>
-  <div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYeMmqgj1FO8TbWrQoyo33lLB23fY0xpU6i-yWB4qdjf1mtYTrteryRQ" alt="..." class="pull-left">
-      <div class="caption">
-        <h3 class="text-center"><%= musician.username %></h3>
-        <p class="text-center"><%= musician.instruments.first.name %></p>
-        <% if !musician.genres.empty? %>
-        <p class="text-center"><%= musician.genres.first.name %></p>
-        <% end %>
-        <p class="text-right"><a href="/users/<%= musician.id %>" class="btn btn-primary" role="button">Profile</a> </p>
-      </div>
-    </div>
+  <div>
+    <%= link_to "Home", root_path %>
   </div>
-  <% end %>
-</div>
   <% else %>
-  <div class="alert alert-danger" role="alert">
-  <h2 class="text-center">Sorry, there are no results that match that query.</h2>
-  </div>
-  <%= link_to "Home", root_path, :class => "btn btn-primary btn-lg" %>
+  <h4>Sorry, there are no results that match that query.</h4>
+  <%= link_to "Home", root_path %>
   <% end %>
 </div>

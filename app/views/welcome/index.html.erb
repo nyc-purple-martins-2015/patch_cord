@@ -2,54 +2,42 @@
 
   <div class="original-homepage">
 
-    <div class="jumbotron text-center">
-      <h1>Who Are You Searching For?</h1>
-      <div id="musician-band-search" class="text-center">
-        <%= form_tag("/search", method: "post") do %>
-        <%= radio_button_tag(:group, "Musicians") %>
-        <%= label_tag(:group, "Musicians", :class => "h2") %>
-        <%= radio_button_tag(:group, "Bands") %>
-        <%= label_tag(:group, "Bands", :class => "h2") %>
-        <br>
-        <%= submit_tag("Search", :class => "btn btn-primary btn-lg" ) %>
-        <% end %>
-      </div>
-    </div>
+  <br>
+  <div>Who Are You Searching For?</div>
+  <br>
 
-
-<div id="search-results">
-
-<div class="row">
-  <% @musicians.each do |musician| %>
-  <div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYeMmqgj1FO8TbWrQoyo33lLB23fY0xpU6i-yWB4qdjf1mtYTrteryRQ" alt="..." class="pull-left">
-      <div class="caption">
-        <h3 class="text-center"><%= musician.username %></h3>
-        <p class="text-center"><%= musician.instruments.first.name %></p>
-        <% if !musician.genres.empty? %>
-        <p class="text-center"><%= musician.genres.first.name %></p>
-        <% end %>
-        <p class="text-right"><a href="/users/<%= musician.id %>" class="btn btn-primary" role="button">Profile</a> </p>
-      </div>
-    </div>
+  <div id="musician-band-search">
+    <%= form_tag("/search", method: "post") do %>
+      <%= radio_button_tag(:group, "Musicians") %>
+      <%= label_tag(:group, "Musicians") %>
+      <%= radio_button_tag(:group, "Bands") %>
+      <%= label_tag(:group, "Bands") %>
+      <br>
+      <%= submit_tag("Search") %>
+    <% end %>
   </div>
-  <% end %>
-  <% @bands.each do |band| %>
-  <div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYeMmqgj1FO8TbWrQoyo33lLB23fY0xpU6i-yWB4qdjf1mtYTrteryRQ" alt="..." class="pull-left">
-      <div class="caption">
-        <h3 class="text-center"><%= band.name %></h3>
-        <p class="text-center"><%= band.genres.first.name %></p>
-        <p class="text-right"><a href="/bands/<%= band.id %>" class="btn btn-primary" role="button">Profile</a> </p>
-      </div>
-    </div>
-  </div>
-  <% end %>
-</div>
 
+  <div id="search-results">
+
+    <div>
+      <h4>Musicians</h4>
+      <ol>
+      <% @musicians.each do |musician| %>
+        <li><%= musician.username %></li>
+      <% end %>
+      </ol>
     </div>
+
+    <div>
+      <h4>Bands</h4>
+       <ol>
+      <% @bands.each do |band| %>
+        <li><%= band.name %></li>
+      <% end %>
+      </ol>
+    </div>
+
+  </div>
   </div>
 </div>
 
