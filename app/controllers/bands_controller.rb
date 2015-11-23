@@ -24,6 +24,7 @@ class BandsController < ApplicationController
 
 	def edit
     @band = Band.find(params[:id])
+    @genres = Genre.pluck(:name)
   end
 
   def update
@@ -34,6 +35,15 @@ class BandsController < ApplicationController
       binding.pry
       new_admin = params[:band][:admin_name]
       @band.admin = User.find_or_create_by(username: new_admin.strip)
+
+      if params.has_key?("genre_types")
+        @genres = params[:genre_types]
+        @genres.each do |genre|
+          unless @band.genres.map(&:name).include?(genre)
+          @band.genres << Genre.find_or_create_by(name: genre.strip)
+          end
+        end
+      end
 
       new_members = params[:band][:members].split(",")
       if new_members.any?
