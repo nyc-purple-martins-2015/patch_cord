@@ -1,26 +1,21 @@
-<div class="container">
 <div class="inner-container">
- <h2>Update My Profile</h2>
- 
- <h2>Update your information below:</h2>
+<h2>Update My Profile</h2>
+
+<h2>Update your information below:</h2>
 <% if @errors %>
   <% @errors.each do |error| %>
     <%= error %>
   <% end %>
 <% end %>
 
- <%= form_for @band, url: band_path(@band), method: :put do |f| %>
- 
-   <p><%= f.label :name %></p>
-   <p><%= f.text_field :name %></p>
- 
+<%= form_for @band, url: band_path(@band), method: :put do |f| %>
 
-   <p><%= f.label :bio %></p>
-  <p><%= f.text_field :bio %></p>
+  <p><%= f.label :name %></p>
+  <p><%= f.text_field :name %></p>
+
+  <p><%= f.label :bio %></p>
   <p><%= f.text_area :bio %></p>
- 
-  <p><%= f.label :admin %></p>
-  <p><%= f.text_field :admin %></p>
+
   <p><%= f.label :genres %></p>
     <% @genres.each do |genre| %>
         <p>
@@ -28,23 +23,16 @@
           <%= genre %>
         </p>
     <% end %>
- 
-  <p><%= f.label :instruments %></p>
-  <p><%= f.text_field :band[:instruments] %></p>
+
   <p><%= f.label :admin_name %></p>
   <p><%= f.text_field :admin_name, :value => "" %></p>
- 
+
   <h4>Enter their usernames separated by commas!</h4>
   <h4>(You may only add other registered users.)</h4>
-   <p><%= f.label :members %></p>
-  <p><%= f.text_field :band[:members] %></p>
+  <p><%= f.label :members %></p>
   <p><%= f.text_area :members, :value => "" %></p>
- 
-   <%= f.submit "Update my Band", class: "button" %>
-<% end %>
+
+  <%= f.submit "Update my Band", class: "button" %>
   <% end %>
- </div>
- 
-<p><%= link_to "Delete my Band", band_path(@band), method: :delete %></p></div>
-<% if current_user.id == @band.admin.id %>
-<% end %>
+</div>
+
