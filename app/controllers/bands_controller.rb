@@ -39,8 +39,8 @@ class BandsController < ApplicationController
             @band.genres << Genre.find_or_create_by(name: genre.strip)
           end
         end
-
       end
+
       new_members = params[:band][:members].split(",")
       if new_members.any?
         new_members.each do |member|
@@ -62,7 +62,7 @@ end
 def edit
  @band = Band.find(params[:id])
  @genres = Genre.pluck(:name)
-end 
+end
 
  def destroy
    if @band.destroy
