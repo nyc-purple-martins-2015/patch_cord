@@ -1,58 +1,58 @@
 #Seed file for Patch Cord
 
-mae = User.create(username: "Mae", password: "password", email: "mae@gmail.com", address_line1: Faker::Address.street_address, address_line2: Faker::Address.secondary_address, city: Faker::Address.city, state: Faker::Address.state_abbr, zip: Faker::Address.zip, phone: Faker::PhoneNumber.phone_number, bio: Faker::Lorem.paragraph(2))
+mae = User.create(username: "Mae", password: "password", email: "mae@gmail.com", address_line1: "350 5th Ave", city: "New York", state: "NY", zip: 10118, phone: Faker::PhoneNumber.phone_number, bio: Faker::Lorem.paragraph(2))
 
-andre = User.create(username: "Andre", password: "password", email: "andre@gmail.com", address_line1: Faker::Address.street_address, address_line2: Faker::Address.secondary_address, city: Faker::Address.city, state: Faker::Address.state_abbr, zip: Faker::Address.zip, phone: Faker::PhoneNumber.phone_number, bio: Faker::Lorem.paragraph(2))
+andre = User.create(username: "Andre", password: "password", email: "andre@gmail.com", address_line1: "50 East 21st St", city: "Brooklyn", state: "NY", zip: 11226, phone: Faker::PhoneNumber.phone_number, bio: Faker::Lorem.paragraph(2))
 
-alexis = User.create(username: "Alexis", password: "password", email: "alexis@gmail.com", address_line1: Faker::Address.street_address, address_line2: Faker::Address.secondary_address, city: Faker::Address.city, state: Faker::Address.state_abbr, zip: Faker::Address.zip, phone: Faker::PhoneNumber.phone_number, bio: Faker::Lorem.paragraph(2))
+alexis = User.create(username: "Alexis", password: "password", email: "alexis@gmail.com", address_line1: "200 West 56th Street", city: "New York", state: "NY", zip: 10019, phone: Faker::PhoneNumber.phone_number, bio: Faker::Lorem.paragraph(2))
 
-dom = User.create(username: "Dom", password: "password", email: "dom@gmail.com", address_line1: Faker::Address.street_address, address_line2: Faker::Address.secondary_address, city: Faker::Address.city, state: Faker::Address.state_abbr, zip: Faker::Address.zip, phone: Faker::PhoneNumber.phone_number, bio: Faker::Lorem.paragraph(2))
+dom = User.create(username: "Dom", password: "password", email: "dom@gmail.com", address_line1: "1 West 72nd St", city: "New York", state: "NY", zip: 10023, phone: Faker::PhoneNumber.phone_number, bio: Faker::Lorem.paragraph(2))
 
-jimi = User.create(username: "Jimi Hendrix", password: "password", email: "jimi@gmail.com", address_line1: Faker::Address.street_address, address_line2: Faker::Address.secondary_address, city: Faker::Address.city, state: Faker::Address.state_abbr, zip: Faker::Address.zip, phone: Faker::PhoneNumber.phone_number, bio: Faker::Lorem.paragraph(2))
+jimi = User.create(username: "Jimi Hendrix", password: "password", email: "jimi@gmail.com", address_line1: "30 23rd St", city: "Astoria", state: "NY", zip: 11102, phone: Faker::PhoneNumber.phone_number, bio: Faker::Lorem.paragraph(2))
 
-slash = User.create(username: "Slash", password: "password", email: "slash@gmail.com", address_line1: Faker::Address.street_address, address_line2: Faker::Address.secondary_address, city: Faker::Address.city, state: Faker::Address.state_abbr, zip: Faker::Address.zip, phone: Faker::PhoneNumber.phone_number, bio: Faker::Lorem.paragraph(2))
+slash = User.create(username: "Slash", password: "password", email: "slash@gmail.com", address_line1: "43rd St", city: "Astoria", state: "NY", zip: 11103, phone: Faker::PhoneNumber.phone_number, bio: Faker::Lorem.paragraph(2))
 
-carlos = User.create(username: "Carlos Santana", password: "password", email: "carlos@gmail.com", address_line1: Faker::Address.street_address, address_line2: Faker::Address.secondary_address, city: Faker::Address.city, state: Faker::Address.state_abbr, zip: Faker::Address.zip, phone: Faker::PhoneNumber.phone_number, bio: Faker::Lorem.paragraph(2))
+carlos = User.create(username: "Carlos Santana", password: "password", email: "carlos@gmail.com", address_line1: "10 124th St", city: "College Point", state: "NY", zip: 11356, phone: Faker::PhoneNumber.phone_number, bio: Faker::Lorem.paragraph(2))
 
-john = User.create(username: "John Mayer", password: "password", email: "john@gmail.com", address_line1: Faker::Address.street_address, address_line2: Faker::Address.secondary_address, city: Faker::Address.city, state: Faker::Address.state_abbr, zip: Faker::Address.zip, phone: Faker::PhoneNumber.phone_number, bio: Faker::Lorem.paragraph(2))
+john = User.create(username: "John Mayer", password: "password", email: "john@gmail.com", address_line1: "259-A West 55th Street", city: "New York", state: "NY", zip: 10019, phone: Faker::PhoneNumber.phone_number, bio: Faker::Lorem.paragraph(2))
 
-bb = User.create(username: "B.B. King", password: "password", email: "bb@gmail.com", address_line1: Faker::Address.street_address, address_line2: Faker::Address.secondary_address, city: Faker::Address.city, state: Faker::Address.state_abbr, zip: Faker::Address.zip, phone: Faker::PhoneNumber.phone_number, bio: Faker::Lorem.paragraph(2))
+bb = User.create(username: "B.B. King", password: "password", email: "bb@gmail.com", address_line1: "2137 Morris Ave", city: "Bronx", state: "NY", zip: 10453, phone: Faker::PhoneNumber.phone_number, bio: Faker::Lorem.paragraph(2))
 
-trey = User.create(username: "Trey Anastasio", password: "password", email: "trey@gmail.com", address_line1: Faker::Address.street_address, address_line2: Faker::Address.secondary_address, city: Faker::Address.city, state: Faker::Address.state_abbr, zip: Faker::Address.zip, phone: Faker::PhoneNumber.phone_number, bio: Faker::Lorem.paragraph(2))
+trey = User.create(username: "Trey Anastasio", password: "password", email: "trey@gmail.com", address_line1: "86 Fort Washington Ave", city: "New York", state: "NY", zip: 10032, phone: Faker::PhoneNumber.phone_number, bio: Faker::Lorem.paragraph(2))
 
-flea = User.create(username: "Flea", password: "password", email: "flea@gmail.com", address_line1: Faker::Address.street_address, address_line2: Faker::Address.secondary_address, city: Faker::Address.city, state: Faker::Address.state_abbr, zip: Faker::Address.zip, phone: Faker::PhoneNumber.phone_number, bio: Faker::Lorem.paragraph(2))
+flea = User.create(username: "Flea", password: "password", email: "flea@gmail.com", address_line1: "134 W 146th St", city: "New York", state: "NY", zip: 10039, phone: Faker::PhoneNumber.phone_number, bio: Faker::Lorem.paragraph(2))
 
-roger = User.create(username: "Roger Waters", password: "password", email: "roger@gmail.com", address_line1: Faker::Address.street_address, address_line2: Faker::Address.secondary_address, city: Faker::Address.city, state: Faker::Address.state_abbr, zip: Faker::Address.zip, phone: Faker::PhoneNumber.phone_number, bio: Faker::Lorem.paragraph(2))
+roger = User.create(username: "Roger Waters", password: "password", email: "roger@gmail.com", address_line1: "122 La Salle St", city: "New York", state: "NY", zip: 10027, phone: Faker::PhoneNumber.phone_number, bio: Faker::Lorem.paragraph(2))
 
-james = User.create(username: "James Jamerson", password: "password", email: "james@gmail.com", address_line1: Faker::Address.street_address, address_line2: Faker::Address.secondary_address, city: Faker::Address.city, state: Faker::Address.state_abbr, zip: Faker::Address.zip, phone: Faker::PhoneNumber.phone_number, bio: Faker::Lorem.paragraph(2))
+james = User.create(username: "James Jamerson", password: "password", email: "james@gmail.com", address_line1: "173 E 109th St", city: "New York", state: "NY", zip: 10029, phone: Faker::PhoneNumber.phone_number, bio: Faker::Lorem.paragraph(2))
 
-les = User.create(username: "Les Claypool", password: "password", email: "les@gmail.com", address_line1: Faker::Address.street_address, address_line2: Faker::Address.secondary_address, city: Faker::Address.city, state: Faker::Address.state_abbr, zip: Faker::Address.zip, phone: Faker::PhoneNumber.phone_number, bio: Faker::Lorem.paragraph(2))
+les = User.create(username: "Les Claypool", password: "password", email: "les@gmail.com", address_line1: "156 W 86th St", city: "New York", state: "NY", zip: 10024, phone: Faker::PhoneNumber.phone_number, bio: Faker::Lorem.paragraph(2))
 
-bootsy = User.create(username: "Bootsy Collins", password: "password", email: "bootsy@gmail.com", address_line1: Faker::Address.street_address, address_line2: Faker::Address.secondary_address, city: Faker::Address.city, state: Faker::Address.state_abbr, zip: Faker::Address.zip, phone: Faker::PhoneNumber.phone_number, bio: Faker::Lorem.paragraph(2))
+bootsy = User.create(username: "Bootsy Collins", password: "password", email: "bootsy@gmail.com", address_line1: "225 E 73rd St", city: "New York", state: "NY", zip: 10021, phone: Faker::PhoneNumber.phone_number, bio: Faker::Lorem.paragraph(2))
 
-mike = User.create(username: "Mike Gordon", password: "password", email: "mike@gmail.com", address_line1: Faker::Address.street_address, address_line2: Faker::Address.secondary_address, city: Faker::Address.city, state: Faker::Address.state_abbr, zip: Faker::Address.zip, phone: Faker::PhoneNumber.phone_number, bio: Faker::Lorem.paragraph(2))
+mike = User.create(username: "Mike Gordon", password: "password", email: "mike@gmail.com", address_line1: "425 Main St", city: "New York", state: "NY", zip: 10044, phone: Faker::PhoneNumber.phone_number, bio: Faker::Lorem.paragraph(2))
 
-ringo = User.create(username: "Ringo Starr", password: "password", email: "ringo@gmail.com", address_line1: Faker::Address.street_address, address_line2: Faker::Address.secondary_address, city: Faker::Address.city, state: Faker::Address.state_abbr, zip: Faker::Address.zip, phone: Faker::PhoneNumber.phone_number, bio: Faker::Lorem.paragraph(2))
+ringo = User.create(username: "Ringo Starr", password: "password", email: "ringo@gmail.com", address_line1: Faker::Address.street_address, address_line2: Faker::Address.secondary_address, city: "New York", state: "NY", zip: Faker::Address.zip, phone: Faker::PhoneNumber.phone_number, bio: Faker::Lorem.paragraph(2))
 
-travis = User.create(username: "Travis Barker", password: "password", email: "travis@gmail.com", address_line1: Faker::Address.street_address, address_line2: Faker::Address.secondary_address, city: Faker::Address.city, state: Faker::Address.state_abbr, zip: Faker::Address.zip, phone: Faker::PhoneNumber.phone_number, bio: Faker::Lorem.paragraph(2))
+travis = User.create(username: "Travis Barker", password: "password", email: "travis@gmail.com", address_line1: Faker::Address.street_address, address_line2: Faker::Address.secondary_address, city: "New York", state: "NY", zip: Faker::Address.zip, phone: Faker::PhoneNumber.phone_number, bio: Faker::Lorem.paragraph(2))
 
-dave = User.create(username: "Dave Grohl", password: "password", email: "dave@gmail.com", address_line1: Faker::Address.street_address, address_line2: Faker::Address.secondary_address, city: Faker::Address.city, state: Faker::Address.state_abbr, zip: Faker::Address.zip, phone: Faker::PhoneNumber.phone_number, bio: Faker::Lorem.paragraph(2))
+dave = User.create(username: "Dave Grohl", password: "password", email: "dave@gmail.com", address_line1: Faker::Address.street_address, address_line2: Faker::Address.secondary_address, city: "New York", state: "NY", zip: Faker::Address.zip, phone: Faker::PhoneNumber.phone_number, bio: Faker::Lorem.paragraph(2))
 
-lars = User.create(username: "Lars Ulrich", password: "password", email: "lars@gmail.com", address_line1: Faker::Address.street_address, address_line2: Faker::Address.secondary_address, city: Faker::Address.city, state: Faker::Address.state_abbr, zip: Faker::Address.zip, phone: Faker::PhoneNumber.phone_number, bio: Faker::Lorem.paragraph(2))
+lars = User.create(username: "Lars Ulrich", password: "password", email: "lars@gmail.com", address_line1: Faker::Address.street_address, address_line2: Faker::Address.secondary_address, city: "New York", state: "NY", zip: Faker::Address.zip, phone: Faker::PhoneNumber.phone_number, bio: Faker::Lorem.paragraph(2))
 
-jon = User.create(username: "Jon Fishman", password: "password", email: "jon@gmail.com", address_line1: Faker::Address.street_address, address_line2: Faker::Address.secondary_address, city: Faker::Address.city, state: Faker::Address.state_abbr, zip: Faker::Address.zip, phone: Faker::PhoneNumber.phone_number, bio: Faker::Lorem.paragraph(2))
+jon = User.create(username: "Jon Fishman", password: "password", email: "jon@gmail.com", address_line1: Faker::Address.street_address, address_line2: Faker::Address.secondary_address, city: "New York", state: "NY", zip: Faker::Address.zip, phone: Faker::PhoneNumber.phone_number, bio: Faker::Lorem.paragraph(2))
 
-tommy = User.create(username: "Tommy Lee", password: "password", email: "tommy@gmail.com", address_line1: Faker::Address.street_address, address_line2: Faker::Address.secondary_address, city: Faker::Address.city, state: Faker::Address.state_abbr, zip: Faker::Address.zip, phone: Faker::PhoneNumber.phone_number, bio: Faker::Lorem.paragraph(2))
+tommy = User.create(username: "Tommy Lee", password: "password", email: "tommy@gmail.com", address_line1: "2412 Mermaid Ave", city: "Brooklyn", state: "NY", zip: 11224, phone: Faker::PhoneNumber.phone_number, bio: Faker::Lorem.paragraph(2))
 
-chick = User.create(username: "Chick Corea", password: "password", email: "chick@gmail.com", address_line1: Faker::Address.street_address, address_line2: Faker::Address.secondary_address, city: Faker::Address.city, state: Faker::Address.state_abbr, zip: Faker::Address.zip, phone: Faker::PhoneNumber.phone_number, bio: Faker::Lorem.paragraph(2))
+chick = User.create(username: "Chick Corea", password: "password", email: "chick@gmail.com", address_line1: Faker::Address.street_address, address_line2: Faker::Address.secondary_address, city: "New York", state: "NY", zip: Faker::Address.zip, phone: Faker::PhoneNumber.phone_number, bio: Faker::Lorem.paragraph(2))
 
-page = User.create(username: "Page McConnell", password: "password", email: "page@gmail.com", address_line1: Faker::Address.street_address, address_line2: Faker::Address.secondary_address, city: Faker::Address.city, state: Faker::Address.state_abbr, zip: Faker::Address.zip, phone: Faker::PhoneNumber.phone_number, bio: Faker::Lorem.paragraph(2))
+page = User.create(username: "Page McConnell", password: "password", email: "page@gmail.com", address_line1: Faker::Address.street_address, address_line2: Faker::Address.secondary_address, city: "New York", state: "NY", zip: Faker::Address.zip, phone: Faker::PhoneNumber.phone_number, bio: Faker::Lorem.paragraph(2))
 
-freddie = User.create(username: "Freddie Mercury", password: "password", email: "freddie@gmail.com", address_line1: Faker::Address.street_address, address_line2: Faker::Address.secondary_address, city: Faker::Address.city, state: Faker::Address.state_abbr, zip: Faker::Address.zip, phone: Faker::PhoneNumber.phone_number, bio: Faker::Lorem.paragraph(2))
+freddie = User.create(username: "Freddie Mercury", password: "password", email: "freddie@gmail.com", address_line1: Faker::Address.street_address, address_line2: Faker::Address.secondary_address, city: "New York", state: "NY", zip: Faker::Address.zip, phone: Faker::PhoneNumber.phone_number, bio: Faker::Lorem.paragraph(2))
 
-bob = User.create(username: "Bob Marley", password: "password", email: "bob@gmail.com", address_line1: Faker::Address.street_address, address_line2: Faker::Address.secondary_address, city: Faker::Address.city, state: Faker::Address.state_abbr, zip: Faker::Address.zip, phone: Faker::PhoneNumber.phone_number, bio: Faker::Lorem.paragraph(2))
+bob = User.create(username: "Bob Marley", password: "password", email: "bob@gmail.com", address_line1: Faker::Address.street_address, address_line2: Faker::Address.secondary_address, city: "New York", state: "NY", zip: Faker::Address.zip, phone: Faker::PhoneNumber.phone_number, bio: Faker::Lorem.paragraph(2))
 
-michael = User.create(username: "Michael Jackson", password: "password", email: "michael@gmail.com", address_line1: Faker::Address.street_address, address_line2: Faker::Address.secondary_address, city: Faker::Address.city, state: Faker::Address.state_abbr, zip: Faker::Address.zip, phone: Faker::PhoneNumber.phone_number, bio: Faker::Lorem.paragraph(2))
+michael = User.create(username: "Michael Jackson", password: "password", email: "michael@gmail.com", address_line1: Faker::Address.street_address, address_line2: Faker::Address.secondary_address, city: "New York", state: "NY", zip: Faker::Address.zip, phone: Faker::PhoneNumber.phone_number, bio: Faker::Lorem.paragraph(2))
 
 rock = Genre.create(name: "Rock")
 blues = Genre.create(name: "Blues")
@@ -136,6 +136,15 @@ whiteboard_nudists = Band.create(name: "Whiteboard Nudist", bio: Faker::Lorem.pa
 somewhat_ruby = Band.create(name: "Somewhat Ruby And The Limpy Shank", bio: Faker::Lorem.paragraph(1), admin_id: dom.id)
 libido_debugger = Band.create(name: "Libido Debugger", bio: Faker::Lorem.paragraph(1), admin_id: mae.id)
 phish = Band.create(name: "Phish", bio: "Phish is an American rock and roll band noted for their musical improvisation, extended jams, blending of musical genres, and dedicated fan base. Formed at the University of Vermont in 1983 (with the current line-up solidifying in 1985), the band's four members are —Trey Anastasio (guitars, lead vocals), Mike Gordon (bass, vocals), Jon Fishman (drums, percussion, vacuum, vocals), and Page McConnell (keyboards, vocals)\n Phish's music blends elements of a wide variety of genres, including funk, progressive rock, psychedelic rock, folk, country, jazz, blues, bluegrass and pop. Although the band has received little radio play or mainstream exposure, Phish has developed a large and dedicated following by word of mouth, the exchange of live recordings, and selling over 8 million albums and DVDs in the United States.", admin_id: andre.id)
+
+
+phish_video1 = phish.media_resources.create(media_type: "youtube", content: "video", link: "https://youtu.be/oFFIcpwNhNA")
+phish_video2 = phish.media_resources.create(media_type: "youtube", content: "video", link: "https://youtu.be/j_r0btgnmFQ")
+phish_image1 = phish.media_resources.create(media_type: "image", content: "image", link: "http://3.bp.blogspot.com/-NoxSIVVUGl4/U81V43H_OEI/AAAAAAAARRo/gAwp_fnnfEU/s1600/Phish+1.jpg")
+phish_image2 = phish.media_resources.create(media_type: "image", content: "image", link: "http://thekey.xpn.org/aatk/files/2014/03/PhishSummer2012PressHI.jpg")
+phish_soundcloud1 = phish.media_resources.create(media_type: "soundcloud", content: "music", link: "https://soundcloud.com/officialphish/maze-amsterdam-box-set-7297-paradiso")
+phish_soundcloud2 = phish.media_resources.create(media_type: "soundcloud", content: "music", link: "https://soundcloud.com/officialphish/sets/amsterdam-february-17-july-1-2")
+
 
 genres = %w(rock rap jazz folk metal blues trap bluegrass country electronic hip-hop classical indie latin pop r&b reggae grunge punk new-age)
 genres.map!{|e| e.capitalize }
