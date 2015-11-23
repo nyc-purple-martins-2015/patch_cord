@@ -1,11 +1,8 @@
 <div class="container">
   <%= form_for @band do |f| %>
-    <%= f.label :name %>:<br>
-    <%= f.text_field :name %><br>
+    <div><%= f.text_field :name, size: "61", placeholder: "What the name of your band?" %></div>
 
-    <%= f.label :bio %>:<br>
-    <%= f.text_field :bio %><br>
-    <br>
-    <%= f.submit "Create" %>
+    <div><%= f.text_area :bio, size: "60x5", maxlength: 350, placeholder: "Please Tell Us About your Band! Limit 350 characters" %></div>
+    <div><%= f.submit "Create" %></div>
   <% end %>
 </div>

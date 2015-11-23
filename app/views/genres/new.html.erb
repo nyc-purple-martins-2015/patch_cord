@@ -1,8 +1,6 @@
 <div class="container">
   <%= form_for @genre do |f| %>
-    <%= f.label :genre %>:
-    <%= f.text_field :name %><br>
-
-    <%= f.submit %>
+    <div><%= f.text_field :name, placeholder: "Type Genre Name Here:", size: 30 %></div>
+    <div><%= f.submit %></div>
   <% end %>
 </div>
