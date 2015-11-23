@@ -1,31 +1,46 @@
 <div class="inner-container">
-  <div class="profile-photo"></div>
-  <div class="inner-container">
-    <h3>Instruments</h3>
-    <% current_user.instruments.each do |instrument| %>
-      <div class="inner-container"><%= instrument.name %></div>
-    <% end %>
-  </div>
+ <div class="profile-photo"></div>
+ <div class="inner-container">
 
-  <div class="inner-container">
-    <h3>Genres</h3>
-    <% current_user.genres.each do |genre| %>
-      <div class="inner-container"><%= genre.name %></div>
-    <% end %>
-  </div>
+   <h3>Instruments</h3>
+   <% current_user.instruments.each do |instrument| %>
+   <% @user.instruments.each do |instrument| %>
+   <div class="inner-container"><%= instrument.name %></div>
+   <% end %>
+ </div>
+ 
+ <div class="inner-container">
+   <h3>Genres</h3>
+   <% current_user.genres.each do |genre| %>
+   <% @user.genres.each do |genre| %>
+   <div class="inner-container"><%= genre.name %></div>
+   <% end %>
+ </div>
+ 
+ <div class="inner-container">
+   <h3>Bands</h3>
+   <% current_user.bands.each do |band| %>
+   <% @user.bands.each do |band| %>
+   <div class="inner-container"><%= band.name %></div>
+   <% end %>
+ </div>
+ 
+ <div class="inner-container">
+   <h3>BIO</h3>
+   <p><%= current_user.bio %></p>
+   <p><%= @user.bio %></p>
+ </div>
 
-  <div class="inner-container">
-    <h3>Bands</h3>
-    <% current_user.bands.each do |band| %>
-      <div class="inner-container"><%= band.name %></div>
-    <% end %>
-  </div>
-
-  <div class="inner-container">
-    <h3>BIO</h3>
-    <p><%= current_user.bio %></p>
-  </div>
+ <div class="buttons">
+  <%= button_to "See my Work", root_path, method: :get, class: "button" %>
+</div>
 
 <div class="buttons">
   <%= button_to "See my Work", root_path, method: :get, class: "button" %>
+  <% if current_user.id == @user.id %>
+  <div class="buttons">
+    <%= button_to "Edit Profile", edit_user_path(current_user), method: :get, class: "button" %>
+    <%= button_to "Delete Profile", root_path, method: :delete, class: "button" %>
+  </div>
+  <% end %>
 </div>
