@@ -16,13 +16,18 @@
 
   <h4>Please enter instruments separated by a comma.</h4>
   <p><%= f.label :instruments %></p>
-  <p><%= f.text_field :instruments, :value => "" %></p>
+  <p><%= f.text_field :instruments, :value =>"" %></p>
 
   <p><%= f.label :genres %></p>
     <% @genres.each do |genre| %>
         <p>
+          <% if @user.genres.pluck(:name).include?(genre) %>
+          <%= check_box_tag 'genre_types[]', genre, true %>
+          <%= genre %>
+          <% else %>
           <%= check_box_tag 'genre_types[]', genre %>
           <%= genre %>
+          <% end %>
         </p>
     <% end %>
 
