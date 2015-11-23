@@ -5,12 +5,23 @@ class UsersController < ApplicationController
 	end
 
 	def new
+		@user = User.new
 	end
 
 	def create
-	end
-
-	def create
+		auth = request.env['omniauth.auth']
+    @user = User.validate_via_provider(auth)
+    @genres = Genre.pluck(:name)
+    if @user
+      session[:user_id] = @user.id
+      if @user.has_instruments?
+      	redirect_to user_path(@user)
+      else
+      	render :new
+      end
+    else
+      redirect_to root_path
+    end
 	end
 
 	def show
@@ -51,7 +62,7 @@ class UsersController < ApplicationController
 				render :edit
 			end
 		end
-	
+
 
 	def destroy
 		@user.destroy
