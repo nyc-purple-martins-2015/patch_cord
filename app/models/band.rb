@@ -9,4 +9,8 @@ class Band < ActiveRecord::Base
   #TODO Check this association, do we need to create a many-many relationship between bands and instruments?
 
   validates :name, :admin_id, presence: true
+
+  def has_media_resources?
+    self.media_resources.any?
+  end
 end
