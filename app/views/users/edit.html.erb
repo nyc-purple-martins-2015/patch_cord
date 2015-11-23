@@ -18,7 +18,7 @@
   <% @user.instruments.each do |instrument| %>
     <p>
       <%= instrument.name.capitalize %>
-      <%= link_to "Delete",  instrument_path, method: :delete %>
+      <%= link_to "Delete",  user_path(@user), method: :delete %>
     </p>
   <% end %>
   <p><%= f.label "Enter new instruments separated by a comma." %>:</p>
