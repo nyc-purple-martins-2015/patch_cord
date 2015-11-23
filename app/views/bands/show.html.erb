@@ -8,9 +8,10 @@
     <h3>Instruments</h3>
     <div class="inner-container">
       <% @band.users.each do |user| %>
+        <%= user.username %>:
         <% user.instruments.each do |instrument| %>
          <div class="tag"><%= instrument.name %></div>
-      <% end %>
+        <% end %><br>
       <% end %>
     </div>
   </div>
