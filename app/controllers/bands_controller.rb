@@ -4,10 +4,6 @@ class BandsController < ApplicationController
     @bands = Band.all
   end
 
-  def show
-    @band = Band.find(params[:id])
-  end
-
   def new
     @band = Band.new
   end
@@ -22,11 +18,10 @@ class BandsController < ApplicationController
     end
   end
 
-  def edit
-   @band = Band.find(params[:id])
-   @genres = Genre.pluck(:name)
+  def show
+    @band = Band.find(params[:id])
   end
- 
+
   def update
    @band = Band.find(params[:id])
    if @band
@@ -63,21 +58,28 @@ class BandsController < ApplicationController
  end
 end
 
-def destroy
- if @band.destroy
-   redirect_to root_path
- else
-   @errors = @band.errors.full_messages
+
+def edit
+ @band = Band.find(params[:id])
+ @genres = Genre.pluck(:name)
+end 
+
+ def destroy
+   if @band.destroy
+     redirect_to root_path
+   else
+     @errors = @band.errors.full_messages
+   end
  end
-end
-def search
+
+ def search
   genre_ids = params["Genre"].map {|e| e[0].to_i}
   genres = Genre.find(genre_ids)
   genres_with_bands = genres.select {|genre| !genre.bands.empty?}
   bands_from_genre = genres_with_bands.map {|genre| genre.bands}.flatten
   band_ids = bands_from_genre.map {|band| band.id}
   @bands = Band.find(band_ids)
-  render "bands/_bandssorted", layout: false
+  render :"bands/_bands-sorted", layout: false
 end
 
 private

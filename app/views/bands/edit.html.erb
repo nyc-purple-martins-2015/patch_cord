@@ -36,3 +36,7 @@
   <% end %>
 </div>
 
+<% if logged_in? %> 
+<% if current_user.id == @band.admin.id %>
+<% end %>
+<% end %> 

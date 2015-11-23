@@ -3,14 +3,15 @@
 
   <div class="inner-container">
     <h3>Band name:</h3>
-      <div class="inner-container"><%= @band.name %></div>
+    <div class="inner-container"><%= @band.name %></div>
 
     <h3>Instruments</h3>
     <div class="inner-container">
       <% @band.users.each do |user| %>
-        <% user.instruments.each do |instrument| %>
-         <div class="tag"><%= instrument.name %></div>
-      <% end %>
+      <%= user.username %>:
+      <% user.instruments.each do |instrument| %>
+      <div class="tag"><%= instrument.name %></div>
+      <% end %><br>
       <% end %>
     </div>
   </div>
@@ -18,14 +19,14 @@
   <div class="inner-container">
     <h3>Genres</h3>
     <% @band.genres.each do |genre| %>
-      <div class="tag"><%= genre.name %></div>
+    <div class="tag"><%= genre.name %></div>
     <% end %>
   </div>
 
-<div class="inner-container">
+  <div class="inner-container">
     <h3>Members</h3>
     <% @band.users.each do |user| %>
-      <div class="tag"><%= user.username %></div>
+    <div class="tag"><%= user.username %></div>
     <% end %>
   </div>
 
@@ -42,6 +43,13 @@
   </div>
 </div>
 
+<% if logged_in? %> 
+<% if current_user.id == @band.admin.id %>
 <div class="buttons">
-  <%= button_to "See Our Work", root_path, method: :get, class: "button" %>
+  <%= button_to "Edit Profile", edit_band_path(@band), method: :get, class: "button" %>
+  <%= button_to "Delete Profile", method: :delete, class: "button" %>
+</div>
+<% end %>
+<% end %> 
+<%= button_to "See Our Work", root_path, method: :get, class: "button" %>
 </div>

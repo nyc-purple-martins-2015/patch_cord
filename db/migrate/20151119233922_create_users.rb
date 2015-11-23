@@ -4,6 +4,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :username, null: false
       t.string :email
       t.string :password_digest, null: false
+      # latitude, longitude
       t.string :address_line1
       t.string :address_line2
       t.string :city
