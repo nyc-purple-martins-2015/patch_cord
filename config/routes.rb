@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root 'welcome#index'
+  get '/welcome/edit', :to => 'welcome#edit'
   post '/search', :to => 'welcome#search'
 
   get 'register', :to => 'users#new', as: :register
