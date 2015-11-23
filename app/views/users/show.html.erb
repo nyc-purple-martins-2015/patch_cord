@@ -7,6 +7,7 @@
    <% @user.instruments.each do |instrument| %>
    <div class="inner-container"><%= instrument.name %></div>
    <% end %>
+  <% end %>
  </div>
  
  <div class="inner-container">
@@ -15,6 +16,7 @@
    <% @user.genres.each do |genre| %>
    <div class="inner-container"><%= genre.name %></div>
    <% end %>
+    <% end %>
  </div>
  
  <div class="inner-container">
@@ -23,6 +25,7 @@
    <% @user.bands.each do |band| %>
    <div class="inner-container"><%= band.name %></div>
    <% end %>
+    <% end %>
  </div>
  
  <div class="inner-container">
@@ -42,5 +45,5 @@
     <%= button_to "Edit Profile", edit_user_path(current_user), method: :get, class: "button" %>
     <%= button_to "Delete Profile", root_path, method: :delete, class: "button" %>
   </div>
-  <% end %>
+   <% end %>
 </div>
