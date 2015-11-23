@@ -75,8 +75,23 @@
   padding-right: 3em;
 }
 
+#logged-in-btns {
+  margin: 1em;
+}
+
+#logged-out-btns {
+  margin: 1em;
+}
+
+
+
 
 .jumbotron {
   padding-left: 3em;
   padding-right: 3em;
+}
+
+.navbar-brand {
+  /*padding-bottom: 20px;*/
+  margin-bottom: 20px;
 }
