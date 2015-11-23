@@ -1,5 +1,9 @@
 class UsersController < ApplicationController
 
+	def index
+		@users = User.all
+	end
+
 	def new
 	end
 
@@ -43,12 +47,12 @@ class UsersController < ApplicationController
 							@user.instruments << Instrument.find_or_create_by(name: instrument.strip)
 						end
 					end
-				end
-
+				
 				@user.update_attributes(user_params)
 				redirect_to user_path(@user)
 			else
 				render :edit
+			end
 			end
 		end
 
