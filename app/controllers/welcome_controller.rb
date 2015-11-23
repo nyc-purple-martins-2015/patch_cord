@@ -7,6 +7,10 @@ class WelcomeController < ApplicationController
     @genres = Genre.all
   end
 
+def edit
+  @genres = Genre.pluck(:name)
+end
+
   def search
     if params[:group] == 'Musicians'
       @musicians = User.all
