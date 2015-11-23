@@ -6,6 +6,7 @@ class InstrumentsController < ApplicationController
 
 	def create
 		@user = current_user
+    # You use the associations well.  Yay.
 		@instrument = @user.instruments.new(instrument_params)
 		if @instrument.save 
 			redirect_to root_path 

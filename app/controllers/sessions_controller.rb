@@ -3,6 +3,7 @@ class SessionsController < ApplicationController
   def new
   end
 
+  # Huh?
   def create
     auth = request.env['omniauth.auth']
     user = User.find_or_create_by(provider: auth[:provider], uid: auth[:uid])

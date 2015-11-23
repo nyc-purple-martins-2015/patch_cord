@@ -5,6 +5,9 @@ class GenresController < ApplicationController
 
 	def create
 		@user = current_user
+    # This is using Ruby when SQL would be better.
+    # You could use find_by or where to find the count of things that match and
+    # make this decision much faster.
 		@genres = Genre.all
 		if @genres.any? {|genre| genre.name = params[:genre][:name]}
 			redirect_to root_path

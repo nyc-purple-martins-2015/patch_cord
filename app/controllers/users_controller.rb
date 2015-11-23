@@ -8,9 +8,28 @@ class UsersController < ApplicationController
 	end
 
 	def create
-	end
+    auth = request.env['omniauth.auth']
 
-	def create
+    # Inside this, do all of your user setup and configuration
+    user = User.validate_via_provider(auth)
+    # user = User.find_or_create_by(provider: auth[:provider], uid: auth[:uid])
+    # user.username = auth[:info][:name]
+    # if user.new_record?
+    #   user.password = SecureRandom.uuid()
+    #   user.phone = '122345689'
+    #   user.save!
+    # end
+
+    # Implement this as an instance method on User
+    user.associate_with_instruments(params[:instruments])
+
+    # ( see line 14 above)
+    if user && user.has_instruments? # again, another method on User
+      session[:user_id] = user.id
+    else
+      flash[:error] = "Sad face"
+      redirect_to root_path
+    end
 	end
 
 	def show
@@ -23,6 +42,7 @@ class UsersController < ApplicationController
 		@errors = @user.errors.full_messages
 	end
 
+  # This thing again!  Ayayayya.
 	def update
 		@user = User.find(params[:id])
 

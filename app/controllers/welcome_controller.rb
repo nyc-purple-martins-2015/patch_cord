@@ -8,9 +8,11 @@ class WelcomeController < ApplicationController
   end
 
 def edit
+  @user = User.new
   @genres = Genre.pluck(:name)
 end
 
+  # TODO: Surely we can make this tighter.
   def search
     if params[:group] == 'Musicians'
       @musicians = User.all
@@ -30,8 +32,6 @@ end
       @genres = Genre.all
       render "bands/_bands", layout: false
     end
-
-
   end
 
 end

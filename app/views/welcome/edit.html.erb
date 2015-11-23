@@ -1,7 +1,8 @@
 <span>Thanks For Joining PatchCord!</span>
 <span>We Need To Verify Some Of Your Information</span>
 <span>Please Checkout The Form Below</span>
-<%= form_for current_user, url: user_path(current_user), method: :put do |f| %>
+
+<%= form_for @user do |f| %>
 
 <% if @errors %>
     <% @user.errors.full_messages.each do |error| %>

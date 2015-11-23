@@ -3,6 +3,13 @@
 describe BandsController do
 
   let(:band) {FactoryGirl.create(:band)}
+  # We have better methods for this.
+  # See:
+  #
+  # built_users   = build_list(:user, 25)
+  # created_users = create_list(:user, 25)
+  #
+  # https://github.com/thoughtbot/factory_girl/blob/master/GETTING_STARTED.md
   let(:bands) {array = []; 5.times{array << FactoryGirl.create(:band)}; array}
   let(:user) {FactoryGirl.create(:user)}
 
@@ -72,6 +79,8 @@ describe BandsController do
   context "#create" do
 
     it 'creates a band' do
+      # FactoryGirl can save some typing with:
+      # attrs = attributes_for(:band)
       band_params = {band: {name: "Rock Stars", bio: "We're great", admin_id: 1}}
       post :create, band_params
       created_band = Band.find_by(name: "Rock Stars")
