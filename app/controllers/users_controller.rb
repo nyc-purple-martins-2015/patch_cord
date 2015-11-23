@@ -38,13 +38,15 @@ class UsersController < ApplicationController
 		@user = User.find(params[:id])
 
 		if @user.save
+				binding.pry
 			if params.has_key?("genre_types")
+				@user.genres = []
 				@genres = params[:genre_types]
 				@genres.each do |genre|
-					unless @user.genres.map(&:name).include?(genre)
-						@user.genres << Genre.find_or_create_by(name: genre.strip)
-					end
+					@user.genres << Genre.find_or_create_by(name: genre.strip)
 				end
+			else
+				@user.genres.delete_all
 			end
 
 			@instruments = params[:user][:instruments].split(",")
