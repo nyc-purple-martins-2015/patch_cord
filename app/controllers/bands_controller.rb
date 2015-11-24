@@ -9,9 +9,10 @@ class BandsController < ApplicationController
   end
 
   def create
-    @band = current_user.bands.new(band_params)
+    @band = Band.new(band_params)
+    @band.admin = current_user
     if @band.save
-      redirect_to @band
+      redirect_to bands_path()
     else
       status 400
       render :new
@@ -38,7 +39,7 @@ class BandsController < ApplicationController
         @genres = params[:genre_types]
         @genres.each do |genre|
           unless @band.genres.map(&:name).include?(genre)
-            @band.genres << Genre.find_or_create_by(name: genre.strip)
+          @band.genres << Genre.find_or_create_by(name: genre.strip)
           end
         end
       else
@@ -50,16 +51,15 @@ class BandsController < ApplicationController
 
     if new_members.any?
       new_members.each do |member|
-        unless @members.map(&:username).include?(member)
-          @members << User.find_or_create_by(username: member.strip)
+        unless @band.users.map(&:username).include?(member)
+          @band.users << User.find_or_create_by(username: member.strip)
         end
       end
     end
 
-      @band.update_attributes(band_params)
-      redirect_to band_path(@band)
+    @band.update_attributes(band_params)
+    redirect_to band_path(@band)
   end
-
 
 def edit
  @band = Band.find(params[:id])
@@ -69,16 +69,15 @@ end
  def destroy
    @band = Band.find(params[:id])
 
-   if @band
+   if @band && params[:member]
+     UserBand.find_by(user_id: params[:member]).destroy
+     redirect_to band_path(@band)
+   elsif @band
      @band.destroy
      redirect_to root_path
    else
      @errors = @band.errors.full_messages
    end
-
-   # @member = @band.users.find(params[:id])
-   # @member.destroy
-   # redirect_to edit_band_path(@band)
  end
 
  def search
