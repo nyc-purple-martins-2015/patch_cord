@@ -36,18 +36,19 @@
     <h4>Enter their usernames separated by commas!</h4>
     <h4>(You may only add other registered users.)</h4>
 
-<% @band.users.each do |member| %>
-    <p>
-      <%= member.username %>
-      <%= link_to "Delete",  member_path(member: member), method: :delete %>
-    </p>
-  <% end %>
+    <% @band.users.each do |member| %>
+      <p>
+        <%= member.username %>
+        <%= link_to "Delete",  band_path(member: member), method: :delete %>
+      </p>
+    <% end %>
 
-  <h4>Enter their usernames separated by commas!</h4>
-  <h4>(You may only add other registered users.)</h4>
-  <p><%= f.label :members %></p>
-  <p><%= f.text_area :members, :value => "" %></p>
+    <h4>Enter their usernames separated by commas!</h4>
+    <h4>(You may only add other registered users.)</h4>
+    <p><%= f.label :members %></p>
+    <p><%= f.text_area :members, :value => "" %></p>
 
   <%= f.submit "Update my Band", class: "button" %>
-<% end %>
+
+  <% end %>
 </div>

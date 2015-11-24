@@ -14,7 +14,11 @@
     <% @bands.each do |band| %>
     <tr>
       <td align="center" style="height: 30px"><%= band.name %></td>
-      <td align="center"><%= band.genres.first.name %></td>
+      <td align="center">
+        <% band.genres.each do |genre| %>
+           <%= genre.name %>
+        <% end %>
+      </td>
       <td align="center">
       <% band.users.each do |user| %>
       <%= user.username %>,
