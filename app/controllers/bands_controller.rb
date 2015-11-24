@@ -22,11 +22,13 @@ class BandsController < ApplicationController
     @band = Band.find(params[:id])
   end
 
+  def edit
+    @band = Band.find(params[:id])
+    @genres = Genre.pluck(:name)
+  end
+
   def update
    @band = Band.find(params[:id])
-   if @band
-    @band.update_attributes(band_params)
-    @members = @band.users
 
     if @band.save
       new_admin = params[:band][:admin_name]
@@ -39,24 +41,24 @@ class BandsController < ApplicationController
             @band.genres << Genre.find_or_create_by(name: genre.strip)
           end
         end
+      else
+        @band.genres.delete_all
       end
+    end
 
-      new_members = params[:band][:members].split(",")
-      if new_members.any?
-        new_members.each do |member|
-          unless @members.map(&:username).include?(member)
-            @members << User.find_or_create_by(username: member.strip)
-          end
+    new_members = params[:band][:members].split(",")
+
+    if new_members.any?
+      new_members.each do |member|
+        unless @members.map(&:username).include?(member)
+          @members << User.find_or_create_by(username: member.strip)
         end
       end
+    end
 
       @band.update_attributes(band_params)
       redirect_to band_path(@band)
-    else
-     render :edit
-   end
- end
-end
+  end
 
 
 def edit
@@ -65,11 +67,18 @@ def edit
 end
 
  def destroy
-   if @band.destroy
+   @band = Band.find(params[:id])
+
+   if @band
+     @band.destroy
      redirect_to root_path
    else
      @errors = @band.errors.full_messages
    end
+
+   # @member = @band.users.find(params[:id])
+   # @member.destroy
+   # redirect_to edit_band_path(@band)
  end
 
  def search

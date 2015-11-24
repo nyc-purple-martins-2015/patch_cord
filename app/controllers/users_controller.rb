@@ -56,11 +56,11 @@ class UsersController < ApplicationController
 				end
 			end
 
-				@user.update_attributes(user_params)
-				redirect_to user_path(@user)
-			else
-				render :edit
-			end
+			@user.update_attributes(user_params)
+			redirect_to user_path(@user)
+		else
+			render :edit
+		end
 		end
 
 	def destroy
