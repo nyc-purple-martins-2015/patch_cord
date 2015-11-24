@@ -109,6 +109,10 @@ class UsersController < ApplicationController
 
 	end
 
+def addresource
+	render :'_musician-add-media-resources', layout: false
+end
+
 	private
 
 	def user_params
