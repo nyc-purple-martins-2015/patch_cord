@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   get '/welcome/edit', :to => 'welcome#edit'
   post '/search', :to => 'welcome#search'
 
+  get 'addresource', :to => 'users#addresource'
+
   get 'register', :to => 'users#new', as: :register
   get 'logout', :to => 'sessions#destroy', as: :logout
 
