@@ -28,6 +28,14 @@ class UsersController < ApplicationController
 		@user = User.find(params[:id])
 	end
 
+	def email
+		@user = User.find(params[:id])
+		UserMailer.user_email(@user, current_user).deliver
+		flash[:notice] = "Your email has been sent!"
+		redirect_to user_path(@user)
+
+	end
+
 	def edit
 		@user = User.find(params[:id])
 		@genres = Genre.pluck(:name)
@@ -56,8 +64,11 @@ class UsersController < ApplicationController
 				end
 			end
 
-
 				@user.update_attributes(user_params)
+				if @user.email
+					UserMailer.user_email(@user).deliver
+				end
+
 				@user.lat_long
 				redirect_to user_path(@user)
 			else
