@@ -82,6 +82,11 @@ end
   render :"bands/_bands-sorted", layout: false
 end
 
+def mediaresources
+  @band = Band.find(params[:id])
+  render partial:'band_media_resources', locals: {band: @band}
+end
+
 private
 
 def band_params

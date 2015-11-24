@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   resources :bands
   post 'bands/search', :to => 'bands#search'
+  get 'mediaresources/:id', :to => 'bands#mediaresources'
 
   resources :genres, only: [:create, :new, :show, :destroy]
   resources :instruments, only: [:new, :create, :show, :destroy]

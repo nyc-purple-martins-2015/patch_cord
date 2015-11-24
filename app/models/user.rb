@@ -32,6 +32,10 @@ class User < ActiveRecord::Base
     self.instruments.any?
   end
 
+    def has_media_resources?
+    self.media_resources.any?
+  end
+
   private
 
   def parse_address
@@ -51,6 +55,8 @@ class User < ActiveRecord::Base
     self.latitude = lat
     self.longitude = lng
   end
+
+
 
 
 end

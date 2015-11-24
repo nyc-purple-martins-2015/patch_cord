@@ -43,13 +43,18 @@
   </div>
 </div>
 
-<% if logged_in? %> 
+<% if logged_in? %>
 <% if current_user.id == @band.admin.id %>
 <div class="buttons">
   <%= button_to "Edit Profile", edit_band_path(@band), method: :get, class: "button" %>
   <%= button_to "Delete Profile", method: :delete, class: "button" %>
 </div>
 <% end %>
-<% end %> 
-<%= button_to "See Our Work", root_path, method: :get, class: "button" %>
+<% end %>
+
+<% if @band.has_media_resources? %>
+  <%= button_to "See Our Work", root_path, method: :get, class: "button link_media_resources", data: {id: @band.id} %>
+<% end %>
+</div>
+<div class="media-resources">
 </div>
