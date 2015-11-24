@@ -48,14 +48,6 @@
   <p><%= f.label :members %></p>
   <p><%= f.text_area :members, :value => "" %></p>
 
-  <% if current_user.id == @band.admin.id %>
-  <% end %>
-
   <%= f.submit "Update my Band", class: "button" %>
-  <% end %>
+<% end %>
 </div>
-
-<% if logged_in? %>
-<% if current_user.id == @band.admin.id %>
-<% end %>
-<% end %>
