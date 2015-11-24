@@ -49,7 +49,6 @@ $(document).ready(function(){
       });
     });
 
-
     $('.homepage').on("submit", "#musicians-location", function(event){
     event.preventDefault();
     $.ajax({
@@ -62,6 +61,5 @@ $(document).ready(function(){
       $('#musicians-location').replaceWith(response)
       });
     });
-
 
   });

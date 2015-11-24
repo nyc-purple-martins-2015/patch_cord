@@ -16,51 +16,8 @@
       </div>
     </div>
 
-
-<div id="search-results">
-
-<div class="row">
-  <% @musicians.each do |musician| %>
-  <div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYeMmqgj1FO8TbWrQoyo33lLB23fY0xpU6i-yWB4qdjf1mtYTrteryRQ" alt="..." class="pull-left">
-      <div class="caption">
-        <h3 class="text-center"><%= musician.username %></h3>
-        <% if !musician.instruments.empty? %>
-        <p class="text-center"><%= musician.instruments.first.name %></p>
-        <% end %>
-        <% if !musician.genres.empty? %>
-        <p class="text-center"><%= musician.genres.first.name %></p>
-        <% end %>
-        <p class="text-center"><%= musician.city %>, <%= musician.state %></p>
-        <% if logged_in? %>
-        <p class="text-center">Distance from me <%= musician.distance_from(User.find(current_user.id), :units=>:miles).round(2) %></p>
-        <p class="text-right"><a href="/users/<%= musician.id %>" class="btn btn-primary" role="button">Profile</a> </p>
-        <% end %>
-      </div>
-    </div>
   </div>
-  <% end %>
-  <% @bands.each do |band| %>
-  <div class="col-sm-6 col-md-4">
-    <div class="thumbnail">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYeMmqgj1FO8TbWrQoyo33lLB23fY0xpU6i-yWB4qdjf1mtYTrteryRQ" alt="..." class="pull-left">
-      <div class="caption">
-        <h3 class="text-center"><%= band.name %></h3>
-        <% if band.genres.any? %>
-        <p class="text-center"><%= band.genres.first.name %></p>
-        <% end %>
-        <% if logged_in? %>
-        <p class="text-right"><a href="/bands/<%= band.id %>" class="btn btn-primary" role="button">Profile</a> </p>
-        <% end %>
-      </div>
-    </div>
-  </div>
-  <% end %>
-</div>
 
-    </div>
-  </div>
 </div>
 
 
