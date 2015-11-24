@@ -138,8 +138,8 @@ libido_debugger = Band.create(name: "Libido Debugger", bio: Faker::Lorem.paragra
 phish = Band.create(name: "Phish", bio: "Phish is an American rock and roll band noted for their musical improvisation, extended jams, blending of musical genres, and dedicated fan base. Formed at the University of Vermont in 1983 (with the current line-up solidifying in 1985), the band's four members are —Trey Anastasio (guitars, lead vocals), Mike Gordon (bass, vocals), Jon Fishman (drums, percussion, vacuum, vocals), and Page McConnell (keyboards, vocals)\n Phish's music blends elements of a wide variety of genres, including funk, progressive rock, psychedelic rock, folk, country, jazz, blues, bluegrass and pop. Although the band has received little radio play or mainstream exposure, Phish has developed a large and dedicated following by word of mouth, the exchange of live recordings, and selling over 8 million albums and DVDs in the United States.", admin_id: andre.id)
 
 
-phish_video1 = phish.media_resources.create(media_type: "youtube", content: "video", link: "https://youtu.be/oFFIcpwNhNA")
-phish_video2 = phish.media_resources.create(media_type: "youtube", content: "video", link: "https://youtu.be/j_r0btgnmFQ")
+phish_video1 = phish.media_resources.create(media_type: "youtube", content: "video", link: "https://www.youtube.com/watch?v=oFFIcpwNhNA&feature=youtu.be")
+phish_video2 = phish.media_resources.create(media_type: "youtube", content: "video", link: "https://www.youtube.com/watch?v=j_r0btgnmFQ")
 phish_image1 = phish.media_resources.create(media_type: "image", content: "image", link: "http://3.bp.blogspot.com/-NoxSIVVUGl4/U81V43H_OEI/AAAAAAAARRo/gAwp_fnnfEU/s1600/Phish+1.jpg")
 phish_image2 = phish.media_resources.create(media_type: "image", content: "image", link: "http://thekey.xpn.org/aatk/files/2014/03/PhishSummer2012PressHI.jpg")
 phish_soundcloud1 = phish.media_resources.create(media_type: "soundcloud", content: "music", link: "https://soundcloud.com/officialphish/maze-amsterdam-box-set-7297-paradiso")
