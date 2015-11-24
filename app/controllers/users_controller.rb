@@ -56,6 +56,7 @@ class UsersController < ApplicationController
 				end
 			end
 
+
 				@user.update_attributes(user_params)
 				@user.lat_long
 				redirect_to user_path(@user)
@@ -99,11 +100,11 @@ class UsersController < ApplicationController
 		elsif params["Distance"]
 			musicians_ids = params["musicians"].split(" ").map {|e| e.to_i}
 			original_musicians = User.find(musicians_ids)
-			user = current_user
 			user_location = [current_user.latitude, current_user.longitude]
 			distance = params["Distance"][0].to_i
 			all_musicians_near = User.within(distance, :origin => user_location)
 			@musicians = original_musicians & all_musicians_near
+			binding.pry
 			render "users/_musicians-sorted", layout: false
 		end
 

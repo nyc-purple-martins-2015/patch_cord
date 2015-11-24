@@ -49,8 +49,9 @@ class User < ActiveRecord::Base
     res = HTTParty.get("https://maps.googleapis.com/maps/api/geocode/json?address=#{addr}&key=AIzaSyC7dmZEFn1tJOy7zeVH2Hce3tF8U0_MnIg")
     lat =  res["results"][0]["geometry"]["location"]["lat"]
     lng =  res["results"][0]["geometry"]["location"]["lng"]
-    self.latitude = lat
-    self.longitude = lng
+    # self.latitude = lat
+    # self.longitude = lng
+    self.update(latitude: lat, longitude: lng)
   end
 
 
