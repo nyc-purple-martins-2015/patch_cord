@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
   resources :bands
   post 'bands/search', :to => 'bands#search'
+
   resources :mediaresources
   get 'mediaresources/:id', :to => 'bands#mediaresources'
 
