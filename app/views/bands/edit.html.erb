@@ -39,7 +39,7 @@
 <% @band.users.each do |member| %>
     <p>
       <%= member.username %>
-      <%#= link_to "Delete",  member_path(member: member), method: :delete %>
+      <%= link_to "Delete",  member_path(member: member), method: :delete %>
     </p>
   <% end %>
 
