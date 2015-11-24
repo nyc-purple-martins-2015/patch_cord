@@ -94,8 +94,19 @@ class UsersController < ApplicationController
 				@musicians = instruments_with_musicians.map {|instrument| instrument.users}.flatten
 			end
 			@musicians = @original_musicians & @musicians
-			render "users/musicians_sorted", layout: false
+			@musicians_ids = @musicians.map {|musician| musician.id}
+			render "users/_musicians-location", layout: false
+		elsif params["Distance"]
+			musicians_ids = params["musicians"].split(" ").map {|e| e.to_i}
+			original_musicians = User.find(musicians_ids)
+			user = User.find(27)
+			user_location = [user.latitude, user.longitude]
+			distance = params["Distance"][0].to_i
+			all_musicians_near = User.within(distance, :origin => user_location)
+			@musicians = original_musicians & all_musicians_near
+			render "users/_musicians-sorted", layout: false
 		end
+
 	end
 
 	private

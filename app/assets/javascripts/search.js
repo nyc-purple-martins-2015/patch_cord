@@ -7,7 +7,6 @@ $(document).ready(function(){
       data: $(event.target).serialize()
     })
     .done(function(response){
-      console.log(response)
       $('.original-homepage').replaceWith(response)
       });
     });
@@ -20,7 +19,6 @@ $(document).ready(function(){
       data: $(event.target).serialize()
     })
     .done(function(response){
-      console.log(response)
       $('#band-search-genre').replaceWith(response)
       });
     });
@@ -34,7 +32,6 @@ $(document).ready(function(){
     })
 
     .done(function(response){
-      console.log(response)
       $('#musician-search-genre').replaceWith(response)
       });
     });
@@ -48,9 +45,23 @@ $(document).ready(function(){
     })
 
     .done(function(response){
-      console.log(response)
       $('#musicians-instruments-search').replaceWith(response)
       });
     });
+
+
+    $('.homepage').on("submit", "#musicians-location", function(event){
+    event.preventDefault();
+    $.ajax({
+      method: "post",
+      url: "users/search",
+      data: $(event.target).serialize()
+    })
+
+    .done(function(response){
+      $('#musicians-location').replaceWith(response)
+      });
+    });
+
 
   });
