@@ -29,9 +29,8 @@ class UsersController < ApplicationController
 	end
 
 	def email
-		if @user
-			UserMailer.user_email(@user).deliver
-		end
+		@user = User.find(params[:id])
+		UserMailer.user_email(@user).deliver
 	end
 
 	def edit
@@ -62,10 +61,8 @@ class UsersController < ApplicationController
 				end
 			end
 
-
 				@user.update_attributes(user_params)
 				if @user.email
-					puts "Sending email"
 					UserMailer.user_email(@user).deliver
 				end
 
