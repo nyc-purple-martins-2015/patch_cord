@@ -19,9 +19,11 @@
         </p>
         <% end %>
         <% end %>
+        <% if logged_in? %>
         <p class="text-center"><%= musician.city %>, <%= musician.state %> | Miles from me: <%= musician.distance_from(User.find(current_user.id), :units=>:miles).round() %></p>
         <p class="text-right"><a href="/users/<%= musician.id %>" class="btn btn-primary" role="button">Profile</a></p>
-      </div>
+        <% end %>
+        </div>
     </div>
     </div>
   </div>
