@@ -51,8 +51,8 @@ class BandsController < ApplicationController
 
     if new_members.any?
       new_members.each do |member|
-        unless @members.map(&:username).include?(member)
-          @members << User.find_or_create_by(username: member.strip)
+        unless @band.users.map(&:username).include?(member)
+          @band.users << User.find_or_create_by(username: member.strip)
         end
       end
     end
