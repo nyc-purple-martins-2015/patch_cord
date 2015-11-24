@@ -31,7 +31,6 @@ class UsersController < ApplicationController
 	def edit
 		@user = User.find(params[:id])
 		@genres = Genre.pluck(:name)
-		@errors = @user.errors.full_messages
 	end
 
 	def update
@@ -39,12 +38,13 @@ class UsersController < ApplicationController
 
 		if @user.save
 			if params.has_key?("genre_types")
+				@user.genres = []
 				@genres = params[:genre_types]
 				@genres.each do |genre|
-					unless @user.genres.map(&:name).include?(genre)
-						@user.genres << Genre.find_or_create_by(name: genre.strip)
-					end
+					@user.genres << Genre.find_or_create_by(name: genre.strip)
 				end
+			else
+				@user.genres.delete_all
 			end
 
 			@instruments = params[:user][:instruments].split(",")
@@ -56,13 +56,12 @@ class UsersController < ApplicationController
 				end
 			end
 
-				@user.update_attributes(user_params)
-				redirect_to user_path(@user)
-			else
-				render :edit
-			end
+			@user.update_attributes(user_params)
+			redirect_to user_path(@user)
+		else
+			render :edit
 		end
-
+		end
 
 	def destroy
 		@user.destroy
