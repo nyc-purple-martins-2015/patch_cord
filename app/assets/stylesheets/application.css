@@ -60,7 +60,7 @@
   padding-right: 3em;
 }
 
-#musicians-sorted {
+#musicians-location {
   padding-left: 3em;
   padding-right: 3em;
 }
@@ -83,9 +83,6 @@
   margin: 1em;
 }
 
-
-
-
 .jumbotron {
   padding-left: 3em;
   padding-right: 3em;
@@ -94,4 +91,8 @@
 .navbar-brand {
   /*padding-bottom: 20px;*/
   margin-bottom: 20px;
+}
+
+.drop-shadow {
+  box-shadow: 10px 10px 5px #5A5A5A;
 }

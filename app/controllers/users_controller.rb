@@ -104,7 +104,6 @@ class UsersController < ApplicationController
 			distance = params["Distance"][0].to_i
 			all_musicians_near = User.within(distance, :origin => user_location)
 			@musicians = original_musicians & all_musicians_near
-			binding.pry
 			render "users/_musicians-sorted", layout: false
 		end
 
