@@ -1,0 +1,17 @@
+<% band.media_resources.each do |resource| %>
+<% if resource.media_type == "youtube" %>
+<div> <p> <%= resource.content %>:</p>
+  <p><%= resource.link %></p>
+</div>
+<% end %>
+<% if resource.media_type == "soundcloud" %>
+<div> <p><%= resource.content %>:</p>
+  <p><%= resource.link %></p>
+</div>
+<% end %>
+<% if resource.media_type == "image" %>
+<div> <p> <%= resource.content %>:</p>
+  <img src="<%= resource.link %>">
+</div>
+<% end %>
+<% end %>
