@@ -3,16 +3,18 @@ Rails.application.routes.draw do
   get '/welcome/edit', :to => 'welcome#edit'
   post '/search', :to => 'welcome#search'
 
+  get 'addresource', :to => 'mediaresources#addresource'
+
   get 'register', :to => 'users#new', as: :register
   get 'logout', :to => 'sessions#destroy', as: :logout
 
   resources :bands
   post 'bands/search', :to => 'bands#search'
+  resources :mediaresources
   get 'mediaresources/:id', :to => 'bands#mediaresources'
 
   resources :genres, only: [:create, :new, :show, :destroy]
   resources :instruments, only: [:new, :create, :show, :destroy]
-  resources :media_resources
   resources :users
 
   post 'users/search', :to => 'users#search'
