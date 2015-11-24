@@ -33,7 +33,7 @@
         <p class="text-center"><%= musician.genres.first.name %></p>
         <% end %>
         <p class="text-center"><%= musician.city %>, <%= musician.state %></p>
-        <p class="text-center">Distance from me <%= musician.distance_from(User.find(27), :units=>:miles).round(2) %></p>
+        <p class="text-center">Distance from me <%= musician.distance_from(User.find(current_user.id), :units=>:miles).round(2) %></p>
         <p class="text-right"><a href="/users/<%= musician.id %>" class="btn btn-primary" role="button">Profile</a></p>
       </div>
     </div>
