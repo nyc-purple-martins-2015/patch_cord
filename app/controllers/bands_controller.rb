@@ -81,13 +81,25 @@ end
  end
 
  def search
-  genre_ids = params["Genre"].map {|e| e[0].to_i}
-  genres = Genre.find(genre_ids)
-  genres_with_bands = genres.select {|genre| !genre.bands.empty?}
-  bands_from_genre = genres_with_bands.map {|genre| genre.bands}.flatten
-  band_ids = bands_from_genre.map {|band| band.id}
-  @bands = Band.find(band_ids)
-  render :"bands/_bands-sorted", layout: false
+  if params["Genre"]
+    genre_ids = params["Genre"].map {|e| e[0].to_i}
+    genres = Genre.find(genre_ids)
+    genres_with_bands = genres.select {|genre| !genre.bands.empty?}
+    bands_from_genre = genres_with_bands.map {|genre| genre.bands}.flatten
+    band_ids = bands_from_genre.map {|band| band.id}
+    @bands = Band.find(band_ids)
+    @bands_ids = @bands.map {|band| band.id}
+    render :"bands/_bands-location", layout: false
+  elsif params["Distance"]
+    bands_ids = params["bands"].split(" ").map {|e| e.to_i}
+    # binding.pry
+    original_bands = Band.find(bands_ids)
+    user_location = [current_user.latitude, current_user.longitude]
+    distance = params["Distance"][0].to_i
+    all_bands_near = Band.within(distance, :origin => user_location)
+    @bands = original_bands & all_bands_near
+    render :"bands/_bands-sorted", layout: false
+  end
 end
 
 def mediaresources
