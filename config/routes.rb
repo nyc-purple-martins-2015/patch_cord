@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   resources :instruments, only: [:new, :create, :show, :destroy]
   resources :media_resources
   resources :users
+
   post 'users/search', :to => 'users#search'
 
   get '/login', :to => 'sessions#new', as: :login
