@@ -39,7 +39,7 @@ class BandsController < ApplicationController
         @genres = params[:genre_types]
         @genres.each do |genre|
           unless @band.genres.map(&:name).include?(genre)
-            @band.genres << Genre.find_or_create_by(name: genre.strip)
+          @band.genres << Genre.find_or_create_by(name: genre.strip)
           end
         end
       else
@@ -57,10 +57,9 @@ class BandsController < ApplicationController
       end
     end
 
-      @band.update_attributes(band_params)
-      redirect_to band_path(@band)
+    @band.update_attributes(band_params)
+    redirect_to band_path(@band)
   end
-
 
 def edit
  @band = Band.find(params[:id])
