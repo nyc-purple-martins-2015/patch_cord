@@ -56,11 +56,12 @@ class UsersController < ApplicationController
 				end
 			end
 
-			@user.update_attributes(user_params)
-			redirect_to user_path(@user)
-		else
-			render :edit
-		end
+				@user.update_attributes(user_params)
+				@user.lat_long
+				redirect_to user_path(@user)
+			else
+				render :edit
+			end
 		end
 
 	def destroy
@@ -98,9 +99,8 @@ class UsersController < ApplicationController
 		elsif params["Distance"]
 			musicians_ids = params["musicians"].split(" ").map {|e| e.to_i}
 			original_musicians = User.find(musicians_ids)
-			#change this to current user
-			user = User.find(27)
-			user_location = [user.latitude, user.longitude]
+			user = current_user
+			user_location = [current_user.latitude, current_user.longitude]
 			distance = params["Distance"][0].to_i
 			all_musicians_near = User.within(distance, :origin => user_location)
 			@musicians = original_musicians & all_musicians_near

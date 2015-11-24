@@ -3,9 +3,6 @@ class User < ActiveRecord::Base
   acts_as_mappable :lat_column_name => :latitude,
                    :lng_column_name => :longitude
 
-
-  before_save :lat_long
-
   validates :username, presence: true
 
   has_many :user_genres
@@ -32,11 +29,11 @@ class User < ActiveRecord::Base
     self.instruments.any?
   end
 
-    def has_media_resources?
+
+  def has_media_resources?
     self.media_resources.any?
   end
 
-  private
 
   def parse_address
     address1 = self.address_line1
