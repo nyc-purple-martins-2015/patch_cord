@@ -99,6 +99,7 @@ class UsersController < ApplicationController
 		elsif params["Distance"]
 			musicians_ids = params["musicians"].split(" ").map {|e| e.to_i}
 			original_musicians = User.find(musicians_ids)
+			#change this to current user
 			user = User.find(27)
 			user_location = [user.latitude, user.longitude]
 			distance = params["Distance"][0].to_i
