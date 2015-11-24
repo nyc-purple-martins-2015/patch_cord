@@ -23,6 +23,18 @@ $(document).ready(function(){
       });
     });
 
+    $('.homepage').on("submit", "#bands-location", function(event){
+    event.preventDefault();
+    $.ajax({
+      method: "post",
+      url: "bands/search",
+      data: $(event.target).serialize()
+    })
+    .done(function(response){
+      $('#bands-location').replaceWith(response)
+      });
+    });
+
    $('.homepage').on("submit", "#musician-search-genre", function(event){
     event.preventDefault();
     $.ajax({

@@ -21,6 +21,7 @@ class Band < ActiveRecord::Base
 
   def set_lat_long
     admin = User.find(self.admin_id)
-    self.update(latitude: admin.latitude, longitude: admin.longitude)
+    self.latitude = admin.latitude
+    self.longitude = admin.longitude
   end
 end

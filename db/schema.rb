@@ -27,6 +27,8 @@ ActiveRecord::Schema.define(version: 20151122010014) do
     t.string   "name",       null: false
     t.text     "bio"
     t.integer  "admin_id",   null: false
+    t.decimal  "latitude"
+    t.decimal  "longitude"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

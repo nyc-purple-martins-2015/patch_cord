@@ -89,15 +89,16 @@ end
     band_ids = bands_from_genre.map {|band| band.id}
     @bands = Band.find(band_ids)
     @bands_ids = @bands.map {|band| band.id}
-    render :"bands/_bands-sorted", layout: false
+    render :"bands/_bands-location", layout: false
   elsif params["Distance"]
     bands_ids = params["bands"].split(" ").map {|e| e.to_i}
-    original_bands = Band.find(band_ids)
+    # binding.pry
+    original_bands = Band.find(bands_ids)
     user_location = [current_user.latitude, current_user.longitude]
     distance = params["Distance"][0].to_i
     all_bands_near = Band.within(distance, :origin => user_location)
     @bands = original_bands & all_bands_near
-    render "bands/_bands-sorted", layout: false
+    render :"bands/_bands-sorted", layout: false
   end
 end
 
