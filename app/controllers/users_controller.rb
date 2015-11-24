@@ -31,6 +31,9 @@ class UsersController < ApplicationController
 	def email
 		@user = User.find(params[:id])
 		UserMailer.user_email(@user).deliver
+		flash[:notice] = "Your email has been sent!"
+		redirect_to user_path(@user)
+
 	end
 
 	def edit

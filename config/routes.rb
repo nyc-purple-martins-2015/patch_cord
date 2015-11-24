@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   resources :users
 
   post 'users/search', :to => 'users#search'
-  get 'users/:id/email', :to => 'users#email'
+  post 'users/:id/email', :to => 'users#email', as: :email_user
 
   get '/login', :to => 'sessions#new', as: :login
   get 'auth/:provider', :to => 'sessions#new', as: :oauth_login
