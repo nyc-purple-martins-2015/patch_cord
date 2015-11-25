@@ -6,18 +6,39 @@ class BandsController < ApplicationController
 
   def new
     @band = Band.new
+    @genres = Genre.pluck(:name)
   end
 
   def create
     @band = Band.new(band_params)
-    @band.admin = current_user
+    @genres = Genre.pluck(:name)
+    new_members = params[:band][:members].split(",")
+
+    admin = params[:band][:admin]
+    admin_id = User.find_by(username: admin).id
+
+    @band.update_attributes(admin_id: admin_id)
+    # binding.pry
+
+    if params.has_key?("genre_types")
+      @band_genres = params[:genre_types]
+      @band_genres.each { |genre| @band.genres << Genre.find_by(name: genre.strip) }
+    end
+
+    if new_members.any?
+      new_members.each { |member| @band.users << User.find_by(username: member.strip) }
+    end
+
+    @band.update_attributes(band_params)
+
     if @band.save
-      redirect_to bands_path()
+      redirect_to bands_path
     else
-      status 400
+      @errors = @band.errors.full_messages
       render :new
     end
   end
+
 
   def show
     @band = Band.find(params[:id])
@@ -92,7 +113,6 @@ end
     render :"bands/_bands-location", layout: false
   elsif params["Distance"]
     bands_ids = params["bands"].split(" ").map {|e| e.to_i}
-    # binding.pry
     original_bands = Band.find(bands_ids)
     user_location = [current_user.latitude, current_user.longitude]
     distance = params["Distance"][0].to_i
@@ -109,7 +129,7 @@ end
 
 private
 
-def band_params
-  band_params = params.require(:band).permit(:name, :bio, :admin_id)
-end
+  def band_params
+    band_params = params.require(:band).permit(:name, :bio)
+  end
 end

@@ -1,11 +1,29 @@
 <div class="container">
-  <%= form_for @band do |f| %>
-    <%= f.label :name %>:<br>
+<%= form_for @band do |f| %>
+
+    <%= f.label :name, "Band Name:" %><br>
     <%= f.text_field :name %><br>
 
-    <%= f.label :bio %>:<br>
-    <%= f.text_field :bio %><br>
-    <br>
-    <%= f.submit "Create" %>
-  <% end %>
+    <%= f.label :bio, "Band Bio:" %><br>
+    <p>Enter your band's story below. (Limit of 350 characters.)</p>
+    <%= f.text_area :bio %><br>
+
+    <%= f.label :admin, "Band Manager/Admin" %>:<br>
+    <p>Please enter your username or the username of another registered user.</p>
+    <%= f.text_field :admin %><br>
+
+    <p><%= f.label :genres %></p>
+        <% @genres.each do |genre| %>
+        <p>
+          <%= check_box_tag 'genre_types[]', genre %>
+          <%= genre %>
+        </p>
+      <% end %>
+
+    <%= f.label :members, "Band members:" %><br>
+    <p>Add other registered users' usernames as members below separated by commas.</p>
+    <p><%= f.text_area :members, :value => "" %></p>
+
+    <%= f.submit "Create my Band", class: "button"%>
+<% end %>
 </div>
