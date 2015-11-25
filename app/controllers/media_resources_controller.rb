@@ -36,7 +36,6 @@ class MediaResourcesController < ApplicationController
     if params["band_id"]
       @media_resource = MediaResource.find(params[:id])
       @media_resource.destroy
-      binding.pry
       redirect_to band_path(params[:band_id])
     else
       @media_resource = MediaResource.find(params[:id])
