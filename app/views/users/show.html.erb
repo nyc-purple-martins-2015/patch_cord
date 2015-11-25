@@ -4,21 +4,21 @@
 
     <h3>Instruments</h3>
     <% @user.instruments.each do |instrument| %>
-      <div class="inner-container"><%= instrument.name %></div>
+    <div class="inner-container"><%= instrument.name %></div>
     <% end %>
   </div>
 
   <div class="inner-container">
     <h3>Genres</h3>
     <% @user.genres.each do |genre| %>
-      <div class="inner-container"><%= genre.name %></div>
+    <div class="inner-container"><%= genre.name %></div>
     <% end %>
   </div>
 
   <div class="inner-container">
     <h3>Bands</h3>
     <% @user.bands.each do |band| %>
-      <div class="inner-container"><%= band.name %></div>
+    <div class="inner-container"><%= band.name %></div>
     <% end %>
   </div>
 
@@ -27,17 +27,38 @@
     <p><%= @user.bio %></p>
   </div>
 
-  <div class="buttons">
-    <%= button_to "See my Work", root_path, method: :get, class: "button" %>
-  </div>
-
   <% if logged_in? %>
-    <% if current_user.id == @user.id %>
-      <div class="buttons">
-        <%= button_to "Edit Profile", edit_user_path(current_user), method: :get, class: "button" %>
-        <%= button_to "Delete Profile", root_path, :confirm => 'Are you sure?',method: :delete, class: "button" %>
-        <%= button_to "Send Email", email_user_path(@user), class: "button" %>
-      </div>
-    <% end %>
+  <% if current_user.id == @user.id %>
+  <div class="buttons">
+    <%= button_to "Edit Profile", edit_user_path(current_user), method: :get, class: "button" %>
+    <%= button_to "Delete Profile", root_path, :confirm => 'Are you sure?',method: :delete, class: "button" %>
+    <%= button_to "Send Email", email_user_path(@user), class: "button" %>
+    <%= button_to "Add Media Resource", new_media_resource_path, method: "get", class: "button" %>
+  </div>
   <% end %>
+  <% end %>
+
+  <% if @user.has_media_resources? %>
+  <%= button_to "See Our Work", root_path, method: :get, class: "button link_media_resources", data: {id: @user.id} %>
+  <div class="media-resources">
+    <% @user.media_resources.each do |resource| %>
+    <% if resource.media_type == "youtube" %>
+    <div> <p> <%= resource.content %>:</p>
+      <iframe width="420", height="315", src="<%= youtube_embed_link resource %>" , frameborder="0", allowfullscreen></iframe>
+    </div>
+    <% end %>
+    <% if resource.media_type == "soundcloud" %>
+    <div> <p><%= resource.content %>:</p>
+      <p><%= link_to 'track', resource.link %></p>
+    </div>
+    <% end %>
+    <% if resource.media_type == "image" %>
+    <div> <p> <%= resource.content %>:</p>
+      <img src="<%= resource.link %>">
+    </div>
+    <% end %>
+    <% end %>
+  </div>
+  <% end %>
+
 </div>
