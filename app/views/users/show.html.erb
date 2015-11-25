@@ -28,11 +28,12 @@
   </div>
 
   <% if logged_in? %>
+   <%= button_to "Send Email", email_user_path(@user), class: "button" %>
+
   <% if current_user.id == @user.id %>
   <div class="buttons">
     <%= button_to "Edit Profile", edit_user_path(current_user), method: :get, class: "button" %>
     <%= button_to "Delete Profile", user_path, :confirm => 'Are you sure?',method: :delete, class: "button" %>
-    <%= button_to "Send Email", email_user_path(@user), class: "button" %>
 
     <%= form_tag new_media_resource_path, method: "get" do %>
       <%= hidden_field_tag :user_id, @user.id %>

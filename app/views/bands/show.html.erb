@@ -47,7 +47,7 @@
 <% if true || current_user.id == @band.admin.id %>
 <div class="buttons">
   <%= button_to "Edit Profile", edit_band_path(@band), method: :get, class: "button" %>
-  <%= button_to "Delete Profile", method: :delete, class: "button" %>
+  <%= button_to "Delete Profile", band_path(@band), method: :delete, class: "button" %>
   <%= form_tag new_media_resource_path, method: "get" do %>
   <%= hidden_field_tag :band_id, @band.id %>
   <%= submit_tag("Add Media Resource", class: "button") %>
