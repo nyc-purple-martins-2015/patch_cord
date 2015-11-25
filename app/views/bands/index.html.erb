@@ -20,9 +20,9 @@
         <% end %>
       </td>
       <td align="center">
-      <% band.users.each do |user| %>
-      <%= user.username %>,
-      <% end %>
+        <% band.users.each do |user| %>
+          <p><%= user.username %></p>
+        <% end %>
       </td>
       <td><%= band.bio %></td>
     </tr>
