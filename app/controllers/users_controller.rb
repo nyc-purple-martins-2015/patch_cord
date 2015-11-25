@@ -33,7 +33,6 @@ class UsersController < ApplicationController
 		UserMailer.user_email(@user, current_user).deliver_now
 		flash[:notice] = "Your email has been sent!"
 		redirect_to user_path(@user)
-
 	end
 
 	def edit
