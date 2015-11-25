@@ -28,7 +28,7 @@ source 'https://rubygems.org'
 
   gem 'httparty'
   gem 'geokit-rails'
-
+  gem 'faker'
 
 
   # Use ActiveModel has_secure_password
@@ -55,7 +55,7 @@ end
 
 group :development, :test do
   gem 'factory_girl_rails'
-  gem 'faker'
+
   gem 'byebug'
   gem 'pry-rails'
   gem 'rspec-rails'
