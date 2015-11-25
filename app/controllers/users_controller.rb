@@ -4,9 +4,13 @@ class UsersController < ApplicationController
 		@users = User.all
 	end
 
-	def new
-		@user = User.new
+def new
+	@genres = Genre.all
+	@user = User.new
+	if @user.city == nil
+		render :status => 404
 	end
+end
 
 	def create
 		auth = request.env['omniauth.auth']

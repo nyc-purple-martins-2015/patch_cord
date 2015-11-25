@@ -1,5 +1,5 @@
-<div class="inner-container">
-  <div class="profile-photo"></div>
+<div class="container-fluid">
+<div class=".col-md-4">
   <div class="inner-container">
 
     <h3>Instruments</h3>
@@ -26,6 +26,9 @@
     <h3>BIO</h3>
     <p><%= @user.bio %></p>
   </div>
+</div>
+
+<div class=".col-md-8">
 
   <% if logged_in? %>
    <%= button_to "Send Email", email_user_path(@user), class: "button" %>
@@ -76,4 +79,6 @@
   </div>
   <% end %>
 
+</div>
+</div>
 </div>
