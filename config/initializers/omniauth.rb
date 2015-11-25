@@ -4,7 +4,7 @@ Rails.application.config.middleware.use OmniAuth::Builder do
       secure_image_url:  "true",
       image_size:  "original",
       authorize_params:  {
-        force_login:  "false",
+        force_login:  "true",
         lang:  "en"
       }
     }

@@ -1,6 +1,6 @@
 class ApplicationMailer < ActionMailer::Base
   include ApplicationHelper
-  default from: "maecapozzi@gmail.com"
+  default from: "patchcordapp@gmail.com"
   layout 'mailer'
 
   add_template_helper(ApplicationHelper)
