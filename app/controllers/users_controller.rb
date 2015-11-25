@@ -30,7 +30,7 @@ class UsersController < ApplicationController
 
 	def email
 		@user = User.find(params[:id])
-		UserMailer.user_email(@user, current_user).deliver
+		UserMailer.user_email(@user, current_user).deliver_now
 		flash[:notice] = "Your email has been sent!"
 		redirect_to user_path(@user)
 
@@ -66,7 +66,7 @@ class UsersController < ApplicationController
 
 				@user.update_attributes(user_params)
 				if @user.email
-					UserMailer.user_email(@user).deliver
+					UserMailer.welcome_email(@user).deliver_now
 				end
 
 				@user.lat_long
