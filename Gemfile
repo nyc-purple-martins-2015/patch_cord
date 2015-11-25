@@ -28,7 +28,7 @@ source 'https://rubygems.org'
 
   gem 'httparty'
   gem 'geokit-rails'
-  gem 'puma'
+
 
 
   # Use ActiveModel has_secure_password
