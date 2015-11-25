@@ -1,9 +1,11 @@
-<div class="add_resources">
-  <select>
-    <option value="youtube">YouTube</option>
-    <option value="soundcloud">SoundCloud</option>
-    <option value="image">Image</option>
-  </select>
-  <div><%= text_field :media_resources, size: "300x1", placeholder: "Copy and paste here:" %></div>
-</div>
-  <button class="media_resources">Add One</button>
+
+<%= form_tag("/media_resources", method: "post") do %>
+        <%= label_tag("Type") %>
+        <%= select_tag('media_resources[media_type]', options_for_select(['youtube', 'soundcloud', 'image'])) %>
+        <%= text_field_tag 'media_resources[link]', nil, size: 40, placeholder: "Copy and paste link here:" %>
+        <%= text_area_tag 'media_resources[content]', nil, size: '40x5', placeholder: "Give your link a description:" %>
+        <%= hidden_field_tag 'media_resources[showable_type]', @showable_type %>
+        <%= hidden_field_tag 'media_resources[showable_id]', @showable_id %>
+        <%= submit_tag("Submit", :class => "btn btn-primary btn-lg") %>
+
+        <% end %>

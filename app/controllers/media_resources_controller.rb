@@ -1,12 +1,26 @@
 class MediaResourcesController < ApplicationController
 
 	def new
-	# render :'musicians-media-resources'
-	# @mediaresource = MediaResource.new
+    if params[:user_id]
+      @showable_type = "User"
+      @showable_id = params[:user_id]
+    elsif params[:band_id]
+      @showable_type = "Band"
+      @showable_id = params[:band_id]
+    end
 	end
 
 	def create
-		binding.pry
+    puts params
+    if params[:media_resources][:showable_type] == "User"
+  		mr = MediaResource.new(media_resources_params)
+  		mr.showable = current_user
+      mr.save!
+      redirect_to user_path(current_user)
+    elsif params[:media_resources][:showable_type] == "Band"
+      MediaResource.create!(media_resources_params)
+      redirect_to band_path(params[:media_resources][:showable_id])
+    end
 	end
 
 	def edit
@@ -19,6 +33,9 @@ class MediaResourcesController < ApplicationController
 	end
 
 	def destroy
+    @media_resource = MediaResource.find(params[:id])
+    @media_resource.destroy
+    redirect_to user_path(current_user)
 	end
 
 def addresource
@@ -28,6 +45,6 @@ end
 	private
 
 	def media_resources_params
-		media_resources_params = params.require(:media_resources).permit(:media_type, :content, :link)
+		media_resources_params = params.require(:media_resources).permit(:media_type, :content, :link, :showable_id, :showable_type)
 	end
 end
