@@ -1,8 +1,8 @@
 class MediaResourcesController < ApplicationController
 
 	def new
-	render :'musicians-media-resources'
-	@mediaresource = MediaResource.new
+	# render :'musicians-media-resources'
+	# @mediaresource = MediaResource.new
 	end
 
 	def create
