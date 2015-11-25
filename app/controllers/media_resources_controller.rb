@@ -18,6 +18,9 @@ class MediaResourcesController < ApplicationController
 	end
 
 	def destroy
+    @media_resource = MediaResource.find(params[:id])
+    @media_resource.destroy
+    redirect_to user_path(current_user)
 	end
 
 def addresource
