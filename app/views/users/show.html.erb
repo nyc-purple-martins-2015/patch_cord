@@ -33,7 +33,12 @@
     <%= button_to "Edit Profile", edit_user_path(current_user), method: :get, class: "button" %>
     <%= button_to "Delete Profile", user_path, :confirm => 'Are you sure?',method: :delete, class: "button" %>
     <%= button_to "Send Email", email_user_path(@user), class: "button" %>
-    <%= button_to "Add Media Resource", new_media_resource_path, method: "get", class: "button" %>
+
+    <%= form_tag new_media_resource_path, method: "get" do %>
+      <%= hidden_field_tag :user_id, @user.id %>
+      <%= submit_tag("Add Media Resource", class: "button") %>
+    <% end %>
+
   </div>
   <% end %>
   <% end %>

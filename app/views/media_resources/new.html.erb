@@ -4,5 +4,8 @@
         <%= select_tag('media_resources[media_type]', options_for_select(['youtube', 'soundcloud', 'image'])) %>
         <%= text_field_tag 'media_resources[link]', nil, size: 40, placeholder: "Copy and paste link here:" %>
         <%= text_area_tag 'media_resources[content]', nil, size: '40x5', placeholder: "Give your link a description:" %>
+        <%= hidden_field_tag 'media_resources[showable_type]', @showable_type %>
+        <%= hidden_field_tag 'media_resources[showable_id]', @showable_id %>
         <%= submit_tag("Submit", :class => "btn btn-primary btn-lg") %>
+
         <% end %>
