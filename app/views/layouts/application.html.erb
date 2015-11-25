@@ -24,8 +24,9 @@
       </div>
       <% if logged_in? %>
       <div id="logged-in-btns">
-        <a class="btn btn-default navbar-btn navbar-right" href="/logout" role="button">Log Out</a>
-        <a class="btn btn-default navbar-btn navbar-right" href="/users/<%= current_user.id %>" role="button"><%= current_user.username %></a>
+        <%= link_to "Log Out",  logout_path, :class => "btn btn-default navbar-btn navbar-right" %>
+        <%= link_to "#{current_user.username}", user_path(current_user), :class => "btn btn-default navbar-btn navbar-right" %>
+        <%= link_to 'Create a Band', new_band_path, :class => "btn btn-default navbar-btn navbar-right" %>
       </div>
       <% else %>
       <div id="logged-out-btns">
