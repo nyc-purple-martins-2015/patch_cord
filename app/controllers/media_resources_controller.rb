@@ -33,14 +33,21 @@ class MediaResourcesController < ApplicationController
 	end
 
 	def destroy
-    @media_resource = MediaResource.find(params[:id])
-    @media_resource.destroy
-    redirect_to user_path(current_user)
-	end
+    if params["band_id"]
+      @media_resource = MediaResource.find(params[:id])
+      @media_resource.destroy
+      binding.pry
+      redirect_to band_path(params[:band_id])
+    else
+      @media_resource = MediaResource.find(params[:id])
+      @media_resource.destroy
+      redirect_to user_path(current_user)
+	  end
+  end
 
-def addresource
+  def addresource
 	render :'_musicians-add-media-resources', layout: false
-end
+  end
 
 	private
 
