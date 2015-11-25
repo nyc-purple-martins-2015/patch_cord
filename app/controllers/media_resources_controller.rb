@@ -1,12 +1,11 @@
 class MediaResourcesController < ApplicationController
 
 	def new
-	# render :'musicians-media-resources'
-	# @mediaresource = MediaResource.new
 	end
 
 	def create
-		binding.pry
+		current_user.media_resources.create(media_resources_params)
+			redirect_to user_path(current_user)
 	end
 
 	def edit
