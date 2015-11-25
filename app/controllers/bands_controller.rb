@@ -14,16 +14,16 @@ class BandsController < ApplicationController
     @genres = Genre.pluck(:name)
     new_members = params[:band][:members].split(",")
 
-    admin = params[:band][:admin]
-    admin_id = User.find_by(username: admin).id
 
-    @band.update_attributes(admin_id: admin_id)
-    # binding.pry
+    if @band.valid? && @band.save
+      admin = params[:band][:admin]
+      admin_id = User.find_by(username: admin).id
+      @band.update_attributes(admin_id: admin_id)
 
-    if params.has_key?("genre_types")
-      @band_genres = params[:genre_types]
-      @band_genres.each { |genre| @band.genres << Genre.find_by(name: genre.strip) }
-    end
+      if params[:genre_types]
+        @band_genres = params[:genre_types]
+        @band_genres.each { |genre| @band.genres << Genre.find_by(name: genre.strip) }
+      end
 
     if new_members.any?
       new_members.each { |member| @band.users << User.find_by(username: member.strip) }
@@ -31,11 +31,10 @@ class BandsController < ApplicationController
 
     @band.update_attributes(band_params)
 
-    if @band.save
-      redirect_to bands_path
+      redirect_to root_path
     else
-      @errors = @band.errors.full_messages
-      render :new
+      flash[:errors] = @band.errors.full_messages
+      redirect_to new_band_path
     end
   end
 
