@@ -31,7 +31,7 @@
   <% if current_user.id == @user.id %>
   <div class="buttons">
     <%= button_to "Edit Profile", edit_user_path(current_user), method: :get, class: "button" %>
-    <%= button_to "Delete Profile", root_path, :confirm => 'Are you sure?',method: :delete, class: "button" %>
+    <%= button_to "Delete Profile", user_path, :confirm => 'Are you sure?',method: :delete, class: "button" %>
     <%= button_to "Send Email", email_user_path(@user), class: "button" %>
     <%= button_to "Add Media Resource", new_media_resource_path, method: "get", class: "button" %>
   </div>
