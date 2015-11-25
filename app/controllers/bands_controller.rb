@@ -15,10 +15,10 @@ class BandsController < ApplicationController
     new_members = params[:band][:members].split(",")
 
     admin = params[:band][:admin]
-    admin_id = User.where(username: admin).pluck(:id)
+    admin_id = User.find_by(username: admin).id
 
     @band.update_attributes(admin_id: admin_id)
-    binding.pry
+    # binding.pry
 
     if params.has_key?("genre_types")
       @band_genres = params[:genre_types]
