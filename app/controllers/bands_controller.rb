@@ -25,11 +25,11 @@ class BandsController < ApplicationController
         @band_genres.each { |genre| @band.genres << Genre.find_by(name: genre.strip) }
       end
 
-    if new_members.any?
-      new_members.each { |member| @band.users << User.find_by(username: member.strip) }
-    end
+      if new_members.any?
+        new_members.each { |member| @band.users << User.find_by(username: member.strip) }
+      end
 
-    @band.update_attributes(band_params)
+      @band.update_attributes(band_params)
 
       redirect_to root_path
     else
@@ -38,9 +38,9 @@ class BandsController < ApplicationController
     end
   end
 
-
   def show
     @band = Band.find(params[:id])
+    @band_admin = User.find(@band.admin_id)
   end
 
   def edit
@@ -51,56 +51,56 @@ class BandsController < ApplicationController
   def update
    @band = Band.find(params[:id])
 
-    if @band.save
-      new_admin = params[:band][:admin_name]
-      @band.admin = User.find_or_create_by(username: new_admin.strip)
+   if @band.save
+    new_admin = params[:band][:admin_name]
+    @band.admin = User.find_or_create_by(username: new_admin.strip)
 
-      if params.has_key?("genre_types")
-        @genres = params[:genre_types]
-        @genres.each do |genre|
-          unless @band.genres.map(&:name).include?(genre)
+    if params.has_key?("genre_types")
+      @genres = params[:genre_types]
+      @genres.each do |genre|
+        unless @band.genres.map(&:name).include?(genre)
           @band.genres << Genre.find_or_create_by(name: genre.strip)
-          end
-        end
-      else
-        @band.genres.delete_all
-      end
-    end
-
-    new_members = params[:band][:members].split(",")
-
-    if new_members.any?
-      new_members.each do |member|
-        unless @band.users.map(&:username).include?(member)
-          @band.users << User.find_or_create_by(username: member.strip)
         end
       end
+    else
+      @band.genres.delete_all
     end
-
-    @band.update_attributes(band_params)
-    redirect_to band_path(@band)
   end
+
+  new_members = params[:band][:members].split(",")
+
+  if new_members.any?
+    new_members.each do |member|
+      unless @band.users.map(&:username).include?(member)
+        @band.users << User.find_or_create_by(username: member.strip)
+      end
+    end
+  end
+
+  @band.update_attributes(band_params)
+  redirect_to band_path(@band)
+end
 
 def edit
  @band = Band.find(params[:id])
  @genres = Genre.pluck(:name)
 end
 
- def destroy
-   @band = Band.find(params[:id])
+def destroy
+  @band = Band.find(params[:id])
 
-   if @band && params[:member]
-     UserBand.find_by(user_id: params[:member]).destroy
-     redirect_to band_path(@band)
-   elsif @band
-     @band.destroy
-     redirect_to root_path
-   else
-     @errors = @band.errors.full_messages
-   end
- end
+  if @band && params[:member]
+    UserBand.find_by(user_id: params[:member]).destroy
+    redirect_to band_path(@band)
+  elsif @band
+    @band.destroy
+    redirect_to root_path
+  else
+    @errors = @band.errors.full_messages
+  end
+end
 
- def search
+def search
   if params["Genre"]
     genre_ids = params["Genre"].map {|e| e[0].to_i}
     genres = Genre.find(genre_ids)
@@ -117,7 +117,7 @@ end
     distance = params["Distance"][0].to_i
     all_bands_near = Band.within(distance, :origin => user_location)
     @bands = original_bands & all_bands_near
-         @map_string = "https://maps.googleapis.com/maps/api/staticmap?size=600x300&maptype=roadmap" + @bands.map {|band| band.map_string}.join("") + "&key=AIzaSyDbL6SGxiaR5BjXdzLPJHxQyjIAhoBVz_o"
+    @map_string = "https://maps.googleapis.com/maps/api/staticmap?size=600x300&maptype=roadmap" + @bands.map {|band| band.map_string}.join("") + "&key=AIzaSyDbL6SGxiaR5BjXdzLPJHxQyjIAhoBVz_o"
     render :"bands/_bands-sorted", layout: false
   end
 end
@@ -129,7 +129,7 @@ end
 
 private
 
-  def band_params
-    band_params = params.require(:band).permit(:name, :bio)
-  end
+def band_params
+  band_params = params.require(:band).permit(:name, :bio)
+end
 end

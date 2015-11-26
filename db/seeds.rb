@@ -1,13 +1,5 @@
 #Seed file for Patch Cord
 
-mae = User.create(username: "Mae", password: "password", email: "mae@gmail.com", address_line1: "350 5th Ave", city: "New York", state: "NY", zip: 10118, phone: Faker::PhoneNumber.phone_number, bio: Faker::Lorem.paragraph(2))
-
-andre = User.create(username: "Andre", password: "password", email: "andre@gmail.com", address_line1: "50 East 21st St", city: "Brooklyn", state: "NY", zip: 11226, phone: Faker::PhoneNumber.phone_number, bio: Faker::Lorem.paragraph(2))
-
-alexis = User.create(username: "Alexis", password: "password", email: "alexis@gmail.com", address_line1: "200 West 56th Street", city: "New York", state: "NY", zip: 10019, phone: Faker::PhoneNumber.phone_number, bio: Faker::Lorem.paragraph(2))
-
-dom = User.create(username: "Dom", password: "password", email: "dom@gmail.com", address_line1: "1 West 72nd St", city: "New York", state: "NY", zip: 10023, phone: Faker::PhoneNumber.phone_number, bio: Faker::Lorem.paragraph(2))
-
 jimi = User.create(username: "Jimi Hendrix", password: "password", email: "jimi@gmail.com", address_line1: "30 23rd St", city: "Astoria", state: "NY", zip: 11102, phone: Faker::PhoneNumber.phone_number, bio: Faker::Lorem.paragraph(2))
 
 slash = User.create(username: "Slash", password: "password", email: "slash@gmail.com", address_line1: "43rd St", city: "Astoria", state: "NY", zip: 11103, phone: Faker::PhoneNumber.phone_number, bio: Faker::Lorem.paragraph(2))
@@ -85,21 +77,19 @@ synthesizer = Instrument.create(name: "Synthesizer")
 ukulele = Instrument.create(name: "Ukulele")
 
 
-
-guitarists = [jimi, slash, carlos, john, bb, trey, dave, bob, andre]
-bassists = [flea, roger, james, les, bootsy, mike, dom]
+guitarists = [jimi, slash, carlos, john, bb, trey, dave, bob]
+bassists = [flea, roger, james, les, bootsy, mike]
 drummers = [ringo, travis, dave, lars, jon, tommy]
-keyboardists = [chick, page, alexis]
-vocalists = [freddie, bob, michael, mae]
+keyboardists = [chick, page]
+vocalists = [freddie, bob, michael]
 
-rockers = [jimi, slash, dave, flea, roger, travis, lars, tommy, freddie, dom, alexis]
-bluesers = [john, bb, trey, roger, ringo, jon, chick, page, mike, andre, mae]
-jammers = [bob, page, mike, trey, jon, andre]
-reggaers = [bob, andre, dom]
-latiners = [carlos, andre]
-poppers = [john, dave, flea, michael, mae, alexis]
+rockers = [jimi, slash, dave, flea, roger, travis, lars, tommy, freddie]
+bluesers = [john, bb, trey, roger, ringo, jon, chick, page, mike]
+jammers = [bob, page, mike, trey, jon]
+reggaers = [bob]
+latiners = [carlos]
+poppers = [john, dave, flea, michael]
 
-admins = [dom, andre, alexis, mae]
 
 rockers.each do |r|
   r.genres << rock
@@ -154,19 +144,14 @@ libido_debugger = Band.create(name: "Libido Debugger", bio: Faker::Lorem.paragra
 phish = Band.create(name: "Phish", bio: "Phish is an American rock and roll band noted for their musical improvisation, extended jams, blending of musical genres, and dedicated fan base. Formed at the University of Vermont in 1983 (with the current line-up solidifying in 1985), the band's four members are —Trey Anastasio (guitars, lead vocals), Mike Gordon (bass, vocals), Jon Fishman (drums, percussion, vacuum, vocals), and Page McConnell (keyboards, vocals)\n Phish's music blends elements of a wide variety of genres, including funk, progressive rock, psychedelic rock, folk, country, jazz, blues, bluegrass and pop. Although the band has received little radio play or mainstream exposure, Phish has developed a large and dedicated following by word of mouth, the exchange of live recordings, and selling over 8 million albums and DVDs in the United States.", admin_id: trey.id)
 ta = Band.create(name: "Technology Amigo", bio: "Technology Amigo emerged from the ashes of the dot-com bubble as the voice of disgruntled tech workers everywhere. Their avant garde style is an amalgamation of 80's synth, trap music, and small batch, artisanally curated indie-prog. Made up of autodidactic musical luminaries, Technology Amigo is the band all your cool friends are laughing at you for never having heard of.", admin_id: jimi.id)
 
-taimage1 = ta.media_resources.create(media_type: "image", content: "image", link: "https://scontent-yyz1-1.xx.fbcdn.net/hphotos-xtp1/v/t1.0-9/12107281_813167762129372_1699883315797745262_n.jpg?oh=d4a426d3cd9cfc9e9e47ccac96bbfde9&oe=56FA7531")
-taimage2 = ta.media_resources.create(media_type: "image", content: "image", link: "https://scontent-yyz1-1.xx.fbcdn.net/hphotos-xaf1/v/t1.0-9/12239913_830201377092677_3666085464525060143_n.jpg?oh=3d23b9b7cafafe6af2e4e7b2ba5785cc&oe=56DBAE3E")
 tavideo1 = ta.media_resources.create(media_type: "youtube", content: "video", link: "https://www.youtube.com/watch?v=gWOzUzJd6wM")
 tavideo2 = ta.media_resources.create(media_type: "youtube", content: "video", link: "https://www.youtube.com/watch?v=rk4ZmItC4dE")
 ta1 = ta.media_resources.create(media_type: "soundcloud", content: "music", link: "https://soundcloud.com/lauren-leies/50-cent-ayo-technology-feat")
 ta2 = ta.media_resources.create(media_type: "soundcloud", content: "music", link: "https://soundcloud.com/dubstep/bar9-when-technology-fails")
-
 ta.genres << indie
 
 phish_video1 = phish.media_resources.create(media_type: "youtube", content: "video", link: "https://www.youtube.com/watch?v=oFFIcpwNhNA&feature=youtu.be")
 phish_video2 = phish.media_resources.create(media_type: "youtube", content: "video", link: "https://www.youtube.com/watch?v=j_r0btgnmFQ")
-phish_image1 = phish.media_resources.create(media_type: "image", content: "image", link: "http://3.bp.blogspot.com/-NoxSIVVUGl4/U81V43H_OEI/AAAAAAAARRo/gAwp_fnnfEU/s1600/Phish+1.jpg")
-phish_image2 = phish.media_resources.create(media_type: "image", content: "image", link: "http://thekey.xpn.org/aatk/files/2014/03/PhishSummer2012PressHI.jpg")
 phish_soundcloud1 = phish.media_resources.create(media_type: "soundcloud", content: "music", link: "https://soundcloud.com/officialphish/maze-amsterdam-box-set-7297-paradiso")
 phish_soundcloud2 = phish.media_resources.create(media_type: "soundcloud", content: "music", link: "https://soundcloud.com/officialphish/sets/amsterdam-february-17-july-1-2")
 

@@ -36,10 +36,12 @@
     </div>
     <div class "row">
       <div class="col-md-6">
-        <% if current_user.id == @user.id %>
-          <%= form_tag new_media_resource_path, method: "get" do %>
-            <%= hidden_field_tag :user_id, @user.id %>
-            <%= submit_tag("Add Media Resource", class: "btn btn-lg") %>
+        <% if logged_in? %>
+          <% if current_user.id == @user.id %>
+            <%= form_tag new_media_resource_path, method: "get" do %>
+              <%= hidden_field_tag :user_id, @user.id %>
+              <%= submit_tag("Add Media Resource", class: "btn btn-lg") %>
+            <% end %>
           <% end %>
         <% end %>
       </div>
@@ -64,38 +66,37 @@
       <h3 class="user-profile">Biography</h3>
        <p class="user-data"><%= @user.bio %></p>
     </div>
-</div>
-
-<div class="row">
-  <div class="youtube">
-    <% if @user.has_media_resources? %>
-      <% @user.media_resources.each do |resource| %>
-        <% if resource.media_type == "youtube" %>
-          <iframe width="600", height="495", src="<%= youtube_embed_link resource %>" , frameborder="0", allowfullscreen></iframe>
-          <p class="media-resource-description"> <%= resource.content %></p>
-          <%= button_to "Delete This", media_resource_path(resource), method: :delete, class: "btn btn-default" %>
-        <% end %>
-     </div>
-
-  <div class="soundcloud">
-        <% if resource.media_type == "soundcloud" %>
-          <p><%= link_to 'track', resource.link %></p>
-          <%= button_to "Delete This", media_resource_path(resource), method: :delete, class: "btn btn-default" %>
-        <% end %>
-          <p><%= resource.content %></p>
-      </div>
-
-      <div class="image">
-        <% if resource.media_type == "image" %>
-          <p> <%= resource.content %></p>
-          <img src="<%= resource.link %>">
-          <%= button_to "Delete This", media_resource_path(resource), method: :delete, class: "btn btn-default" %>
-        <% end %>
-      </div>
-      <% end %>
-    <% end %>
   </div>
 </div>
+
+
+    <% if @user.has_media_resources? %>
+      <% @user.media_resources.each do |resource| %>
+          <% if resource.media_type == "image" %>
+            <div class="image">
+              <img src="<%= resource.link %>">
+              <p> <%= resource.content %></p>
+              <%= button_to "Delete This", media_resource_path(resource), method: :delete, class: "btn btn-default" %>
+            </div>
+          <% end %>
+          <% if resource.media_type == "youtube" %>
+          <div class="youtube">
+            <iframe width="600", height="495", src="<%= youtube_embed_link resource %>" , frameborder="0", allowfullscreen></iframe>
+            <p class="media-resource-description"> <%= resource.content %></p>
+            <%= button_to "Delete This", media_resource_path(resource), method: :delete, class: "btn btn-default" %>
+          </div>
+          <% end %>
+          <% if resource.media_type == "soundcloud" %>
+          <div class="soundcloud">
+            <div><%= link_to 'track', resource.link %></div>
+            <p><%= resource.content %></p>
+            <%= button_to "Delete This", media_resource_path(resource), method: :delete, class: "btn btn-default" %>
+          </div>
+          <% end %>
+        <% end %>
+      <% end %>
+
+
 
 
 
