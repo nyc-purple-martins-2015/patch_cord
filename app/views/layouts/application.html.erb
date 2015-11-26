@@ -6,13 +6,6 @@
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
   <meta name="google-site-verification" content="esmpi_ieQ9F4MMAcS2dSZRhTL4402wurmudbaX05Jug" />
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
-
-  <!-- Optional theme -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
-
-  <!-- Latest compiled and minified JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -20,8 +13,7 @@
     <div class="container-fluid ">
       <div class="navbar-header">
         <a class="navbar-brand " href="/">
-          <%=image_tag("patchcord_logo.png", :style => "max-width:60px; margin-top: -10px;")%>
-        </a>
+          <%=image_tag("patchcord_logo.png", :style => "max-width:60px; margin-top: -10px;")%></a>
       </div>
       <% if logged_in? %>
       <div id="logged-in-btns">
@@ -37,9 +29,7 @@
       </div>
       <% end %>
     </div>
-
   </div>
-
 </nav>
 
 
