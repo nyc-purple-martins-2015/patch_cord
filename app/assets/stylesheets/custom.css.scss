@@ -63,7 +63,7 @@
   padding-left: 3em;
   padding-right: 3em;
   background-color: #2B2D2D;
-  color: #EB6A91;
+  color: #84C68C;
 }
 
 .navbar-brand {
@@ -80,12 +80,12 @@ html
 }
 
 .btn.btn-lg {
-  background-color: #2B2D2D;
+  background-color: #84C68C;
   color: white;
 }
 
 .btn.btn-lg:hover {
-  color: #EB6A91;
+  color: #2C8437;
 }
 .container-fluid {
   margin-left: 3em;
@@ -153,5 +153,9 @@ a.btn.btn-primary{ background-color: black; color: white; border: 1px solid whit
   background-color: white;
   color: black;
   border: none;
+}
+
+.map-title {
+  text-align: left;
 }
 

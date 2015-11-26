@@ -17,7 +17,8 @@
       <div class="col-md-6">
         <div class="btn-group" role="group">
           <% if logged_in? %>
-            <% if true || current_user.id == @band.admin.id %>
+            <%= button_to "Send Email", email_user_path(@band_admin), class: "btn btn-lg" %>
+            <% if current_user.id == @band.admin.id %>
                 <%= button_to "Edit Profile", edit_band_path(@band), method: :get, class: "btn btn-lg" %>
                 <%= button_to "Delete Profile", band_path(@band), method: :delete, class: "btn btn-lg" %>
             <% end %>

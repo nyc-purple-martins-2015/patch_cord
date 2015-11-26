@@ -9,7 +9,6 @@ class UserMailer < ApplicationMailer
   def user_email(user, from_user)
     @user = user
     @from_user = from_user
-    # binding.pry
     mail(to: @user.email, subject: 'Someone wants to jam!')
   end
 end
