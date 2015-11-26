@@ -60,14 +60,30 @@ prog = Genre.create(name: "Progressive")
 reggae = Genre.create(name: "Reggae")
 latin = Genre.create(name: "Latin")
 pop = Genre.create(name: "Pop")
-hiphop = Genre.create(name: "Hip Hop")
+hiphop = Genre.create(name: "Hip-Hop")
 metal = Genre.create(name: "Metal")
+country = Genre.create(name: "Country")
+electronic = Genre.create(name: "Electronic")
+indie = Genre.create(name: "Indie")
+jazz = Genre.create(name: "Jazz")
+rnb = Genre.create(name: "R&B")
+alternative = Genre.create(name: "Alternative")
 
 guitar = Instrument.create(name: "Guitar")
 bass = Instrument.create(name: "Bass")
 drums = Instrument.create(name: "Drums")
 keyboard = Instrument.create(name: "Keyboard")
 vocals = Instrument.create(name: "Vocals")
+sax = Instrument.create(name: "Saxophone")
+trumpet = Instrument.create(name: "Trumpet")
+turntables = Instrument.create(name: "Turntables")
+trombone = Instrument.create(name: "Trombone")
+flute = Instrument.create(name: "Flute")
+tambourine = Instrument.create(name: "Tambourine")
+cowbell = Instrument.create(name: "Cowbell")
+synthesizer = Instrument.create(name: "Synthesizer")
+ukulele = Instrument.create(name: "Ukulele")
+
 
 
 guitarists = [jimi, slash, carlos, john, bb, trey, dave, bob, andre]
@@ -129,14 +145,21 @@ vocalists.each do |v|
   v.instruments << vocals
 end
 
-delectable_ajax = Band.create(name: "Delectable Ajax", bio: Faker::Lorem.paragraph(1), admin_id: dom.id)
-recursive_progression = Band.create(name: "Risk Of The Recursive Progression", bio: Faker::Lorem.paragraph(1), admin_id: mae.id)
-dyslexic_keyboards = Band.create(name: "The Dyslexic Keyboards", bio: Faker::Lorem.paragraph(1), admin_id: andre.id)
-whiteboard_nudists = Band.create(name: "Whiteboard Nudist", bio: Faker::Lorem.paragraph(1), admin_id: alexis.id)
-somewhat_ruby = Band.create(name: "Somewhat Ruby And The Limpy Shank", bio: Faker::Lorem.paragraph(1), admin_id: dom.id)
-libido_debugger = Band.create(name: "Libido Debugger", bio: Faker::Lorem.paragraph(1), admin_id: mae.id)
-phish = Band.create(name: "Phish", bio: "Phish is an American rock and roll band noted for their musical improvisation, extended jams, blending of musical genres, and dedicated fan base. Formed at the University of Vermont in 1983 (with the current line-up solidifying in 1985), the band's four members are —Trey Anastasio (guitars, lead vocals), Mike Gordon (bass, vocals), Jon Fishman (drums, percussion, vacuum, vocals), and Page McConnell (keyboards, vocals)\n Phish's music blends elements of a wide variety of genres, including funk, progressive rock, psychedelic rock, folk, country, jazz, blues, bluegrass and pop. Although the band has received little radio play or mainstream exposure, Phish has developed a large and dedicated following by word of mouth, the exchange of live recordings, and selling over 8 million albums and DVDs in the United States.", admin_id: andre.id)
+delectable_ajax = Band.create(name: "Delectable Ajax", bio: Faker::Lorem.paragraph(1), admin_id: jimi.id)
+recursive_progression = Band.create(name: "Risk Of The Recursive Progression", bio: Faker::Lorem.paragraph(1), admin_id: slash.id)
+dyslexic_keyboards = Band.create(name: "The Dyslexic Keyboards", bio: Faker::Lorem.paragraph(1), admin_id: freddie.id)
+whiteboard_nudists = Band.create(name: "Whiteboard Nudist", bio: Faker::Lorem.paragraph(1), admin_id: bob.id)
+somewhat_ruby = Band.create(name: "Somewhat Ruby And The Limpy Shank", bio: Faker::Lorem.paragraph(1), admin_id: michael.id)
+libido_debugger = Band.create(name: "Libido Debugger", bio: Faker::Lorem.paragraph(1), admin_id: bb.id)
+phish = Band.create(name: "Phish", bio: "Phish is an American rock and roll band noted for their musical improvisation, extended jams, blending of musical genres, and dedicated fan base. Formed at the University of Vermont in 1983 (with the current line-up solidifying in 1985), the band's four members are —Trey Anastasio (guitars, lead vocals), Mike Gordon (bass, vocals), Jon Fishman (drums, percussion, vacuum, vocals), and Page McConnell (keyboards, vocals)\n Phish's music blends elements of a wide variety of genres, including funk, progressive rock, psychedelic rock, folk, country, jazz, blues, bluegrass and pop. Although the band has received little radio play or mainstream exposure, Phish has developed a large and dedicated following by word of mouth, the exchange of live recordings, and selling over 8 million albums and DVDs in the United States.", admin_id: trey.id)
+ta = Band.create(name: "Technology Amigo", bio: "Technology Amigo emerged from the ashes of the dot-com bubble as the voice of disgruntled tech workers everywhere. Their avant garde style is an amalgamation of 80's synth, trap music, and small batch, artisanally curated indie-prog. Made up of autodidactic musical luminaries, Technology Amigo is the band all your cool friends are laughing at you for never having heard of.", admin_id: jimi.id)
 
+taimage1 = ta.media_resources.create(media_type: "image", content: "image", link: "https://scontent-yyz1-1.xx.fbcdn.net/hphotos-xtp1/v/t1.0-9/12107281_813167762129372_1699883315797745262_n.jpg?oh=d4a426d3cd9cfc9e9e47ccac96bbfde9&oe=56FA7531")
+taimage2 = ta.media_resources.create(media_type: "image", content: "image", link: "https://scontent-yyz1-1.xx.fbcdn.net/hphotos-xaf1/v/t1.0-9/12239913_830201377092677_3666085464525060143_n.jpg?oh=3d23b9b7cafafe6af2e4e7b2ba5785cc&oe=56DBAE3E")
+tavideo1 = ta.media_resources.create(media_type: "youtube", content: "video", link: "https://www.youtube.com/watch?v=gWOzUzJd6wM")
+tavideo2 = ta.media_resources.create(media_type: "youtube", content: "video", link: "https://www.youtube.com/watch?v=rk4ZmItC4dE")
+ta1 = ta.media_resources.create(media_type: "soundcloud", content: "music", link: "https://soundcloud.com/lauren-leies/50-cent-ayo-technology-feat")
+ta2 = ta.media_resources.create(media_type: "soundcloud", content: "music", link: "https://soundcloud.com/dubstep/bar9-when-technology-fails")
 
 phish_video1 = phish.media_resources.create(media_type: "youtube", content: "video", link: "https://www.youtube.com/watch?v=oFFIcpwNhNA&feature=youtu.be")
 phish_video2 = phish.media_resources.create(media_type: "youtube", content: "video", link: "https://www.youtube.com/watch?v=j_r0btgnmFQ")
@@ -144,13 +167,6 @@ phish_image1 = phish.media_resources.create(media_type: "image", content: "image
 phish_image2 = phish.media_resources.create(media_type: "image", content: "image", link: "http://thekey.xpn.org/aatk/files/2014/03/PhishSummer2012PressHI.jpg")
 phish_soundcloud1 = phish.media_resources.create(media_type: "soundcloud", content: "music", link: "https://soundcloud.com/officialphish/maze-amsterdam-box-set-7297-paradiso")
 phish_soundcloud2 = phish.media_resources.create(media_type: "soundcloud", content: "music", link: "https://soundcloud.com/officialphish/sets/amsterdam-february-17-july-1-2")
-
-
-genres = %w(rock rap jazz folk metal blues trap bluegrass country electronic hip-hop classical indie latin pop r&b reggae grunge punk new-age)
-genres.map!{|e| e.capitalize }
-bands = %w(AJAX\ Bang Ubuntu\ Dreams Somewhat\ Ruby\ And\ The\ Limpy\ Shank Risk\ Of\ The\ Recursive\ Progression Libido\ Debugger Whiteboard\ Nudist The\ Dyslexic\ Keyboards)
-instruments = %w(electric\ guitar acoustic\ guitar bass drums saxophone piano keyboard triangle recorder jazz\ flute cowbell synthesizer electric\ violin harmonica)
-instruments.map{|e| e.capitalize }
 
 delectable_ajax.users << jimi
 delectable_ajax.users << flea
