@@ -117,6 +117,7 @@ end
     distance = params["Distance"][0].to_i
     all_bands_near = Band.within(distance, :origin => user_location)
     @bands = original_bands & all_bands_near
+         @map_string = "https://maps.googleapis.com/maps/api/staticmap?size=600x300&maptype=roadmap" + @bands.map {|band| band.map_string}.join("") + "&key=AIzaSyDbL6SGxiaR5BjXdzLPJHxQyjIAhoBVz_o"
     render :"bands/_bands-sorted", layout: false
   end
 end
