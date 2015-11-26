@@ -1,13 +1,5 @@
 #Seed file for Patch Cord
 
-mae = User.create(username: "Mae", password: "password", email: "mae@gmail.com", address_line1: "350 5th Ave", city: "New York", state: "NY", zip: 10118, phone: Faker::PhoneNumber.phone_number, bio: Faker::Lorem.paragraph(2))
-
-andre = User.create(username: "Andre", password: "password", email: "andre@gmail.com", address_line1: "50 East 21st St", city: "Brooklyn", state: "NY", zip: 11226, phone: Faker::PhoneNumber.phone_number, bio: Faker::Lorem.paragraph(2))
-
-alexis = User.create(username: "Alexis", password: "password", email: "alexis@gmail.com", address_line1: "200 West 56th Street", city: "New York", state: "NY", zip: 10019, phone: Faker::PhoneNumber.phone_number, bio: Faker::Lorem.paragraph(2))
-
-dom = User.create(username: "Dom", password: "password", email: "dom@gmail.com", address_line1: "1 West 72nd St", city: "New York", state: "NY", zip: 10023, phone: Faker::PhoneNumber.phone_number, bio: Faker::Lorem.paragraph(2))
-
 jimi = User.create(username: "Jimi Hendrix", password: "password", email: "jimi@gmail.com", address_line1: "30 23rd St", city: "Astoria", state: "NY", zip: 11102, phone: Faker::PhoneNumber.phone_number, bio: Faker::Lorem.paragraph(2))
 
 slash = User.create(username: "Slash", password: "password", email: "slash@gmail.com", address_line1: "43rd St", city: "Astoria", state: "NY", zip: 11103, phone: Faker::PhoneNumber.phone_number, bio: Faker::Lorem.paragraph(2))
@@ -85,21 +77,19 @@ synthesizer = Instrument.create(name: "Synthesizer")
 ukulele = Instrument.create(name: "Ukulele")
 
 
-
-guitarists = [jimi, slash, carlos, john, bb, trey, dave, bob, andre]
-bassists = [flea, roger, james, les, bootsy, mike, dom]
+guitarists = [jimi, slash, carlos, john, bb, trey, dave, bob]
+bassists = [flea, roger, james, les, bootsy, mike]
 drummers = [ringo, travis, dave, lars, jon, tommy]
-keyboardists = [chick, page, alexis]
-vocalists = [freddie, bob, michael, mae]
+keyboardists = [chick, page]
+vocalists = [freddie, bob, michael]
 
-rockers = [jimi, slash, dave, flea, roger, travis, lars, tommy, freddie, dom, alexis]
-bluesers = [john, bb, trey, roger, ringo, jon, chick, page, mike, andre, mae]
-jammers = [bob, page, mike, trey, jon, andre]
-reggaers = [bob, andre, dom]
-latiners = [carlos, andre]
-poppers = [john, dave, flea, michael, mae, alexis]
+rockers = [jimi, slash, dave, flea, roger, travis, lars, tommy, freddie]
+bluesers = [john, bb, trey, roger, ringo, jon, chick, page, mike]
+jammers = [bob, page, mike, trey, jon]
+reggaers = [bob]
+latiners = [carlos]
+poppers = [john, dave, flea, michael]
 
-admins = [dom, andre, alexis, mae]
 
 rockers.each do |r|
   r.genres << rock
