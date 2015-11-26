@@ -1,6 +1,6 @@
 <div id="musician-search-genre">
 
-<div class="jumbotron text-center ">
+<div class="jumbotron text-center drop-shadow">
   <h1>I want my musician to play this/these genres:</h1>
   <div>
     <%= form_tag("users/search", method: "post") do %>
@@ -14,6 +14,7 @@
     <% end %>
   </div>
 </div>
+
 
 <div class="alert alert-success" role="alert">
   <h2 class="text-center"><%= @musicians.count  %> <%= @musicians.count > 1 ? "results:" : "result:" %></h2>

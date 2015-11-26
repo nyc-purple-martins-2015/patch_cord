@@ -2,9 +2,10 @@
 
   <div class="original-homepage">
 
-    <div class="jumbotron text-center">
+    <div class="jumbotron text-center drop-shadow">
       <h1>Who Are You Searching For?</h1>
       <div id="musician-band-search" class="text-center">
+
         <%= form_tag("/search", method: "post") do %>
         <%= radio_button_tag(:group, "Musicians") %>
         <%= label_tag(:group, "Musicians", :class => "h2") %>

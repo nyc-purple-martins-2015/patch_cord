@@ -72,6 +72,16 @@
   margin: 1em;
 }
 
+.alert.alert-error {
+  margin-left: 3em;
+  margin-right: 3em;
+}
+
+.alert.alert-success {
+  margin-left: 3em;
+  margin-right: 3em;
+}
+
 .jumbotron {
   padding-left: 3em;
   padding-right: 3em;
@@ -87,31 +97,5 @@
   box-shadow: 10px 10px 5px #5A5A5A;
 }
 
-nav.navbar {
-  margin-bottom: 0px;
-  border: none;
-}
-
-.container-fluid {
-  background-color: #306E4B;
-}
-
-.homepage {
-  background-color: grey;
-}
-
-html
-{
-    height: 100%;
-    background-color: grey;
-}
-
-nav.navbar.container-fluid#logged-in-btns.navbar-text{
-  color: none;
-}
-
-.navbar-text.navbar-right a:link{
-  color: #314666;
-}
 
 
