@@ -36,10 +36,12 @@
     </div>
     <div class "row">
       <div class="col-md-6">
-        <% if current_user.id == @user.id %>
-          <%= form_tag new_media_resource_path, method: "get" do %>
-            <%= hidden_field_tag :user_id, @user.id %>
-            <%= submit_tag("Add Media Resource", class: "btn btn-lg") %>
+        <% if logged_in? %>
+          <% if current_user.id == @user.id %>
+            <%= form_tag new_media_resource_path, method: "get" do %>
+              <%= hidden_field_tag :user_id, @user.id %>
+              <%= submit_tag("Add Media Resource", class: "btn btn-lg") %>
+            <% end %>
           <% end %>
         <% end %>
       </div>
