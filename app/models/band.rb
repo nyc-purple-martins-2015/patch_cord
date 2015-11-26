@@ -22,4 +22,10 @@ class Band < ActiveRecord::Base
     self.latitude = admin.latitude
     self.longitude = admin.longitude
   end
+
+  def map_string
+    admin = User.find(self.admin_id)
+    "&markers=color:red%7Clabel:" + "#{admin.username.first}" +"%7C" + "#{admin.latitude.to_f.to_s}," + "#{admin.longitude.to_f.to_s}"
+  end
+
 end

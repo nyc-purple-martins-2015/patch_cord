@@ -61,4 +61,8 @@ class User < ActiveRecord::Base
     end
   end
 
+  def map_string
+    "&markers=color:red%7Clabel:" + "#{self.username.first}" +"%7C" + "#{self.latitude.to_f.to_s}," + "#{self.longitude.to_f.to_s}"
+  end
+
 end

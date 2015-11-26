@@ -120,6 +120,7 @@ end
 			distance = params["Distance"][0].to_i
 			all_musicians_near = User.within(distance, :origin => user_location)
 			@musicians = original_musicians & all_musicians_near
+      @map_string = "https://maps.googleapis.com/maps/api/staticmap?size=600x300&maptype=roadmap" + @musicians.map {|musician| musician.map_string}.join("") + "&key=AIzaSyDbL6SGxiaR5BjXdzLPJHxQyjIAhoBVz_o"
 			render "users/_musicians-sorted", layout: false
 		end
 
