@@ -161,6 +161,8 @@ tavideo2 = ta.media_resources.create(media_type: "youtube", content: "video", li
 ta1 = ta.media_resources.create(media_type: "soundcloud", content: "music", link: "https://soundcloud.com/lauren-leies/50-cent-ayo-technology-feat")
 ta2 = ta.media_resources.create(media_type: "soundcloud", content: "music", link: "https://soundcloud.com/dubstep/bar9-when-technology-fails")
 
+ta.genres << indie
+
 phish_video1 = phish.media_resources.create(media_type: "youtube", content: "video", link: "https://www.youtube.com/watch?v=oFFIcpwNhNA&feature=youtu.be")
 phish_video2 = phish.media_resources.create(media_type: "youtube", content: "video", link: "https://www.youtube.com/watch?v=j_r0btgnmFQ")
 phish_image1 = phish.media_resources.create(media_type: "image", content: "image", link: "http://3.bp.blogspot.com/-NoxSIVVUGl4/U81V43H_OEI/AAAAAAAARRo/gAwp_fnnfEU/s1600/Phish+1.jpg")
