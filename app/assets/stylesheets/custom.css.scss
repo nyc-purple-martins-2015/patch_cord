@@ -1,3 +1,6 @@
+ @import "bootstrap-sprockets";
+ @import "bootstrap";
+
 .profile-photo {
   border-radius: 50%;
   width: 200px;
@@ -11,16 +14,6 @@
   background-color: gray;
   text-align: center;
 
-}
-
-.container {
-  border: 1px solid black;
-  padding: 1em;
-}
-
-.inner-container {
-  border: 1px solid black;
-  padding: 1em;
 }
 
 .button {
@@ -85,17 +78,39 @@
 .jumbotron {
   padding-left: 3em;
   padding-right: 3em;
-
+  background-color: #2B2D2D;
+  color: #EB6A91;
 }
 
 .navbar-brand {
-  /*padding-bottom: 20px;*/
-  margin-bottom: 20px;
+  padding-bottom: 20px;
 }
 
-.drop-shadow {
-  box-shadow: 10px 10px 5px #5A5A5A;
+
+html
+{
+    height: 100%;
 }
 
+.map-container {
+  border: black solid 1px;
+}
+
+.profile-document {
+  padding: 2em;
+}
+
+.btn.btn-default {
+  margin-left: 1.5em;
+}
+
+.btn.btn-lg {
+  margin-top: 20px;
+  color: #2B2D2D ;
+}
+
+.container-fluid {
+  margin-left: 3em;
+}
 
 
