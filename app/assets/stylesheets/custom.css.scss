@@ -1,19 +1,9 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
-.profile-photo {
-  border-radius: 50%;
-  width: 200px;
-  height: 200px;
-  border: 1px solid black;
-  background-color: lightblue;
-  float: left;
-}
-
 .page-notice {
   background-color: gray;
   text-align: center;
-
 }
 
 .button {
@@ -86,10 +76,9 @@
   padding-bottom: 20px;
 }
 
-
 html
 {
-    height: 100%;
+  height: 100%;
 }
 
 .map-container {
@@ -113,4 +102,15 @@ html
   margin-left: 3em;
 }
 
+.media-resource-description {
+  font-size: 25px;
+}
+
+h2.user-profile {
+  font-size: 60px;
+}
+
+h3.user-profile {
+  font-size: 50px;
+}
 

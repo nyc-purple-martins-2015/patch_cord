@@ -1,7 +1,11 @@
+<div class="jumbotron">
+  <h2 class="user-profile"s><%= @user.username %></h2>
+</div>
+
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-6">
-      <h3>Instruments</h3>
+      <h3 class="user-profile">Instruments</h3>
       <% @user.instruments.each do |instrument| %>
       <p><%= instrument.name %></p>
       <% end %>
@@ -27,7 +31,7 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-6">
-      <h3>Genres</h3>
+      <h3 class="user-profile">Genres</h3>
       <% @user.genres.each do |genre| %>
       <p><%= genre.name %></p>
       <% end %>
@@ -42,7 +46,7 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-12">
-      <h3>Bands</h3>
+      <h3 class="user-profile">Bands</h3>
       <% @user.bands.each do |band| %>
       <p><%= band.name %></p>
       <% end %>
@@ -53,7 +57,7 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-6">
-      <h3>Biography</h3>
+      <h3 class="user-profile">Biography</h3>
       <p><%= @user.bio %></p>
     </div>
     <div class="col-md-6">
@@ -61,8 +65,8 @@
         <% if @user.has_media_resources? %>
           <% @user.media_resources.each do |resource| %>
             <% if resource.media_type == "youtube" %>
-              <p> <%= resource.content %>:</p>
               <iframe width="600", height="495", src="<%= youtube_embed_link resource %>" , frameborder="0", allowfullscreen></iframe>
+              <p class="media-resource-description"> <%= resource.content %></p>
               <%= button_to "Delete This", media_resource_path(resource), method: :delete, class: "btn btn-default" %>
             <% end %>
            <% if resource.media_type == "soundcloud" %>
