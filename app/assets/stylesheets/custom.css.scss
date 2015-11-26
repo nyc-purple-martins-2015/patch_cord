@@ -121,6 +121,12 @@ input.btn.btn-default {
   margin-right: 30%;
 }
 
+.image {
+  margin-top: 10em;
+  margin-left: 30%;
+  margin-right: 30%;
+}
+
 .soundcloud {
   max-width: 600px;
   max-height: 20px;
@@ -128,3 +134,23 @@ input.btn.btn-default {
   margin-right: 30%;
 }
 
+.musician-radio-button {
+  display: inline-block;
+  padding: 1em;
+}
+
+.bands-radio-button {
+  display: inline-block;
+  padding: 1em;
+}
+
+input.btn.btn-lg { background-color: black; border: 1px solid white; color: white;}
+
+a.btn.btn-primary{ background-color: black; color: white; border: 1px solid white; }
+
+
+.alert-success {
+  background-color: white;
+  color: black;
+  border: none;
+}

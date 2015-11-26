@@ -1,12 +1,14 @@
 <div id="musicians-instruments-search">
   <% if !@musicians.empty? %>
   <div class="jumbotron text-center drop-shadow">
-    <h1>I want my musician to play this/these instruments:</h1>
+    <h1>Choose an instrument</h1>
     <div>
       <%= form_tag("users/search", method: "post") do %>
       <% @instruments.each do |instru_obj| %>
-      <%= check_box_tag("[Instrument][#{instru_obj.id}]", "#{instru_obj.name}") %>
-      <%= label_tag("#{instru_obj.name}", nil, :class => "h2") %>
+      <div class="musician-radio-button">
+        <%= check_box_tag("[Instrument][#{instru_obj.id}]", "#{instru_obj.name}") %>
+        <%= label_tag("#{instru_obj.name}", nil, :class => "h2") %>
+      </div>
       <%= hidden_field_tag :musicians, @musicians_ids %>
       <% end %>
       <br>
@@ -24,7 +26,6 @@
   <div class="col-sm-6 col-md-4">
   <div class="drop-shadow">
     <div class="thumbnail">
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYeMmqgj1FO8TbWrQoyo33lLB23fY0xpU6i-yWB4qdjf1mtYTrteryRQ" alt="..." class="">
       <div class="caption">
         <h3 class="text-center"><%= musician.username %></h3>
         <% if !musician.instruments.empty? %>

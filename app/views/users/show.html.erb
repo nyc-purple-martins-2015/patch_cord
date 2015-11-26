@@ -17,7 +17,7 @@
           <%= button_to "Send Email", email_user_path(@user), class: "btn btn-lg" %>
           <% if current_user.id == @user.id %>
             <%= button_to "Edit Profile", edit_user_path(current_user), method: :get, class: "btn btn-lg" %>
-            <%= button_to "Delete Profile", user_path, :confirm => 'Are you sure?',method: :delete, class: "btn btn-lg" %>
+            <%= button_to "Delete Profile", user_path, :confirm => 'Are you sure?', method: :delete, class: "btn btn-lg" %>
           <% end %>
         <% end %>
         </div>
@@ -76,13 +76,15 @@
           <%= button_to "Delete This", media_resource_path(resource), method: :delete, class: "btn btn-default" %>
         <% end %>
      </div>
+
   <div class="soundcloud">
         <% if resource.media_type == "soundcloud" %>
-          <p><%= resource.content %></p>
           <p><%= link_to 'track', resource.link %></p>
           <%= button_to "Delete This", media_resource_path(resource), method: :delete, class: "btn btn-default" %>
         <% end %>
+          <p><%= resource.content %></p>
       </div>
+
       <div class="image">
         <% if resource.media_type == "image" %>
           <p> <%= resource.content %></p>
