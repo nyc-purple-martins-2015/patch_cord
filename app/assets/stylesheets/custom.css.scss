@@ -6,12 +6,6 @@
   text-align: center;
 }
 
-.button {
-  background-color: orange;
-  padding: 1em;
-  border-radius: .5em;
-}
-
 .original-homepage {
   padding-left: 3em;
   padding-right: 3em;
@@ -85,19 +79,14 @@ html
   border: black solid 1px;
 }
 
-.profile-document {
-  padding: 2em;
-}
-
-.btn.btn-default {
-  margin-left: 1.5em;
-}
-
 .btn.btn-lg {
-  margin-top: 20px;
-  color: #2B2D2D ;
+  background-color: #2B2D2D;
+  color: white;
 }
 
+.btn.btn-lg:hover {
+  color: #EB6A91;
+}
 .container-fluid {
   margin-left: 3em;
 }
@@ -107,10 +96,35 @@ html
 }
 
 h2.user-profile {
-  font-size: 60px;
+  font-size: 50px;
 }
 
 h3.user-profile {
-  font-size: 50px;
+  font-size: 35px;
+}
+
+p.user-data {
+  font-size: 25px
+}
+
+form.button_to {
+  display: inline-block;
+}
+
+input.btn.btn-default {
+  display: inline-block;
+}
+
+.youtube {
+  margin-top: 10em;
+  margin-left: 30%;
+  margin-right: 30%;
+}
+
+.soundcloud {
+  max-width: 600px;
+  max-height: 20px;
+  margin-left: 30%;
+  margin-right: 30%;
 }
 
