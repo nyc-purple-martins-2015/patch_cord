@@ -17,23 +17,23 @@
 
 <body>
   <nav class="navbar navbar-default">
-    <div class="container-fluid">
+    <div class="container-fluid ">
       <div class="navbar-header">
         <a class="navbar-brand " href="/">
-          <%=image_tag("patchcord_logo.png", width: '40', height: '40')%>
+          <%=image_tag("patchcord_logo.png", :style => "max-width:100px; margin-top: -7px;")%>
         </a>
       </div>
       <% if logged_in? %>
       <div id="logged-in-btns">
-        <%= link_to "Log Out",  logout_path, :class => "btn btn-default navbar-btn navbar-right" %>
-        <%= link_to "#{current_user.username}", user_path(current_user), :class => "btn btn-default navbar-btn navbar-right" %>
-        <%= link_to 'Create a Band', new_band_path, :class => "btn btn-default navbar-btn navbar-right" %>
+        <%= link_to "Log Out",  logout_path, :class => "navbar-text navbar-right link-nav" %>
+        <%= link_to "#{current_user.username}", user_path(current_user), :class => "navbar-text navbar-right link-nav" %>
+        <%= link_to 'Create a Band', new_band_path, :class => "navbar-text navbar-right link-nav" %>
       </div>
       <% else %>
       <div id="logged-out-btns">
-        <%= link_to 'Google', oauth_login_path(:google_oauth2), :class => "btn btn-default navbar-btn navbar-right" %>
-        <%= link_to 'Twitter', oauth_login_path(:twitter), :class => "btn btn-default navbar-btn navbar-right" %>
-        <%= link_to 'Soundcloud', oauth_login_path(:soundcloud), :class => "btn btn-default navbar-btn navbar-right" %>
+        <%= link_to 'Google', oauth_login_path(:google_oauth2), :class => "navbar-text navbar-right link-nav" %>
+        <%= link_to 'Twitter', oauth_login_path(:twitter), :class => "navbar-text navbar-right link-nav" %>
+        <%= link_to 'Soundcloud', oauth_login_path(:soundcloud), :class => "navbar-text navbar-right link-nav" %>
       </div>
       <% end %>
     </div>

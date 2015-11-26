@@ -1,7 +1,7 @@
 <div id="bands-location">
 <% if !@bands.empty? %>
   <% if logged_in? %>
-    <div class="jumbotron text-center">
+    <div class="jumbotron text-center drop-shadow">
       <h1>I want my band to be this far away from me:</h1>
       <div>
         <%= form_tag("bands/search", method: "post") do %>

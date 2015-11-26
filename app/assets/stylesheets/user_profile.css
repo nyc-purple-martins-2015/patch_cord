@@ -72,9 +72,20 @@
   margin: 1em;
 }
 
+.alert.alert-error {
+  margin-left: 3em;
+  margin-right: 3em;
+}
+
+.alert.alert-success {
+  margin-left: 3em;
+  margin-right: 3em;
+}
+
 .jumbotron {
   padding-left: 3em;
   padding-right: 3em;
+
 }
 
 .navbar-brand {
@@ -85,3 +96,6 @@
 .drop-shadow {
   box-shadow: 10px 10px 5px #5A5A5A;
 }
+
+
+
