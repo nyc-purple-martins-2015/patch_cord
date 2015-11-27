@@ -18,6 +18,7 @@ class Band < ActiveRecord::Base
   end
 
   def set_lat_long
+    # You don't need to load admin with a find here. It's available as self.admin
     admin = User.find(self.admin_id)
     self.latitude = admin.latitude
     self.longitude = admin.longitude

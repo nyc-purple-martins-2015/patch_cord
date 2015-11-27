@@ -8,6 +8,7 @@
   <% end %>
 <% end %>
 
+<!-- if @band is an existing activerecord band object here, then you don't need to explicitly set the url or method. Rails will do that automatically. -->
 <%= form_for @band, url: band_path(@band), method: :put do |f| %>
 
   <p><%= f.label :name %></p>

@@ -33,6 +33,10 @@ class MediaResourcesController < ApplicationController
 	end
 
 	def destroy
+    # You don't need to load the resource just to destroy it.
+    # You could do MediaResource.delete(id: params[:id])
+    # Also, you do the deletion in in both if/else branches 
+    # so move it out above the if
     if params["band_id"]
       @media_resource = MediaResource.find(params[:id])
       @media_resource.destroy

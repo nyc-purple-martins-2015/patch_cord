@@ -3,6 +3,7 @@ class ApplicationMailer < ActionMailer::Base
   default from: "patchcordapp@gmail.com"
   layout 'mailer'
 
+  # I think this is sufficient - you don't also need "include ApplicationHelper above"
   add_template_helper(ApplicationHelper)
 
 
