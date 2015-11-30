@@ -36,6 +36,12 @@ class User < ActiveRecord::Base
   end
 
   def parse_address
+    # you don't need all these variables here. 
+    # Your method could be just
+    # "#{address_line1} #{city} #{state} #{zip}" to return the string in one line
+    # Also, "parsed_address" might be a better name for the method - it suggests to the 
+    # reader that it returns something with something already done to it. 
+    # Active verb names for methods can suggest calling them will change something
     address1 = self.address_line1
     city = self.city
     state = self.state

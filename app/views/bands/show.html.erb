@@ -79,6 +79,9 @@
 </div>
 
 <% if logged_in? %>
+  <!-- This block looks refactorable, perhaps using a using a helper to 
+  produce the right tags for the resource type where they differ -->
+
   <% if @band.has_media_resources? %>
     <% @band.media_resources.each do |resource| %>
       <% if resource.media_type == "youtube" %>

@@ -15,6 +15,10 @@ class InstrumentsController < ApplicationController
 	end
 
 	def destroy
+		# If you are redirecting you don't need instance vars.
+		# You could just do 
+		# Instrument.delete(id: params[:id])
+		# Then your redirect
 		@user = current_user
 		@instrument = @user.instruments.find(params[:id])
 		@instrument.destroy

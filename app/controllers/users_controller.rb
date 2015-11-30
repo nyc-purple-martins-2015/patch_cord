@@ -6,6 +6,8 @@ class UsersController < ApplicationController
 
 def new
 	@genres = Genre.all
+	# This doesn't make sense to me User.new without params would give an 
+	# empty user, so city must be nil?
 	@user = User.new
 	if @user.city == nil
 		render :status => 404
@@ -44,6 +46,15 @@ end
 		@genres = Genre.pluck(:name)
 	end
 
+  # This action is doing too much - it would be good to  pull out the various sections 
+  #  into logical groups and put them in private methods
+  #  Then the update action can  "tell a story" like 
+  #  user = User.find(...)
+  #  set_user_genres
+  #  set_user_instruments
+  #  user.save
+  #  or whatever makes sense in your case.
+
 	def update
 		@user = User.find(params[:id])
 
@@ -72,6 +83,7 @@ end
 					UserMailer.welcome_email(@user).deliver_now
 				end
 
+				# This line isn't doing anything?
 				@user.lat_long
 				redirect_to user_path(@user)
 			else
@@ -85,11 +97,15 @@ end
 		session[:user_id] = nil
 		redirect_to root_path
 	end
-
+ 
+  # Again - this action is way too big. Pull out the ifs into a set of method calls.
+  # 
 	def search
 		if params["Genre"]
 			genre_ids = params["Genre"].map {|e| e[0].to_i}
 			genres = Genre.find(genre_ids)
+			# You could replace this if / else /end  section with some ActiveRecord calls I think
+			# It would be more efficient but more importantly more readable
 			genres_with_musicians = genres.select {|genre| !genre.users.empty?}
 			if genres_with_musicians.count > 1
 				@musicians = genres_with_musicians.flat_map {|genre| genre.users}.uniq

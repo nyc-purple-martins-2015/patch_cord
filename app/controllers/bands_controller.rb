@@ -14,10 +14,13 @@ class BandsController < ApplicationController
     @genres = Genre.pluck(:name)
     new_members = params[:band][:members].split(",")
 
-
+    # The valid? check is not needed - if the record is not valid 
+    # it won't save and save will return false
     if @band.valid? && @band.save
       admin = params[:band][:admin]
       admin_id = User.find_by(username: admin).id
+      # This is strange - you load the band and immediately save it
+      # Then you call update_attributes which will save it again (and could fail)
       @band.update_attributes(admin_id: admin_id)
 
       if params[:genre_types]
