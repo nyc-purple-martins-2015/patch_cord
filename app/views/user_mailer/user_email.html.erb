@@ -6,7 +6,7 @@
   <body>
     <h1>Hi, <%= @user.username %>:</h1>
     <p><%= @from_user.username %> is interested in jamming!</p>
-    <p>Their email is: <%= @from_user.email %> if you'd like to contact them. Alternatively, you can find them here <a href="#"></a></p>
+    <p>Their email is: <%= @from_user.email %> if you'd like to contact them. Alternatively, you can find them here <a href="https://patchcord.herokuapp.com/users/<%= @from_user.id %>"></a></p>
     <p>Have a nice day!</p>
     <p>The team at PatchCord.</p>
   </body>

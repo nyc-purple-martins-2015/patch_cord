@@ -2,17 +2,23 @@
 
   <div class="original-homepage">
 
-    <div class="jumbotron text-center drop-shadow">
+    <div class="jumbotron text-center">
       <h1>Who Are You Searching For?</h1>
       <div id="musician-band-search" class="text-center">
 
         <%= form_tag("/search", method: "post") do %>
-        <%= radio_button_tag(:group, "Musicians") %>
+        <div class="homepage-search">
+        <div class="musician-radio-button">
+          <%= radio_button_tag(:group, "Musicians") %>
         <%= label_tag(:group, "Musicians", :class => "h2") %>
-        <%= radio_button_tag(:group, "Bands") %>
-        <%= label_tag(:group, "Bands", :class => "h2") %>
+        </div>
+        <div class="bands-radio-button">
+          <%= radio_button_tag(:group, "Bands") %>
+          <%= label_tag(:group, "Bands", :class => "h2") %>
+        </div>
+        </div>
         <br>
-        <%= submit_tag("Search", :class => "btn btn-primary btn-lg" ) %>
+        <%= submit_tag("Search", :class => "btn btn-lg" ) %>
         <% end %>
       </div>
     </div>

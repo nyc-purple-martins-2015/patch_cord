@@ -1,102 +1,123 @@
-<div id="inner-container">
-  <div class="profile-photo"></div>
+<div class="jumbotron">
+  <h2 class="band-profile"><%= @band.name %></h2>
+</div>
 
-  <div class="inner-container">
-    <h3>Band name:</h3>
-    <div class="inner-container"><%= @band.name %></div>
-
-    <h3>Instruments</h3>
-    <div class="inner-container">
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6">
+    <h3 class="user-profile">Instruments</h3>
       <% @band.users.each do |user| %>
-      <%= user.username %>:
-      <% user.instruments.each do |instrument| %>
-      <div class="tag"><%= instrument.name %></div>
-      <% end %><br>
+      <p class="user-data"><%= user.username %>:</p>
+        <% user.instruments.each do |instrument| %>
+      <p class="user-data"><%= instrument.name %></p>
+        <% end %>
       <% end %>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="btn-group" role="group">
+          <% if logged_in? %>
+            <%= button_to "Send Email", email_user_path(@band_admin), class: "btn btn-lg" %>
+            <% if current_user.id == @band.admin.id %>
+                <%= button_to "Edit Profile", edit_band_path(@band), method: :get, class: "btn btn-lg" %>
+                <%= button_to "Delete Profile", band_path(@band), method: :delete, class: "btn btn-lg" %>
+            <% end %>
+          <% end %>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
-  <div class="inner-container">
-    <h3>Genres</h3>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6">
+    <h3 class="user-profile">Genres</h3>
     <% @band.genres.each do |genre| %>
-    <div class="tag"><%= genre.name %></div>
+    <p class="user-data"><%= genre.name %></p>
     <% end %>
+   </div>
+    <div class "row">
+      <div class="col-md-6">
+        <% if logged_in? %>
+          <% if current_user.id == @band.admin.id %>
+            <%= form_tag new_media_resource_path, method: "get" do %>
+            <%= hidden_field_tag :band_id, @band.id %>
+            <%= submit_tag("Add Media Resource", class: "btn btn-lg") %>
+            <% end %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
   </div>
+</div>
 
-  <div class="inner-container">
-    <h3>Members</h3>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+    <h3 class="user-profile">Members</h3>
     <% @band.users.each do |user| %>
-    <div class="tag"><%= user.username %></div>
+    <p class="user-data"><%= user.username %></p>
     <% end %>
+    </div>
   </div>
+</div>
 
-  <div class="inner-container">
-    <h3>Contact:</h3>
-    <%= @band.admin.username %>:<br>
-    <%= @band.admin.email %><br>
-    <%= @band.admin.phone %>
-  </div>
 
-  <div class="inner-container">
-    <h3>BIO</h3>
-    <p><%= @band.bio %></p>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-6">
+    <h3 class="user-profile">Contact:</h3>
+    <p class="user-data"><%= @band.admin.username %>:</p>
+    <p class="user-data"><%= @band.admin.email %></p>
+    <p class="user-data"><%= @band.admin.phone %></p>
+
+    <h3 class="user-profile">Biography</h3>
+       <p class="user-data"><%= @band.bio %></p>
+    </div>
   </div>
 </div>
 
 <% if logged_in? %>
-<% if true || current_user.id == @band.admin.id %>
-<div class="buttons">
-  <%= button_to "Edit Profile", edit_band_path(@band), method: :get, class: "button" %>
-  <%= button_to "Delete Profile", band_path(@band), method: :delete, class: "button" %>
-  <%= form_tag new_media_resource_path, method: "get" do %>
-  <%= hidden_field_tag :band_id, @band.id %>
-  <%= submit_tag("Add Media Resource", class: "button") %>
-  <% end %>
-</div>
-<% end %>
-<% end %>
-
-<% if @band.has_media_resources? %>
-<%= button_to "See Our Work", root_path, method: :get, class: "button link_media_resources", data: {id: @band.id} %>
-<div class="media-resources">
-  <% @band.media_resources.each do |resource| %>
   <!-- This block looks refactorable, perhaps using a using a helper to 
   produce the right tags for the resource type where they differ -->
-  <% if resource.media_type == "youtube" %>
-  <div> <p> <%= resource.content %>:</p>
-    <iframe width="420", height="315", src="<%= youtube_embed_link resource %>" , frameborder="0", allowfullscreen></iframe>
-  </div>
-  <div>
-    <%= form_tag media_resource_path(resource), method: :delete do %>
-    <%= hidden_field_tag :band_id, @band.id %>
-    <%= submit_tag("Delete This", class: "button") %>
+
+  <% if @band.has_media_resources? %>
+    <% @band.media_resources.each do |resource| %>
+      <% if resource.media_type == "youtube" %>
+        <div class="youtube">
+          <iframe width="600", height="495", src="<%= youtube_embed_link resource %>" , frameborder="0", allowfullscreen></iframe>
+          <p class="media-resource-description"> <%= resource.content %></p>
+           <% if current_user.id == @band.admin.id %>
+          <%= button_to "Delete This", media_resource_path(resource), method: :delete, class: "btn btn-default" %>
+           <% end %>
+        </div>
+        <% end %>
+
+      <% if resource.media_type == "soundcloud" %>
+        <div class="soundcloud">
+          <div><%= link_to 'track', resource.link %></div>
+          <p class="media-resource-description"><%= resource.content %></p>
+           <% if current_user.id == @band.admin.id %>
+          <%= button_to "Delete This", media_resource_path(resource), method: :delete, class: "btn btn-default" %>
+          <% end %>
+        </div>
+      <% end %>
+
+      <% if resource.media_type == "image" %>
+        <div class="image">
+          <div>
+          <img src="<%= resource.link %>">
+          </div>
+          <p class="media-resource-description"> <%= resource.content %></p>
+           <% if current_user.id == @band.admin.id %>
+          <%= button_to "Delete This", media_resource_path(resource), method: :delete, class: "btn btn-default" %>
+          <% end %>
+        </div>
+      <% end %>
     <% end %>
-  </div>
   <% end %>
-  <% if resource.media_type == "soundcloud" %>
-  <div> <p><%= resource.content %>:</p>
-    <p><%= link_to 'track', resource.link %></p>
-  </div>
-  <div>
-    <%= form_tag media_resource_path(resource), method: :delete do %>
-    <%= hidden_field_tag :band_id, @band.id %>
-    <%= submit_tag("Delete This", class: "button") %>
-    <% end %>
-  </div>
-  <% end %>
-  <% if resource.media_type == "image" %>
-  <div> <p> <%= resource.content %>:</p>
-    <img src="<%= resource.link %>">
-  </div>
-  <div>
-    <%= form_tag media_resource_path(resource), method: :delete do %>
-    <%= hidden_field_tag :band_id, @band.id %>
-    <%= submit_tag("Delete This", class: "button") %>
-    <% end %>
-  </div>
-  <% end %>
-  <% end %>
-</div>
 <% end %>
-</div>
+
+
 
