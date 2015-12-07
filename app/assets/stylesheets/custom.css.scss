@@ -75,8 +75,9 @@ html
 }
 
 .btn.btn-lg:hover {
-  color: #2C8437;
+  color: white;
 }
+
 .container-fluid {
   margin-left: 3em;
 }
@@ -91,6 +92,14 @@ h2.user-profile {
 
 h3.user-profile {
   font-size: 35px;
+}
+
+h3.text-center { 
+  font-family: 'Playfair Display', sans-serif;
+}
+
+p.text-center { 
+  font-family: 'Josefin Sans', serif;
 }
 
 p.user-data {
@@ -166,3 +175,5 @@ a.site-title {
   color: white;  
   font-family: 'Playfair Display', sans-serif;
 }
+
+
