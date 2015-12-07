@@ -6,15 +6,19 @@
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
   <meta name="google-site-verification" content="esmpi_ieQ9F4MMAcS2dSZRhTL4402wurmudbaX05Jug" />
+  <link href='https://fonts.googleapis.com/css?family=Josefin+Slab:300' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Playfair+Display:700' rel='stylesheet' type='text/css'>
 </head>
 
 <body>
-  <nav class="navbar navbar-default">
+  <nav class="navbar navbar-inverse">
     <div class="container-fluid ">
       <div class="navbar-header">
-        <a class="navbar-brand " href="/">
-          <%=image_tag("patchcord_logo.png", :style => "max-width:20px; margin-top: -9px;")%></a>
+        <a class="site-title" href="/">
+          PatchCord
+        </a>
       </div>
+      <div class="navbar-buttons"> 
       <% if logged_in? %>
       <div id="logged-in-btns">
         <%= link_to "Log Out",  logout_path, :class => "navbar-text navbar-right link-nav" %>
@@ -28,6 +32,7 @@
         <%= link_to 'Soundcloud', oauth_login_path(:soundcloud), :class => "navbar-text navbar-right link-nav" %>
       </div>
       <% end %>
+      </div>
     </div>
   </div>
 </nav>

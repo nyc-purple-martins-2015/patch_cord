@@ -2,7 +2,7 @@
 <% if !@musicians.empty? %>
   <% if logged_in? %>
     <div class="jumbotron text-center drop-shadow">
-      <h1>I want my musician to be this far away from me:</h1>
+      <h1>Select a Distance:</h1>
       <div>
         <%= form_tag("users/search", method: "post") do %>
         <%= label_tag("Miles") %>
