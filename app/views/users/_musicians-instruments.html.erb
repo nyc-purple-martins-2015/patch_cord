@@ -1,7 +1,7 @@
 <div id="musicians-instruments-search">
   <% if !@musicians.empty? %>
-  <div class="jumbotron text-center drop-shadow">
-    <h1>Choose an instrument</h1>
+  <div class="jumbotron text-center">
+    <h1>Select an instrument:</h1>
     <div>
       <%= form_tag("users/search", method: "post") do %>
       <% @instruments.each do |instru_obj| %>
