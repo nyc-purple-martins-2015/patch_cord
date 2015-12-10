@@ -1,7 +1,7 @@
 <div id="musician-search-genre">
 
-<div class="jumbotron text-center drop-shadow">
-  <h1>I want my musician to play this/these genres:</h1>
+<div class="jumbotron text-center">
+  <h1>Select a Genre:</h1>
   <div>
     <%= form_tag("users/search", method: "post") do %>
     <% @genres.each do |genre_obj| %>

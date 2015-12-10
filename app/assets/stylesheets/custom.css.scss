@@ -3,11 +3,6 @@
   text-align: center;
 }
 
-.original-homepage {
-  padding-left: 3em;
-  padding-right: 3em;
-}
-
 #musician-search-genre {
   padding-left: 3em;
   padding-right: 3em;
@@ -57,14 +52,12 @@
 }
 
 .jumbotron {
-  padding-left: 3em;
-  padding-right: 3em;
-  background-color: #2B2D2D;
-  color: #84C68C;
-}
-
-.navbar-brand {
-  padding-bottom: 20px;
+  background-color: white;
+  color: black;
+  padding-top: 10em;
+  padding-bottom: 10em;
+  margin: none;
+  font-family: 'Josefin Slab', serif;
 }
 
 html
@@ -82,8 +75,9 @@ html
 }
 
 .btn.btn-lg:hover {
-  color: #2C8437;
+  color: white;
 }
+
 .container-fluid {
   margin-left: 3em;
 }
@@ -98,6 +92,14 @@ h2.user-profile {
 
 h3.user-profile {
   font-size: 35px;
+}
+
+h3.text-center { 
+  font-family: 'Playfair Display', sans-serif;
+}
+
+p.text-center { 
+  font-family: 'Josefin Sans', serif;
 }
 
 p.user-data {
@@ -136,7 +138,6 @@ input.btn.btn-default {
   margin-bottom: 5em;
 }
 
-
 .musician-radio-button {
   display: inline-block;
   padding: 1em;
@@ -147,9 +148,16 @@ input.btn.btn-default {
   padding: 1em;
 }
 
-input.btn.btn-lg { background-color: black; border: 1px solid white; color: white;}
+input.btn.btn-lg { 
+  background-color: white; 
+  border: 1px solid black; 
+  color: black;
+}
 
-a.btn.btn-primary{ background-color: black; color: white; border: 1px solid white; }
+a.btn.btn-primary{ 
+  background-color: black; 
+  color: white; 
+  border: 1px solid white; }
 
 
 .alert-success {
@@ -161,4 +169,11 @@ a.btn.btn-primary{ background-color: black; color: white; border: 1px solid whit
 .map-title {
   text-align: left;
 }
+
+a.site-title { 
+  font-size: 50px;
+  color: white;  
+  font-family: 'Playfair Display', sans-serif;
+}
+
 

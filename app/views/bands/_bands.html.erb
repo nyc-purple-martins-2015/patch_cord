@@ -1,7 +1,7 @@
 <div id="band-search-genre">
   <% if !@bands.empty? %>
   <div class="jumbotron text-center drop-shadow">
-  <h1>What Genre Would You Like The Band To Play?</h1>
+  <h1>Select a Genre:</h1>
   <div>
     <%= form_tag("bands/search", method: "post") do %>
     <% @genres.each do |genre_obj| %>
