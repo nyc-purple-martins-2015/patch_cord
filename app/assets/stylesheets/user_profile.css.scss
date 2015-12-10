@@ -1,0 +1,104 @@
+body {
+  background-color: lightblue;
+}
+
+.jumbotron.text-center {border: 1px solid black;}
+
+a .navbar {
+  text-decoration: none;
+}
+.page-notice {
+  background-color: gray;
+  text-align: center;
+}
+
+.buttons {
+  display: inline-block;
+}
+
+.container {
+  border: 1px solid black;
+  padding: 1em;
+}
+
+.inner-container {
+  border: 1px solid black;
+  padding: 1em;
+}
+
+.button {
+  background-color: red;
+  padding: 1em;
+  border-radius: .5em;
+}
+
+.original-homepage {
+  padding-left: 3em;
+  padding-right: 3em;
+}
+
+#musician-search-genre {
+  padding-left: 3em;
+  padding-right: 3em;
+}
+
+#musicians-instruments-search {
+  padding-left: 3em;
+  padding-right: 3em;
+}
+
+#musicians-location {
+  padding-left: 3em;
+  padding-right: 3em;
+}
+
+#bands-location {
+  padding-left: 3em;
+  padding-right: 3em;
+}
+
+#bands-sorted {
+  padding-left: 3em;
+  padding-right: 3em;
+}
+
+#band-search-genre {
+  padding-left: 3em;
+  padding-right: 3em;
+}
+
+#logged-in-btns {
+  margin: 1em;
+}
+
+#logged-out-btns {
+  margin: 1em;
+}
+
+.alert.alert-error {
+  margin-left: 3em;
+  margin-right: 3em;
+}
+
+.alert.alert-success {
+  margin-left: 3em;
+  margin-right: 3em;
+}
+
+.jumbotron {
+  padding-left: 3em;
+  padding-right: 3em;
+
+}
+
+.navbar-brand {
+  /*padding-bottom: 20px;*/
+  margin-bottom: 20px;
+}
+
+.drop-shadow {
+  box-shadow: 10px 10px 5px #5A5A5A;
+}
+
+
+
