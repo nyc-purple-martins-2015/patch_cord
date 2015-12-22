@@ -27,9 +27,7 @@
       </div>
       <% else %>
       <div id="logged-out-btns">
-        <%= link_to 'Google', oauth_login_path(:google_oauth2), :class => "navbar-text navbar-right link-nav" %>
         <%= link_to 'Twitter', oauth_login_path(:twitter), :class => "navbar-text navbar-right link-nav" %>
-        <%= link_to 'Soundcloud', oauth_login_path(:soundcloud), :class => "navbar-text navbar-right link-nav" %>
       </div>
       <% end %>
       </div>
