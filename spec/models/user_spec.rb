@@ -48,27 +48,4 @@ RSpec.describe User do
    end
 
   end
-
-  context 'has correct validations and associations' do
-
-    it { should have_secure_password }
-
-    it { should validate_presence_of(:username) }
-
-    it { should validate_uniqueness_of(:username) }
-
-    it { should validate_presence_of(:password_digest) }
-
-    it { should validate_presence_of(:phone) }
-
-    it { should have_many(:instruments) }
-
-    it { should have_many(:genres) }
-
-    it { should have_many(:bands) }
-
-    it { should have_many(:media_resources) }
-
-  end
-
 end
