@@ -1,7 +1,9 @@
-Patch Cord. Helping you plug in.
-![Patch Cord. Helping you plug in.](http://www.americanmusical.com/ItemImages/Large/79994.jpg)
+PatchCord. Helping you plug in.
+
+PatchCord is an app designed to help musicians connect with their local community. You can find it deployed here: !['patchcord'](http://patchcord.herokuapp.com/)
+
+
 
 !['circlestatus'](https://circleci.com/gh/nyc-purple-martins-2015/patch_cord.svg?style=shield&circle-token=:circle-token)
 
-## Trello:
-[Our Trello board](https://trello.com/b/eNTNEW4o/patchcord-helping-you-plug-in)
+
