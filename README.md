@@ -1,6 +1,6 @@
-PatchCord. Helping you plug in.
+##PatchCord. Helping you plug in.
 
-PatchCord is an app designed to help musicians connect with their local community. You can find it deployed here: !['patchcord'](http://patchcord.herokuapp.com/)
+###PatchCord is an app designed to help musicians connect with their local community. You can find it deployed here: ['PatchCord'](http://patchcord.herokuapp.com/)
 
 
 
