@@ -115,4 +115,13 @@ describe BandsController do
     end
 
   end
+
+  context "#search" do 
+    xit 'finds all of the bands by genre' do 
+    end 
+
+    xit 'finds all of the bands by distance' do 
+    end 
+
+  end 
 end

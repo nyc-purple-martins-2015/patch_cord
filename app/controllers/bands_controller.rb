@@ -13,9 +13,8 @@ class BandsController < ApplicationController
     @band = Band.new(band_params)
     @genres = Genre.pluck(:name)
     new_members = params[:band][:members].split(",")
-
-
-    if @band.valid? && @band.save
+    binding.pry 
+     if @band.valid? && @band.save
       admin = params[:band][:admin]
       admin_id = User.find_by(username: admin).id
       @band.update_attributes(admin_id: admin_id)
